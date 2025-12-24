@@ -1,0 +1,73 @@
+# Changelog
+
+## [1.0.0] - 2024-12-23
+
+### 🎉 Initial Release
+
+#### Features
+- Scheduled delivery events with natural language scheduling ("every day at 18:00")
+- 17 item categories (Farm, Ore, Block, Food, Wood, Rare, Nether, End, Mob, Dye, Tool, Armor, Combat, Potion, Decoration, Redstone, Misc)
+- Random or fixed category/item selection per delivery
+- Beautiful GUI with custom head textures
+- Real-time leaderboard system
+- Deliver from inventory or chest
+- Discord webhook integration (start/end notifications with winner leaderboard)
+- Multi-language support (Turkish & English)
+- Dynamic language switching without restart
+- Reward system (items + commands) with pending rewards for offline players
+- Admin commands for manual event control
+- Full PlaceholderAPI-style placeholder system
+- Data persistence across server restarts
+- Protection plugin compatibility (WorldGuard, GriefPrevention, etc.)
+
+#### Commands
+- `/teslimat` - Opens delivery GUI
+- `/teslim` - Quick deliver from inventory
+- `/dc reload` - Reload all configurations
+- `/dc start <name> [duration] [winners]` - Manual event start
+- `/dc stop <name>` - Stop active event
+- `/dc status [name]` - View event status
+- `/dc list` - List all deliveries
+- `/dc top` - View leaderboard
+
+#### Supported Versions
+- Minecraft: 1.16.5 - 1.20.4
+- Servers: Spigot, Paper, Purpur, Bukkit
+
+---
+
+# Değişiklik Günlüğü
+
+## [1.0.0] - 2024-12-23
+
+### 🎉 İlk Sürüm
+
+#### Özellikler
+- Doğal dil ile zamanlanmış teslimat etkinlikleri ("her gün saat 18:00")
+- 17 eşya kategorisi (Çiftlik, Maden, Blok, Yiyecek, Odun, Nadir, Nether, End, Mob, Boya, Alet, Zırh, Savaş, İksir, Dekorasyon, Kızıltaş, Çeşitli)
+- Teslimat başına rastgele veya sabit kategori/eşya seçimi
+- Özel kafa dokuları ile güzel GUI
+- Gerçek zamanlı sıralama sistemi
+- Envanterden veya sandıktan teslimat
+- Discord webhook entegrasyonu (başlangıç/bitiş bildirimleri ve kazanan sıralaması)
+- Çoklu dil desteği (Türkçe & İngilizce)
+- Yeniden başlatma olmadan dinamik dil değiştirme
+- Çevrimdışı oyuncular için bekleyen ödüllerle ödül sistemi (eşya + komut)
+- Manuel etkinlik kontrolü için admin komutları
+- Tam PlaceholderAPI tarzı placeholder sistemi
+- Sunucu yeniden başlatmalarında veri kalıcılığı
+- Koruma eklentisi uyumluluğu (WorldGuard, GriefPrevention, vb.)
+
+#### Komutlar
+- `/teslimat` - Teslimat GUI'sini açar
+- `/teslim` - Envanterden hızlı teslimat
+- `/dc reload` - Tüm yapılandırmaları yeniden yükle
+- `/dc start <ad> [süre] [kazanan]` - Manuel etkinlik başlat
+- `/dc stop <ad>` - Aktif etkinliği durdur
+- `/dc status [ad]` - Etkinlik durumunu görüntüle
+- `/dc list` - Tüm teslimatları listele
+- `/dc top` - Sıralamayı görüntüle
+
+#### Desteklenen Sürümler
+- Minecraft: 1.16.5 - 1.20.4
+- Sunucular: Spigot, Paper, Purpur, Bukkit

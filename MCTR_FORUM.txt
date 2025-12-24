@@ -1,0 +1,190 @@
+[CENTER]
+[SIZE=7][B][COLOR=#FFD700]D[/COLOR][COLOR=#FFA500]elivery[/COLOR][COLOR=#FFD700]C[/COLOR][COLOR=#FFA500]ore[/COLOR][/B][/SIZE]
+[SIZE=4][COLOR=#888888]Profesyonel Teslimat Etkinlik Sistemi[/COLOR][/SIZE]
+
+[IMG]https://i.imgur.com/placeholder-banner.png[/IMG]
+
+[SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
+[/CENTER]
+
+[SIZE=5][B][COLOR=#4CAF50]HAKKINDA[/COLOR][/B][/SIZE]
+[SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
+
+DeliveryCore, sunucunuz için profesyonel bir teslimat etkinlik sistemidir. Oyuncular belirli eşyaları toplayıp teslim ederek ödüller kazanır. Zamanlanmış etkinlikler, gerçek zamanlı sıralama ve Discord entegrasyonu ile sunucunuza heyecan katın.
+
+[LIST]
+[*][B]Zamanlanmış Etkinlikler[/B] - Belirlediğiniz saatlerde otomatik başlar
+[*][B]Kategori Sistemi[/B] - Çiftlik, maden, mob drop ve daha fazlası
+[*][B]Gerçek Zamanlı Sıralama[/B] - Anlık liderlik tablosu
+[*][B]Sandık Teslimi[/B] - Envanterden veya sandıktan teslim (Double Chest destekli)
+[*][B]Discord Webhook[/B] - Etkinlik bildirimlerini Discord'a gönder
+[*][B]Türkçe Destek[/B] - Tam Türkçe arayüz ve mesajlar
+[/LIST]
+
+[SIZE=5][B][COLOR=#2196F3]ÖZELLİKLER[/COLOR][/B][/SIZE]
+[SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
+
+[TABLE]
+[TR]
+[TD][B][COLOR=#FFD700]Etkinlik Sistemi[/COLOR][/B][/TD]
+[TD][B][COLOR=#FFD700]GUI Sistemi[/COLOR][/B][/TD]
+[TD][B][COLOR=#FFD700]Ödül Sistemi[/COLOR][/B][/TD]
+[/TR]
+[TR]
+[TD]
+- Zamanlanmış başlangıç
+- Otomatik eşya seçimi
+- Kategori bazlı etkinlikler
+- Süreli etkinlikler
+[/TD]
+[TD]
+- Modern arayüz
+- SmallCaps font
+- Özel kafa tekstürleri
+- Kolay kullanım
+[/TD]
+[TD]
+- Sıralama ödülleri
+- Komut ödülleri
+- Eşya ödülleri
+- Offline ödül saklama
+[/TD]
+[/TR]
+[/TABLE]
+
+[SIZE=5][B][COLOR=#FF9800]KOMUTLAR[/COLOR][/B][/SIZE]
+[SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
+
+[B][COLOR=#4CAF50]Oyuncu Komutları[/COLOR][/B]
+[CODE]
+/teslimat                     - Teslimat menüsünü açar
+/teslimat top                 - Sıralama tablosunu gösterir
+/teslimat bilgi               - Aktif teslimat bilgisi
+
+/teslim                       - Envanterdeki tüm eşyaları teslim eder
+/teslim <teslimat>            - Belirli teslimata teslim eder
+/teslim <teslimat> <sayı>     - Belirli miktarda teslim eder
+[/CODE]
+
+[B][COLOR=#F44336]Yönetici Komutları[/COLOR][/B]
+[CODE]
+/deliverycore reload          - Konfigürasyonu yeniden yükler
+/deliverycore start <teslimat> - Etkinliği manuel başlatır
+/deliverycore stop <teslimat>  - Etkinliği durdurur
+/deliverycore list            - Tüm teslimat listesi
+[/CODE]
+
+[SIZE=5][B][COLOR=#9C27B0]İZİNLER[/COLOR][/B][/SIZE]
+[SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
+
+[CODE]
+deliverycore.use       - Teslimat menüsünü kullanma (varsayılan: true)
+deliverycore.deliver   - Eşya teslim etme (varsayılan: true)
+deliverycore.admin     - Yönetici komutları
+deliverycore.reload    - Konfigürasyon yeniden yükleme
+[/CODE]
+
+[SIZE=5][B][COLOR=#00BCD4]KONFİGÜRASYON[/COLOR][/B][/SIZE]
+[SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
+
+[B]deliveries.yml - Teslimat Tanımları[/B]
+[CODE=yaml]
+deliveries:
+  gunluk-teslimat:
+    enabled: true
+    category: farm
+    duration: 2h
+    schedule: "every day 20:00"
+    rewards:
+      1:
+        commands:
+          - "eco give %player% 5000"
+          - "broadcast %player% 1. oldu!"
+      2:
+        commands:
+          - "eco give %player% 2500"
+      3:
+        commands:
+          - "eco give %player% 1000"
+[/CODE]
+
+[B]items.yml - Eşya Tanımları[/B]
+[CODE=yaml]
+items:
+  DIAMOND:
+    display-name: "Elmas"
+    price: 500
+  WHEAT:
+    display-name: "Buğday"
+    price: 5
+  ENDER_PEARL:
+    display-name: "Ender İncisi"
+    price: 30
+  MAGMA_BLOCK:
+    display-name: "Magma Bloğu"
+    price: 15
+[/CODE]
+
+[B]categories.yml - Kategori Tanımları[/B]
+[CODE=yaml]
+categories:
+  farm:
+    items:
+      - WHEAT
+      - CARROT
+      - POTATO
+      - BEETROOT
+  ore:
+    items:
+      - DIAMOND
+      - EMERALD
+      - IRON_INGOT
+      - GOLD_INGOT
+  nether:
+    items:
+      - MAGMA_BLOCK
+      - NETHER_WART
+      - BLAZE_ROD
+[/CODE]
+
+[SIZE=5][B][COLOR=#E91E63]ZAMANLAMA FORMATI[/COLOR][/B][/SIZE]
+[SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
+
+[CODE]
+every day 20:00        - Her gün saat 20:00'de
+every day 08:00,20:00  - Her gün 08:00 ve 20:00'de
+every monday 19:00     - Her pazartesi 19:00'da
+every friday 21:00     - Her cuma 21:00'de
+every hour             - Her saat başında
+[/CODE]
+
+[SIZE=5][B][COLOR=#607D8B]KURULUM[/COLOR][/B][/SIZE]
+[SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
+
+[LIST=1]
+[*]JAR dosyasını [B]plugins[/B] klasörüne kopyalayın
+[*]Sunucuyu yeniden başlatın
+[*][B]plugins/DeliveryCore[/B] klasöründeki dosyaları düzenleyin
+[*][B]/deliverycore reload[/B] komutu ile değişiklikleri yükleyin
+[/LIST]
+
+[SIZE=5][B][COLOR=#795548]GEREKSİNİMLER[/COLOR][/B][/SIZE]
+[SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
+
+[LIST]
+[*][B]Minecraft:[/B] 1.20+
+[*][B]Java:[/B] 17+
+[*][B]Sunucu:[/B] Spigot / Paper / Purpur
+[/LIST]
+
+[CENTER]
+[SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
+
+[SIZE=4][B][COLOR=#4CAF50]İNDİRME[/COLOR][/B][/SIZE]
+
+[URL='#'][SIZE=3][B][COLOR=#2196F3][ SPIGOT SAYFASI ][/COLOR][/B][/SIZE][/URL]   [URL='#'][SIZE=3][B][COLOR=#333333][ GITHUB ][/COLOR][/B][/SIZE][/URL]
+
+[SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
+
+[SIZE=2][COLOR=#888888]Versiyon: 1.0.0 | Geliştirici: YourName[/COLOR][/SIZE]
+[/CENTER]
