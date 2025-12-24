@@ -1,0 +1,2603 @@
+# ╔═══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                               ║
+# ║                    DeliveryCore - Eşya Tanımları                              ║
+# ║                    Tüm Minecraft 1.16.5+ Eşyaları                             ║
+# ║                                                                               ║
+# ╚═══════════════════════════════════════════════════════════════════════════════╝
+
+items:
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # ÇİFTLİK ÜRÜNLERİ (FARM)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  WHEAT:
+    display-name: "Buğday"
+    price: 2.0
+  WHEAT_SEEDS:
+    display-name: "Buğday Tohumu"
+    price: 0.5
+  CARROT:
+    display-name: "Havuç"
+    price: 3.0
+  POTATO:
+    display-name: "Patates"
+    price: 3.0
+  BEETROOT:
+    display-name: "Pancar"
+    price: 4.0
+  BEETROOT_SEEDS:
+    display-name: "Pancar Tohumu"
+    price: 1.0
+  MELON_SLICE:
+    display-name: "Karpuz Dilimi"
+    price: 2.0
+  MELON:
+    display-name: "Karpuz"
+    price: 15.0
+  PUMPKIN:
+    display-name: "Balkabağı"
+    price: 10.0
+  SUGAR_CANE:
+    display-name: "Şeker Kamışı"
+    price: 3.0
+  SUGAR:
+    display-name: "Şeker"
+    price: 2.0
+  CACTUS:
+    display-name: "Kaktüs"
+    price: 5.0
+  BAMBOO:
+    display-name: "Bambu"
+    price: 2.0
+  KELP:
+    display-name: "Yosun"
+    price: 1.0
+  DRIED_KELP:
+    display-name: "Kurutulmuş Yosun"
+    price: 2.0
+  DRIED_KELP_BLOCK:
+    display-name: "Kurutulmuş Yosun Bloğu"
+    price: 18.0
+  SEA_PICKLE:
+    display-name: "Deniz Turşusu"
+    price: 5.0
+  COCOA_BEANS:
+    display-name: "Kakao Çekirdeği"
+    price: 4.0
+  NETHER_WART:
+    display-name: "Nether Siğili"
+    price: 8.0
+  SWEET_BERRIES:
+    display-name: "Tatlı Çilek"
+    price: 3.0
+  GLOW_BERRIES:
+    display-name: "Parlak Çilek"
+    price: 10.0
+  CHORUS_FRUIT:
+    display-name: "Koro Meyvesi"
+    price: 15.0
+  CHORUS_FLOWER:
+    display-name: "Koro Çiçeği"
+    price: 20.0
+  APPLE:
+    display-name: "Elma"
+    price: 5.0
+  EGG:
+    display-name: "Yumurta"
+    price: 3.0
+  FEATHER:
+    display-name: "Tüy"
+    price: 2.0
+  LEATHER:
+    display-name: "Deri"
+    price: 8.0
+  RABBIT_HIDE:
+    display-name: "Tavşan Derisi"
+    price: 5.0
+  HONEYCOMB:
+    display-name: "Bal Peteği"
+    price: 15.0
+  HONEY_BOTTLE:
+    display-name: "Bal Şişesi"
+    price: 20.0
+  HONEYCOMB_BLOCK:
+    display-name: "Bal Peteği Bloğu"
+    price: 60.0
+  HONEY_BLOCK:
+    display-name: "Bal Bloğu"
+    price: 80.0
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # MADENLER (ORE)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  COAL:
+    display-name: "Kömür"
+    price: 5.0
+  COAL_BLOCK:
+    display-name: "Kömür Bloğu"
+    price: 45.0
+  CHARCOAL:
+    display-name: "Odun Kömürü"
+    price: 4.0
+  RAW_IRON:
+    display-name: "Ham Demir"
+    price: 15.0
+  IRON_INGOT:
+    display-name: "Demir Külçe"
+    price: 20.0
+  IRON_BLOCK:
+    display-name: "Demir Bloğu"
+    price: 180.0
+  IRON_NUGGET:
+    display-name: "Demir Parçası"
+    price: 2.0
+  RAW_GOLD:
+    display-name: "Ham Altın"
+    price: 50.0
+  GOLD_INGOT:
+    display-name: "Altın Külçe"
+    price: 75.0
+  GOLD_BLOCK:
+    display-name: "Altın Bloğu"
+    price: 675.0
+  GOLD_NUGGET:
+    display-name: "Altın Parçası"
+    price: 8.0
+  RAW_COPPER:
+    display-name: "Ham Bakır"
+    price: 10.0
+  COPPER_INGOT:
+    display-name: "Bakır Külçe"
+    price: 12.0
+  COPPER_BLOCK:
+    display-name: "Bakır Bloğu"
+    price: 108.0
+  DIAMOND:
+    display-name: "Elmas"
+    price: 500.0
+  DIAMOND_BLOCK:
+    display-name: "Elmas Bloğu"
+    price: 4500.0
+  EMERALD:
+    display-name: "Zümrüt"
+    price: 300.0
+  EMERALD_BLOCK:
+    display-name: "Zümrüt Bloğu"
+    price: 2700.0
+  LAPIS_LAZULI:
+    display-name: "Lapis Lazuli"
+    price: 25.0
+  LAPIS_BLOCK:
+    display-name: "Lapis Bloğu"
+    price: 225.0
+  REDSTONE:
+    display-name: "Kızıltaş"
+    price: 10.0
+  REDSTONE_BLOCK:
+    display-name: "Kızıltaş Bloğu"
+    price: 90.0
+  QUARTZ:
+    display-name: "Kuvars"
+    price: 15.0
+  QUARTZ_BLOCK:
+    display-name: "Kuvars Bloğu"
+    price: 60.0
+  AMETHYST_SHARD:
+    display-name: "Ametist Parçası"
+    price: 20.0
+  AMETHYST_BLOCK:
+    display-name: "Ametist Bloğu"
+    price: 80.0
+  NETHERITE_SCRAP:
+    display-name: "Netherite Hurda"
+    price: 1000.0
+  NETHERITE_INGOT:
+    display-name: "Netherite Külçe"
+    price: 5000.0
+  NETHERITE_BLOCK:
+    display-name: "Netherite Bloğu"
+    price: 45000.0
+  ANCIENT_DEBRIS:
+    display-name: "Antik Enkaz"
+    price: 800.0
+  GLOWSTONE_DUST:
+    display-name: "Işıktaşı Tozu"
+    price: 8.0
+  GLOWSTONE:
+    display-name: "Işıktaşı"
+    price: 32.0
+  PRISMARINE_SHARD:
+    display-name: "Prismarin Parçası"
+    price: 12.0
+  PRISMARINE_CRYSTALS:
+    display-name: "Prismarin Kristali"
+    price: 15.0
+  FLINT:
+    display-name: "Çakmaktaşı"
+    price: 3.0
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # BLOKLAR (BLOCK)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  COBBLESTONE:
+    display-name: "Kaldırım Taşı"
+    price: 1.0
+  STONE:
+    display-name: "Taş"
+    price: 2.0
+  SMOOTH_STONE:
+    display-name: "Düz Taş"
+    price: 3.0
+  STONE_BRICKS:
+    display-name: "Taş Tuğla"
+    price: 3.0
+  MOSSY_STONE_BRICKS:
+    display-name: "Yosunlu Taş Tuğla"
+    price: 5.0
+  CRACKED_STONE_BRICKS:
+    display-name: "Çatlak Taş Tuğla"
+    price: 4.0
+  CHISELED_STONE_BRICKS:
+    display-name: "Oymalı Taş Tuğla"
+    price: 5.0
+  GRANITE:
+    display-name: "Granit"
+    price: 2.0
+  POLISHED_GRANITE:
+    display-name: "Cilalı Granit"
+    price: 3.0
+  DIORITE:
+    display-name: "Diyorit"
+    price: 2.0
+  POLISHED_DIORITE:
+    display-name: "Cilalı Diyorit"
+    price: 3.0
+  ANDESITE:
+    display-name: "Andezit"
+    price: 2.0
+  POLISHED_ANDESITE:
+    display-name: "Cilalı Andezit"
+    price: 3.0
+  DEEPSLATE:
+    display-name: "Derin Kayrak"
+    price: 3.0
+  COBBLED_DEEPSLATE:
+    display-name: "Kaldırım Derin Kayrak"
+    price: 2.0
+  POLISHED_DEEPSLATE:
+    display-name: "Cilalı Derin Kayrak"
+    price: 4.0
+  DEEPSLATE_BRICKS:
+    display-name: "Derin Kayrak Tuğla"
+    price: 5.0
+  DEEPSLATE_TILES:
+    display-name: "Derin Kayrak Karo"
+    price: 5.0
+  CALCITE:
+    display-name: "Kalsit"
+    price: 5.0
+  TUFF:
+    display-name: "Tüf"
+    price: 3.0
+  DRIPSTONE_BLOCK:
+    display-name: "Damlataş Bloğu"
+    price: 5.0
+  POINTED_DRIPSTONE:
+    display-name: "Sivri Damlataş"
+    price: 8.0
+  DIRT:
+    display-name: "Toprak"
+    price: 1.0
+  GRASS_BLOCK:
+    display-name: "Çim Bloğu"
+    price: 3.0
+  PODZOL:
+    display-name: "Podzol"
+    price: 5.0
+  MYCELIUM:
+    display-name: "Miselyum"
+    price: 10.0
+  ROOTED_DIRT:
+    display-name: "Köklü Toprak"
+    price: 3.0
+  MOSS_BLOCK:
+    display-name: "Yosun Bloğu"
+    price: 8.0
+  MOSS_CARPET:
+    display-name: "Yosun Halısı"
+    price: 3.0
+  CLAY_BALL:
+    display-name: "Kil Topu"
+    price: 3.0
+  CLAY:
+    display-name: "Kil Bloğu"
+    price: 12.0
+  BRICK:
+    display-name: "Tuğla"
+    price: 5.0
+  BRICKS:
+    display-name: "Tuğla Bloğu"
+    price: 20.0
+  SAND:
+    display-name: "Kum"
+    price: 2.0
+  RED_SAND:
+    display-name: "Kırmızı Kum"
+    price: 3.0
+  SANDSTONE:
+    display-name: "Kumtaşı"
+    price: 4.0
+  RED_SANDSTONE:
+    display-name: "Kırmızı Kumtaşı"
+    price: 5.0
+  GRAVEL:
+    display-name: "Çakıl"
+    price: 2.0
+  OBSIDIAN:
+    display-name: "Obsidyen"
+    price: 50.0
+  CRYING_OBSIDIAN:
+    display-name: "Ağlayan Obsidyen"
+    price: 100.0
+  BASALT:
+    display-name: "Bazalt"
+    price: 5.0
+  POLISHED_BASALT:
+    display-name: "Cilalı Bazalt"
+    price: 6.0
+  SMOOTH_BASALT:
+    display-name: "Düz Bazalt"
+    price: 7.0
+  BLACKSTONE:
+    display-name: "Karakaş"
+    price: 5.0
+  POLISHED_BLACKSTONE:
+    display-name: "Cilalı Karakaş"
+    price: 6.0
+  POLISHED_BLACKSTONE_BRICKS:
+    display-name: "Cilalı Karakaş Tuğla"
+    price: 7.0
+  GILDED_BLACKSTONE:
+    display-name: "Yaldızlı Karakaş"
+    price: 50.0
+  END_STONE:
+    display-name: "End Taşı"
+    price: 10.0
+  END_STONE_BRICKS:
+    display-name: "End Taş Tuğla"
+    price: 15.0
+  PURPUR_BLOCK:
+    display-name: "Purpur Bloğu"
+    price: 20.0
+  PURPUR_PILLAR:
+    display-name: "Purpur Sütun"
+    price: 25.0
+  PRISMARINE:
+    display-name: "Prismarin"
+    price: 15.0
+  PRISMARINE_BRICKS:
+    display-name: "Prismarin Tuğla"
+    price: 20.0
+  DARK_PRISMARINE:
+    display-name: "Koyu Prismarin"
+    price: 25.0
+  SEA_LANTERN:
+    display-name: "Deniz Feneri"
+    price: 50.0
+  SPONGE:
+    display-name: "Sünger"
+    price: 100.0
+  WET_SPONGE:
+    display-name: "Islak Sünger"
+    price: 80.0
+  SLIME_BLOCK:
+    display-name: "Balçık Bloğu"
+    price: 90.0
+  ICE:
+    display-name: "Buz"
+    price: 5.0
+  PACKED_ICE:
+    display-name: "Paket Buz"
+    price: 15.0
+  BLUE_ICE:
+    display-name: "Mavi Buz"
+    price: 50.0
+  SNOW_BLOCK:
+    display-name: "Kar Bloğu"
+    price: 5.0
+  POWDER_SNOW_BUCKET:
+    display-name: "Toz Kar Kovası"
+    price: 20.0
+
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # ODUNLAR VE AĞAÇ ÜRÜNLERİ (WOOD)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  OAK_LOG:
+    display-name: "Meşe Kütüğü"
+    price: 5.0
+  OAK_WOOD:
+    display-name: "Meşe Odunu"
+    price: 5.0
+  OAK_PLANKS:
+    display-name: "Meşe Tahta"
+    price: 2.0
+  STRIPPED_OAK_LOG:
+    display-name: "Soyulmuş Meşe Kütüğü"
+    price: 6.0
+  SPRUCE_LOG:
+    display-name: "Ladin Kütüğü"
+    price: 5.0
+  SPRUCE_WOOD:
+    display-name: "Ladin Odunu"
+    price: 5.0
+  SPRUCE_PLANKS:
+    display-name: "Ladin Tahta"
+    price: 2.0
+  STRIPPED_SPRUCE_LOG:
+    display-name: "Soyulmuş Ladin Kütüğü"
+    price: 6.0
+  BIRCH_LOG:
+    display-name: "Huş Kütüğü"
+    price: 5.0
+  BIRCH_WOOD:
+    display-name: "Huş Odunu"
+    price: 5.0
+  BIRCH_PLANKS:
+    display-name: "Huş Tahta"
+    price: 2.0
+  STRIPPED_BIRCH_LOG:
+    display-name: "Soyulmuş Huş Kütüğü"
+    price: 6.0
+  JUNGLE_LOG:
+    display-name: "Orman Kütüğü"
+    price: 5.0
+  JUNGLE_WOOD:
+    display-name: "Orman Odunu"
+    price: 5.0
+  JUNGLE_PLANKS:
+    display-name: "Orman Tahta"
+    price: 2.0
+  STRIPPED_JUNGLE_LOG:
+    display-name: "Soyulmuş Orman Kütüğü"
+    price: 6.0
+  ACACIA_LOG:
+    display-name: "Akasya Kütüğü"
+    price: 5.0
+  ACACIA_WOOD:
+    display-name: "Akasya Odunu"
+    price: 5.0
+  ACACIA_PLANKS:
+    display-name: "Akasya Tahta"
+    price: 2.0
+  STRIPPED_ACACIA_LOG:
+    display-name: "Soyulmuş Akasya Kütüğü"
+    price: 6.0
+  DARK_OAK_LOG:
+    display-name: "Koyu Meşe Kütüğü"
+    price: 5.0
+  DARK_OAK_WOOD:
+    display-name: "Koyu Meşe Odunu"
+    price: 5.0
+  DARK_OAK_PLANKS:
+    display-name: "Koyu Meşe Tahta"
+    price: 2.0
+  STRIPPED_DARK_OAK_LOG:
+    display-name: "Soyulmuş Koyu Meşe Kütüğü"
+    price: 6.0
+  CRIMSON_STEM:
+    display-name: "Kızıl Gövde"
+    price: 8.0
+  CRIMSON_HYPHAE:
+    display-name: "Kızıl Hif"
+    price: 8.0
+  CRIMSON_PLANKS:
+    display-name: "Kızıl Tahta"
+    price: 3.0
+  STRIPPED_CRIMSON_STEM:
+    display-name: "Soyulmuş Kızıl Gövde"
+    price: 9.0
+  WARPED_STEM:
+    display-name: "Çarpık Gövde"
+    price: 8.0
+  WARPED_HYPHAE:
+    display-name: "Çarpık Hif"
+    price: 8.0
+  WARPED_PLANKS:
+    display-name: "Çarpık Tahta"
+    price: 3.0
+  STRIPPED_WARPED_STEM:
+    display-name: "Soyulmuş Çarpık Gövde"
+    price: 9.0
+  STICK:
+    display-name: "Çubuk"
+    price: 1.0
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # YİYECEKLER (FOOD)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  BREAD:
+    display-name: "Ekmek"
+    price: 8.0
+  COOKED_BEEF:
+    display-name: "Pişmiş Biftek"
+    price: 15.0
+  BEEF:
+    display-name: "Çiğ Biftek"
+    price: 10.0
+  COOKED_PORKCHOP:
+    display-name: "Pişmiş Domuz Pirzolası"
+    price: 15.0
+  PORKCHOP:
+    display-name: "Çiğ Domuz Pirzolası"
+    price: 10.0
+  COOKED_CHICKEN:
+    display-name: "Pişmiş Tavuk"
+    price: 12.0
+  CHICKEN:
+    display-name: "Çiğ Tavuk"
+    price: 8.0
+  COOKED_MUTTON:
+    display-name: "Pişmiş Koyun Eti"
+    price: 12.0
+  MUTTON:
+    display-name: "Çiğ Koyun Eti"
+    price: 8.0
+  COOKED_RABBIT:
+    display-name: "Pişmiş Tavşan"
+    price: 10.0
+  RABBIT:
+    display-name: "Çiğ Tavşan"
+    price: 6.0
+  COOKED_COD:
+    display-name: "Pişmiş Morina"
+    price: 8.0
+  COD:
+    display-name: "Çiğ Morina"
+    price: 5.0
+  COOKED_SALMON:
+    display-name: "Pişmiş Somon"
+    price: 10.0
+  SALMON:
+    display-name: "Çiğ Somon"
+    price: 7.0
+  TROPICAL_FISH:
+    display-name: "Tropikal Balık"
+    price: 15.0
+  PUFFERFISH:
+    display-name: "Balon Balığı"
+    price: 20.0
+  BAKED_POTATO:
+    display-name: "Fırın Patates"
+    price: 6.0
+  POISONOUS_POTATO:
+    display-name: "Zehirli Patates"
+    price: 2.0
+  GOLDEN_CARROT:
+    display-name: "Altın Havuç"
+    price: 100.0
+  GOLDEN_APPLE:
+    display-name: "Altın Elma"
+    price: 500.0
+  ENCHANTED_GOLDEN_APPLE:
+    display-name: "Büyülü Altın Elma"
+    price: 5000.0
+  COOKIE:
+    display-name: "Kurabiye"
+    price: 5.0
+  CAKE:
+    display-name: "Pasta"
+    price: 50.0
+  PUMPKIN_PIE:
+    display-name: "Balkabağı Turtası"
+    price: 20.0
+  MUSHROOM_STEW:
+    display-name: "Mantar Çorbası"
+    price: 15.0
+  BEETROOT_SOUP:
+    display-name: "Pancar Çorbası"
+    price: 12.0
+  RABBIT_STEW:
+    display-name: "Tavşan Yahnisi"
+    price: 25.0
+  SUSPICIOUS_STEW:
+    display-name: "Şüpheli Yahni"
+    price: 30.0
+  ROTTEN_FLESH:
+    display-name: "Çürük Et"
+    price: 1.0
+  SPIDER_EYE:
+    display-name: "Örümcek Gözü"
+    price: 5.0
+  GLOW_INK_SAC:
+    display-name: "Parlak Mürekkep Kesesi"
+    price: 25.0
+  INK_SAC:
+    display-name: "Mürekkep Kesesi"
+    price: 10.0
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # MOB DROPLARI (MOB)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  BONE:
+    display-name: "Kemik"
+    price: 5.0
+  BONE_MEAL:
+    display-name: "Kemik Unu"
+    price: 2.0
+  BONE_BLOCK:
+    display-name: "Kemik Bloğu"
+    price: 45.0
+  STRING:
+    display-name: "İp"
+    price: 3.0
+  GUNPOWDER:
+    display-name: "Barut"
+    price: 10.0
+  SLIME_BALL:
+    display-name: "Balçık Topu"
+    price: 10.0
+  ENDER_PEARL:
+    display-name: "Ender İncisi"
+    price: 50.0
+  BLAZE_ROD:
+    display-name: "Alev Çubuğu"
+    price: 100.0
+  BLAZE_POWDER:
+    display-name: "Alev Tozu"
+    price: 50.0
+  MAGMA_CREAM:
+    display-name: "Magma Kremi"
+    price: 30.0
+  GHAST_TEAR:
+    display-name: "Ghast Gözyaşı"
+    price: 200.0
+  PHANTOM_MEMBRANE:
+    display-name: "Hayalet Zarı"
+    price: 50.0
+  SHULKER_SHELL:
+    display-name: "Shulker Kabuğu"
+    price: 500.0
+  NAUTILUS_SHELL:
+    display-name: "Nautilus Kabuğu"
+    price: 300.0
+  HEART_OF_THE_SEA:
+    display-name: "Denizin Kalbi"
+    price: 1000.0
+  TURTLE_EGG:
+    display-name: "Kaplumbağa Yumurtası"
+    price: 100.0
+  SCUTE:
+    display-name: "Kaplumbağa Kabuğu Parçası"
+    price: 50.0
+  RABBIT_FOOT:
+    display-name: "Tavşan Ayağı"
+    price: 30.0
+  WITHER_SKELETON_SKULL:
+    display-name: "Wither İskelet Kafatası"
+    price: 1000.0
+  SKELETON_SKULL:
+    display-name: "İskelet Kafatası"
+    price: 50.0
+  ZOMBIE_HEAD:
+    display-name: "Zombi Kafası"
+    price: 50.0
+  CREEPER_HEAD:
+    display-name: "Creeper Kafası"
+    price: 100.0
+  DRAGON_HEAD:
+    display-name: "Ejderha Kafası"
+    price: 5000.0
+  NETHER_STAR:
+    display-name: "Nether Yıldızı"
+    price: 10000.0
+  DRAGON_BREATH:
+    display-name: "Ejderha Nefesi"
+    price: 500.0
+  DRAGON_EGG:
+    display-name: "Ejderha Yumurtası"
+    price: 50000.0
+  EXPERIENCE_BOTTLE:
+    display-name: "Tecrübe Şişesi"
+    price: 50.0
+  TOTEM_OF_UNDYING:
+    display-name: "Ölümsüzlük Totemi"
+    price: 2000.0
+  TRIDENT:
+    display-name: "Trident"
+    price: 1500.0
+  WITHER_ROSE:
+    display-name: "Wither Gülü"
+    price: 200.0
+  GOAT_HORN:
+    display-name: "Keçi Boynuzu"
+    price: 100.0
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # ODUNLAR VE AĞAÇ ÜRÜNLERİ (WOOD)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  OAK_LOG:
+    display-name: "Meşe Kütüğü"
+    price: 5.0
+  OAK_WOOD:
+    display-name: "Meşe Odunu"
+    price: 5.0
+  OAK_PLANKS:
+    display-name: "Meşe Tahta"
+    price: 2.0
+  STRIPPED_OAK_LOG:
+    display-name: "Soyulmuş Meşe Kütüğü"
+    price: 6.0
+  STRIPPED_OAK_WOOD:
+    display-name: "Soyulmuş Meşe Odunu"
+    price: 6.0
+  SPRUCE_LOG:
+    display-name: "Ladin Kütüğü"
+    price: 5.0
+  SPRUCE_WOOD:
+    display-name: "Ladin Odunu"
+    price: 5.0
+  SPRUCE_PLANKS:
+    display-name: "Ladin Tahta"
+    price: 2.0
+  STRIPPED_SPRUCE_LOG:
+    display-name: "Soyulmuş Ladin Kütüğü"
+    price: 6.0
+  STRIPPED_SPRUCE_WOOD:
+    display-name: "Soyulmuş Ladin Odunu"
+    price: 6.0
+  BIRCH_LOG:
+    display-name: "Huş Kütüğü"
+    price: 5.0
+  BIRCH_WOOD:
+    display-name: "Huş Odunu"
+    price: 5.0
+  BIRCH_PLANKS:
+    display-name: "Huş Tahta"
+    price: 2.0
+  STRIPPED_BIRCH_LOG:
+    display-name: "Soyulmuş Huş Kütüğü"
+    price: 6.0
+  STRIPPED_BIRCH_WOOD:
+    display-name: "Soyulmuş Huş Odunu"
+    price: 6.0
+  JUNGLE_LOG:
+    display-name: "Orman Kütüğü"
+    price: 5.0
+  JUNGLE_WOOD:
+    display-name: "Orman Odunu"
+    price: 5.0
+  JUNGLE_PLANKS:
+    display-name: "Orman Tahta"
+    price: 2.0
+  STRIPPED_JUNGLE_LOG:
+    display-name: "Soyulmuş Orman Kütüğü"
+    price: 6.0
+  STRIPPED_JUNGLE_WOOD:
+    display-name: "Soyulmuş Orman Odunu"
+    price: 6.0
+  ACACIA_LOG:
+    display-name: "Akasya Kütüğü"
+    price: 5.0
+  ACACIA_WOOD:
+    display-name: "Akasya Odunu"
+    price: 5.0
+  ACACIA_PLANKS:
+    display-name: "Akasya Tahta"
+    price: 2.0
+  STRIPPED_ACACIA_LOG:
+    display-name: "Soyulmuş Akasya Kütüğü"
+    price: 6.0
+  STRIPPED_ACACIA_WOOD:
+    display-name: "Soyulmuş Akasya Odunu"
+    price: 6.0
+  DARK_OAK_LOG:
+    display-name: "Koyu Meşe Kütüğü"
+    price: 5.0
+  DARK_OAK_WOOD:
+    display-name: "Koyu Meşe Odunu"
+    price: 5.0
+  DARK_OAK_PLANKS:
+    display-name: "Koyu Meşe Tahta"
+    price: 2.0
+  STRIPPED_DARK_OAK_LOG:
+    display-name: "Soyulmuş Koyu Meşe Kütüğü"
+    price: 6.0
+  STRIPPED_DARK_OAK_WOOD:
+    display-name: "Soyulmuş Koyu Meşe Odunu"
+    price: 6.0
+  CRIMSON_STEM:
+    display-name: "Kızıl Gövde"
+    price: 8.0
+  CRIMSON_HYPHAE:
+    display-name: "Kızıl Hif"
+    price: 8.0
+  CRIMSON_PLANKS:
+    display-name: "Kızıl Tahta"
+    price: 3.0
+  STRIPPED_CRIMSON_STEM:
+    display-name: "Soyulmuş Kızıl Gövde"
+    price: 9.0
+  STRIPPED_CRIMSON_HYPHAE:
+    display-name: "Soyulmuş Kızıl Hif"
+    price: 9.0
+  WARPED_STEM:
+    display-name: "Çarpık Gövde"
+    price: 8.0
+  WARPED_HYPHAE:
+    display-name: "Çarpık Hif"
+    price: 8.0
+  WARPED_PLANKS:
+    display-name: "Çarpık Tahta"
+    price: 3.0
+  STRIPPED_WARPED_STEM:
+    display-name: "Soyulmuş Çarpık Gövde"
+    price: 9.0
+  STRIPPED_WARPED_HYPHAE:
+    display-name: "Soyulmuş Çarpık Hif"
+    price: 9.0
+  STICK:
+    display-name: "Çubuk"
+    price: 1.0
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # YİYECEKLER (FOOD)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  BREAD:
+    display-name: "Ekmek"
+    price: 8.0
+  COOKED_BEEF:
+    display-name: "Pişmiş Biftek"
+    price: 15.0
+  BEEF:
+    display-name: "Çiğ Biftek"
+    price: 10.0
+  COOKED_PORKCHOP:
+    display-name: "Pişmiş Domuz Pirzolası"
+    price: 15.0
+  PORKCHOP:
+    display-name: "Çiğ Domuz Pirzolası"
+    price: 10.0
+  COOKED_CHICKEN:
+    display-name: "Pişmiş Tavuk"
+    price: 12.0
+  CHICKEN:
+    display-name: "Çiğ Tavuk"
+    price: 8.0
+  COOKED_MUTTON:
+    display-name: "Pişmiş Koyun Eti"
+    price: 12.0
+  MUTTON:
+    display-name: "Çiğ Koyun Eti"
+    price: 8.0
+  COOKED_RABBIT:
+    display-name: "Pişmiş Tavşan"
+    price: 15.0
+  RABBIT:
+    display-name: "Çiğ Tavşan"
+    price: 10.0
+  COOKED_COD:
+    display-name: "Pişmiş Morina"
+    price: 10.0
+  COD:
+    display-name: "Çiğ Morina"
+    price: 6.0
+  COOKED_SALMON:
+    display-name: "Pişmiş Somon"
+    price: 12.0
+  SALMON:
+    display-name: "Çiğ Somon"
+    price: 8.0
+  TROPICAL_FISH:
+    display-name: "Tropikal Balık"
+    price: 15.0
+  PUFFERFISH:
+    display-name: "Balon Balığı"
+    price: 20.0
+  BAKED_POTATO:
+    display-name: "Fırın Patates"
+    price: 8.0
+  POISONOUS_POTATO:
+    display-name: "Zehirli Patates"
+    price: 2.0
+  GOLDEN_APPLE:
+    display-name: "Altın Elma"
+    price: 500.0
+  ENCHANTED_GOLDEN_APPLE:
+    display-name: "Büyülü Altın Elma"
+    price: 5000.0
+  GOLDEN_CARROT:
+    display-name: "Altın Havuç"
+    price: 100.0
+  GLISTERING_MELON_SLICE:
+    display-name: "Parıldayan Karpuz Dilimi"
+    price: 80.0
+  COOKIE:
+    display-name: "Kurabiye"
+    price: 5.0
+  CAKE:
+    display-name: "Pasta"
+    price: 50.0
+  PUMPKIN_PIE:
+    display-name: "Balkabağı Turtası"
+    price: 20.0
+  MUSHROOM_STEW:
+    display-name: "Mantar Çorbası"
+    price: 15.0
+  BEETROOT_SOUP:
+    display-name: "Pancar Çorbası"
+    price: 15.0
+  RABBIT_STEW:
+    display-name: "Tavşan Yahnisi"
+    price: 30.0
+  SUSPICIOUS_STEW:
+    display-name: "Şüpheli Yahni"
+    price: 25.0
+  ROTTEN_FLESH:
+    display-name: "Çürük Et"
+    price: 2.0
+  SPIDER_EYE:
+    display-name: "Örümcek Gözü"
+    price: 10.0
+  FERMENTED_SPIDER_EYE:
+    display-name: "Mayalanmış Örümcek Gözü"
+    price: 25.0
+  BONE:
+    display-name: "Kemik"
+    price: 5.0
+  BONE_MEAL:
+    display-name: "Kemik Unu"
+    price: 2.0
+  BONE_BLOCK:
+    display-name: "Kemik Bloğu"
+    price: 45.0
+  STRING:
+    display-name: "İp"
+    price: 5.0
+  GUNPOWDER:
+    display-name: "Barut"
+    price: 15.0
+  SLIME_BALL:
+    display-name: "Balçık Topu"
+    price: 10.0
+  ENDER_PEARL:
+    display-name: "Ender İncisi"
+    price: 100.0
+  BLAZE_ROD:
+    display-name: "Alev Çubuğu"
+    price: 150.0
+  BLAZE_POWDER:
+    display-name: "Alev Tozu"
+    price: 80.0
+  MAGMA_CREAM:
+    display-name: "Magma Kremi"
+    price: 50.0
+  GHAST_TEAR:
+    display-name: "Ghast Gözyaşı"
+    price: 200.0
+  PHANTOM_MEMBRANE:
+    display-name: "Hayalet Zarı"
+    price: 100.0
+  SHULKER_SHELL:
+    display-name: "Shulker Kabuğu"
+    price: 500.0
+  NAUTILUS_SHELL:
+    display-name: "Nautilus Kabuğu"
+    price: 300.0
+  HEART_OF_THE_SEA:
+    display-name: "Denizin Kalbi"
+    price: 1000.0
+  SCUTE:
+    display-name: "Kaplumbağa Kabuğu Parçası"
+    price: 150.0
+  TURTLE_EGG:
+    display-name: "Kaplumbağa Yumurtası"
+    price: 200.0
+  INK_SAC:
+    display-name: "Mürekkep Kesesi"
+    price: 10.0
+  GLOW_INK_SAC:
+    display-name: "Parlak Mürekkep Kesesi"
+    price: 30.0
+  RABBIT_FOOT:
+    display-name: "Tavşan Ayağı"
+    price: 50.0
+  WITHER_SKELETON_SKULL:
+    display-name: "Wither İskelet Kafası"
+    price: 1000.0
+  SKELETON_SKULL:
+    display-name: "İskelet Kafası"
+    price: 100.0
+  ZOMBIE_HEAD:
+    display-name: "Zombi Kafası"
+    price: 100.0
+  CREEPER_HEAD:
+    display-name: "Creeper Kafası"
+    price: 150.0
+  DRAGON_HEAD:
+    display-name: "Ejderha Kafası"
+    price: 5000.0
+  NETHER_STAR:
+    display-name: "Nether Yıldızı"
+    price: 10000.0
+  DRAGON_BREATH:
+    display-name: "Ejderha Nefesi"
+    price: 500.0
+  DRAGON_EGG:
+    display-name: "Ejderha Yumurtası"
+    price: 50000.0
+  TOTEM_OF_UNDYING:
+    display-name: "Ölümsüzlük Totemi"
+    price: 2000.0
+  TRIDENT:
+    display-name: "Trident"
+    price: 3000.0
+  EXPERIENCE_BOTTLE:
+    display-name: "Tecrübe Şişesi"
+    price: 50.0
+  LEAD:
+    display-name: "Tasma"
+    price: 20.0
+  NAME_TAG:
+    display-name: "İsim Etiketi"
+    price: 100.0
+  SADDLE:
+    display-name: "Eyer"
+    price: 150.0
+  HORSE_ARMOR:
+    display-name: "At Zırhı"
+    price: 200.0
+  IRON_HORSE_ARMOR:
+    display-name: "Demir At Zırhı"
+    price: 200.0
+  GOLDEN_HORSE_ARMOR:
+    display-name: "Altın At Zırhı"
+    price: 400.0
+  DIAMOND_HORSE_ARMOR:
+    display-name: "Elmas At Zırhı"
+    price: 1000.0
+
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # NETHER EŞYALARİ (NETHER)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  NETHERRACK:
+    display-name: "Netherrack"
+    price: 1.0
+  NETHER_BRICKS:
+    display-name: "Nether Tuğla"
+    price: 5.0
+  NETHER_BRICK:
+    display-name: "Nether Tuğla Parçası"
+    price: 2.0
+  RED_NETHER_BRICKS:
+    display-name: "Kırmızı Nether Tuğla"
+    price: 8.0
+  CHISELED_NETHER_BRICKS:
+    display-name: "Oymalı Nether Tuğla"
+    price: 10.0
+  CRACKED_NETHER_BRICKS:
+    display-name: "Çatlak Nether Tuğla"
+    price: 6.0
+  SOUL_SAND:
+    display-name: "Ruh Kumu"
+    price: 5.0
+  SOUL_SOIL:
+    display-name: "Ruh Toprağı"
+    price: 5.0
+  SOUL_TORCH:
+    display-name: "Ruh Meşalesi"
+    price: 8.0
+  SOUL_LANTERN:
+    display-name: "Ruh Feneri"
+    price: 20.0
+  SOUL_CAMPFIRE:
+    display-name: "Ruh Kamp Ateşi"
+    price: 25.0
+  NETHER_GOLD_ORE:
+    display-name: "Nether Altın Cevheri"
+    price: 30.0
+  NETHER_QUARTZ_ORE:
+    display-name: "Nether Kuvars Cevheri"
+    price: 20.0
+  MAGMA_BLOCK:
+    display-name: "Magma Bloğu"
+    price: 15.0
+  SHROOMLIGHT:
+    display-name: "Mantar Işığı"
+    price: 30.0
+  NETHER_WART_BLOCK:
+    display-name: "Nether Siğil Bloğu"
+    price: 25.0
+  WARPED_WART_BLOCK:
+    display-name: "Çarpık Siğil Bloğu"
+    price: 25.0
+  CRIMSON_NYLIUM:
+    display-name: "Kızıl Nilyum"
+    price: 15.0
+  WARPED_NYLIUM:
+    display-name: "Çarpık Nilyum"
+    price: 15.0
+  CRIMSON_FUNGUS:
+    display-name: "Kızıl Mantar"
+    price: 10.0
+  WARPED_FUNGUS:
+    display-name: "Çarpık Mantar"
+    price: 10.0
+  CRIMSON_ROOTS:
+    display-name: "Kızıl Kökler"
+    price: 5.0
+  WARPED_ROOTS:
+    display-name: "Çarpık Kökler"
+    price: 5.0
+  NETHER_SPROUTS:
+    display-name: "Nether Filizleri"
+    price: 5.0
+  WEEPING_VINES:
+    display-name: "Ağlayan Sarmaşık"
+    price: 8.0
+  TWISTING_VINES:
+    display-name: "Kıvrılan Sarmaşık"
+    price: 8.0
+  CHAIN:
+    display-name: "Zincir"
+    price: 15.0
+  LODESTONE:
+    display-name: "Pusula Taşı"
+    price: 500.0
+  RESPAWN_ANCHOR:
+    display-name: "Yeniden Doğuş Çapası"
+    price: 300.0
+  TARGET:
+    display-name: "Hedef Bloğu"
+    price: 50.0
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # END EŞYALARİ (END)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  END_ROD:
+    display-name: "End Çubuğu"
+    price: 50.0
+  END_CRYSTAL:
+    display-name: "End Kristali"
+    price: 500.0
+  ELYTRA:
+    display-name: "Elytra"
+    price: 5000.0
+  ENDER_EYE:
+    display-name: "Ender Gözü"
+    price: 200.0
+  END_PORTAL_FRAME:
+    display-name: "End Portal Çerçevesi"
+    price: 1000.0
+  ENDER_CHEST:
+    display-name: "Ender Sandığı"
+    price: 800.0
+  SHULKER_BOX:
+    display-name: "Shulker Kutusu"
+    price: 1000.0
+  WHITE_SHULKER_BOX:
+    display-name: "Beyaz Shulker Kutusu"
+    price: 1000.0
+  ORANGE_SHULKER_BOX:
+    display-name: "Turuncu Shulker Kutusu"
+    price: 1000.0
+  MAGENTA_SHULKER_BOX:
+    display-name: "Eflatun Shulker Kutusu"
+    price: 1000.0
+  LIGHT_BLUE_SHULKER_BOX:
+    display-name: "Açık Mavi Shulker Kutusu"
+    price: 1000.0
+  YELLOW_SHULKER_BOX:
+    display-name: "Sarı Shulker Kutusu"
+    price: 1000.0
+  LIME_SHULKER_BOX:
+    display-name: "Açık Yeşil Shulker Kutusu"
+    price: 1000.0
+  PINK_SHULKER_BOX:
+    display-name: "Pembe Shulker Kutusu"
+    price: 1000.0
+  GRAY_SHULKER_BOX:
+    display-name: "Gri Shulker Kutusu"
+    price: 1000.0
+  LIGHT_GRAY_SHULKER_BOX:
+    display-name: "Açık Gri Shulker Kutusu"
+    price: 1000.0
+  CYAN_SHULKER_BOX:
+    display-name: "Camgöbeği Shulker Kutusu"
+    price: 1000.0
+  PURPLE_SHULKER_BOX:
+    display-name: "Mor Shulker Kutusu"
+    price: 1000.0
+  BLUE_SHULKER_BOX:
+    display-name: "Mavi Shulker Kutusu"
+    price: 1000.0
+  BROWN_SHULKER_BOX:
+    display-name: "Kahverengi Shulker Kutusu"
+    price: 1000.0
+  GREEN_SHULKER_BOX:
+    display-name: "Yeşil Shulker Kutusu"
+    price: 1000.0
+  RED_SHULKER_BOX:
+    display-name: "Kırmızı Shulker Kutusu"
+    price: 1000.0
+  BLACK_SHULKER_BOX:
+    display-name: "Siyah Shulker Kutusu"
+    price: 1000.0
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # BOYALAR (DYE)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  WHITE_DYE:
+    display-name: "Beyaz Boya"
+    price: 5.0
+  ORANGE_DYE:
+    display-name: "Turuncu Boya"
+    price: 5.0
+  MAGENTA_DYE:
+    display-name: "Eflatun Boya"
+    price: 5.0
+  LIGHT_BLUE_DYE:
+    display-name: "Açık Mavi Boya"
+    price: 5.0
+  YELLOW_DYE:
+    display-name: "Sarı Boya"
+    price: 5.0
+  LIME_DYE:
+    display-name: "Açık Yeşil Boya"
+    price: 5.0
+  PINK_DYE:
+    display-name: "Pembe Boya"
+    price: 5.0
+  GRAY_DYE:
+    display-name: "Gri Boya"
+    price: 5.0
+  LIGHT_GRAY_DYE:
+    display-name: "Açık Gri Boya"
+    price: 5.0
+  CYAN_DYE:
+    display-name: "Camgöbeği Boya"
+    price: 5.0
+  PURPLE_DYE:
+    display-name: "Mor Boya"
+    price: 5.0
+  BLUE_DYE:
+    display-name: "Mavi Boya"
+    price: 5.0
+  BROWN_DYE:
+    display-name: "Kahverengi Boya"
+    price: 5.0
+  GREEN_DYE:
+    display-name: "Yeşil Boya"
+    price: 5.0
+  RED_DYE:
+    display-name: "Kırmızı Boya"
+    price: 5.0
+  BLACK_DYE:
+    display-name: "Siyah Boya"
+    price: 5.0
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # YÜNLER VE HALILAR (WOOL)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  WHITE_WOOL:
+    display-name: "Beyaz Yün"
+    price: 8.0
+  ORANGE_WOOL:
+    display-name: "Turuncu Yün"
+    price: 8.0
+  MAGENTA_WOOL:
+    display-name: "Eflatun Yün"
+    price: 8.0
+  LIGHT_BLUE_WOOL:
+    display-name: "Açık Mavi Yün"
+    price: 8.0
+  YELLOW_WOOL:
+    display-name: "Sarı Yün"
+    price: 8.0
+  LIME_WOOL:
+    display-name: "Açık Yeşil Yün"
+    price: 8.0
+  PINK_WOOL:
+    display-name: "Pembe Yün"
+    price: 8.0
+  GRAY_WOOL:
+    display-name: "Gri Yün"
+    price: 8.0
+  LIGHT_GRAY_WOOL:
+    display-name: "Açık Gri Yün"
+    price: 8.0
+  CYAN_WOOL:
+    display-name: "Camgöbeği Yün"
+    price: 8.0
+  PURPLE_WOOL:
+    display-name: "Mor Yün"
+    price: 8.0
+  BLUE_WOOL:
+    display-name: "Mavi Yün"
+    price: 8.0
+  BROWN_WOOL:
+    display-name: "Kahverengi Yün"
+    price: 8.0
+  GREEN_WOOL:
+    display-name: "Yeşil Yün"
+    price: 8.0
+  RED_WOOL:
+    display-name: "Kırmızı Yün"
+    price: 8.0
+  BLACK_WOOL:
+    display-name: "Siyah Yün"
+    price: 8.0
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # CAM VE CAM PANELLER (GLASS)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  GLASS:
+    display-name: "Cam"
+    price: 3.0
+  GLASS_PANE:
+    display-name: "Cam Panel"
+    price: 1.0
+  WHITE_STAINED_GLASS:
+    display-name: "Beyaz Boyalı Cam"
+    price: 4.0
+  ORANGE_STAINED_GLASS:
+    display-name: "Turuncu Boyalı Cam"
+    price: 4.0
+  MAGENTA_STAINED_GLASS:
+    display-name: "Eflatun Boyalı Cam"
+    price: 4.0
+  LIGHT_BLUE_STAINED_GLASS:
+    display-name: "Açık Mavi Boyalı Cam"
+    price: 4.0
+  YELLOW_STAINED_GLASS:
+    display-name: "Sarı Boyalı Cam"
+    price: 4.0
+  LIME_STAINED_GLASS:
+    display-name: "Açık Yeşil Boyalı Cam"
+    price: 4.0
+  PINK_STAINED_GLASS:
+    display-name: "Pembe Boyalı Cam"
+    price: 4.0
+  GRAY_STAINED_GLASS:
+    display-name: "Gri Boyalı Cam"
+    price: 4.0
+  LIGHT_GRAY_STAINED_GLASS:
+    display-name: "Açık Gri Boyalı Cam"
+    price: 4.0
+  CYAN_STAINED_GLASS:
+    display-name: "Camgöbeği Boyalı Cam"
+    price: 4.0
+  PURPLE_STAINED_GLASS:
+    display-name: "Mor Boyalı Cam"
+    price: 4.0
+  BLUE_STAINED_GLASS:
+    display-name: "Mavi Boyalı Cam"
+    price: 4.0
+  BROWN_STAINED_GLASS:
+    display-name: "Kahverengi Boyalı Cam"
+    price: 4.0
+  GREEN_STAINED_GLASS:
+    display-name: "Yeşil Boyalı Cam"
+    price: 4.0
+  RED_STAINED_GLASS:
+    display-name: "Kırmızı Boyalı Cam"
+    price: 4.0
+  BLACK_STAINED_GLASS:
+    display-name: "Siyah Boyalı Cam"
+    price: 4.0
+  TINTED_GLASS:
+    display-name: "Renkli Cam"
+    price: 10.0
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # TERAKOTA (TERRACOTTA)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  TERRACOTTA:
+    display-name: "Terakota"
+    price: 5.0
+  WHITE_TERRACOTTA:
+    display-name: "Beyaz Terakota"
+    price: 6.0
+  ORANGE_TERRACOTTA:
+    display-name: "Turuncu Terakota"
+    price: 6.0
+  MAGENTA_TERRACOTTA:
+    display-name: "Eflatun Terakota"
+    price: 6.0
+  LIGHT_BLUE_TERRACOTTA:
+    display-name: "Açık Mavi Terakota"
+    price: 6.0
+  YELLOW_TERRACOTTA:
+    display-name: "Sarı Terakota"
+    price: 6.0
+  LIME_TERRACOTTA:
+    display-name: "Açık Yeşil Terakota"
+    price: 6.0
+  PINK_TERRACOTTA:
+    display-name: "Pembe Terakota"
+    price: 6.0
+  GRAY_TERRACOTTA:
+    display-name: "Gri Terakota"
+    price: 6.0
+  LIGHT_GRAY_TERRACOTTA:
+    display-name: "Açık Gri Terakota"
+    price: 6.0
+  CYAN_TERRACOTTA:
+    display-name: "Camgöbeği Terakota"
+    price: 6.0
+  PURPLE_TERRACOTTA:
+    display-name: "Mor Terakota"
+    price: 6.0
+  BLUE_TERRACOTTA:
+    display-name: "Mavi Terakota"
+    price: 6.0
+  BROWN_TERRACOTTA:
+    display-name: "Kahverengi Terakota"
+    price: 6.0
+  GREEN_TERRACOTTA:
+    display-name: "Yeşil Terakota"
+    price: 6.0
+  RED_TERRACOTTA:
+    display-name: "Kırmızı Terakota"
+    price: 6.0
+  BLACK_TERRACOTTA:
+    display-name: "Siyah Terakota"
+    price: 6.0
+  WHITE_GLAZED_TERRACOTTA:
+    display-name: "Beyaz Sırlı Terakota"
+    price: 10.0
+  ORANGE_GLAZED_TERRACOTTA:
+    display-name: "Turuncu Sırlı Terakota"
+    price: 10.0
+  MAGENTA_GLAZED_TERRACOTTA:
+    display-name: "Eflatun Sırlı Terakota"
+    price: 10.0
+  LIGHT_BLUE_GLAZED_TERRACOTTA:
+    display-name: "Açık Mavi Sırlı Terakota"
+    price: 10.0
+  YELLOW_GLAZED_TERRACOTTA:
+    display-name: "Sarı Sırlı Terakota"
+    price: 10.0
+  LIME_GLAZED_TERRACOTTA:
+    display-name: "Açık Yeşil Sırlı Terakota"
+    price: 10.0
+  PINK_GLAZED_TERRACOTTA:
+    display-name: "Pembe Sırlı Terakota"
+    price: 10.0
+  GRAY_GLAZED_TERRACOTTA:
+    display-name: "Gri Sırlı Terakota"
+    price: 10.0
+  LIGHT_GRAY_GLAZED_TERRACOTTA:
+    display-name: "Açık Gri Sırlı Terakota"
+    price: 10.0
+  CYAN_GLAZED_TERRACOTTA:
+    display-name: "Camgöbeği Sırlı Terakota"
+    price: 10.0
+  PURPLE_GLAZED_TERRACOTTA:
+    display-name: "Mor Sırlı Terakota"
+    price: 10.0
+  BLUE_GLAZED_TERRACOTTA:
+    display-name: "Mavi Sırlı Terakota"
+    price: 10.0
+  BROWN_GLAZED_TERRACOTTA:
+    display-name: "Kahverengi Sırlı Terakota"
+    price: 10.0
+  GREEN_GLAZED_TERRACOTTA:
+    display-name: "Yeşil Sırlı Terakota"
+    price: 10.0
+  RED_GLAZED_TERRACOTTA:
+    display-name: "Kırmızı Sırlı Terakota"
+    price: 10.0
+  BLACK_GLAZED_TERRACOTTA:
+    display-name: "Siyah Sırlı Terakota"
+    price: 10.0
+
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # BETON (CONCRETE)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  WHITE_CONCRETE:
+    display-name: "Beyaz Beton"
+    price: 5.0
+  ORANGE_CONCRETE:
+    display-name: "Turuncu Beton"
+    price: 5.0
+  MAGENTA_CONCRETE:
+    display-name: "Eflatun Beton"
+    price: 5.0
+  LIGHT_BLUE_CONCRETE:
+    display-name: "Açık Mavi Beton"
+    price: 5.0
+  YELLOW_CONCRETE:
+    display-name: "Sarı Beton"
+    price: 5.0
+  LIME_CONCRETE:
+    display-name: "Açık Yeşil Beton"
+    price: 5.0
+  PINK_CONCRETE:
+    display-name: "Pembe Beton"
+    price: 5.0
+  GRAY_CONCRETE:
+    display-name: "Gri Beton"
+    price: 5.0
+  LIGHT_GRAY_CONCRETE:
+    display-name: "Açık Gri Beton"
+    price: 5.0
+  CYAN_CONCRETE:
+    display-name: "Camgöbeği Beton"
+    price: 5.0
+  PURPLE_CONCRETE:
+    display-name: "Mor Beton"
+    price: 5.0
+  BLUE_CONCRETE:
+    display-name: "Mavi Beton"
+    price: 5.0
+  BROWN_CONCRETE:
+    display-name: "Kahverengi Beton"
+    price: 5.0
+  GREEN_CONCRETE:
+    display-name: "Yeşil Beton"
+    price: 5.0
+  RED_CONCRETE:
+    display-name: "Kırmızı Beton"
+    price: 5.0
+  BLACK_CONCRETE:
+    display-name: "Siyah Beton"
+    price: 5.0
+  WHITE_CONCRETE_POWDER:
+    display-name: "Beyaz Beton Tozu"
+    price: 4.0
+  ORANGE_CONCRETE_POWDER:
+    display-name: "Turuncu Beton Tozu"
+    price: 4.0
+  MAGENTA_CONCRETE_POWDER:
+    display-name: "Eflatun Beton Tozu"
+    price: 4.0
+  LIGHT_BLUE_CONCRETE_POWDER:
+    display-name: "Açık Mavi Beton Tozu"
+    price: 4.0
+  YELLOW_CONCRETE_POWDER:
+    display-name: "Sarı Beton Tozu"
+    price: 4.0
+  LIME_CONCRETE_POWDER:
+    display-name: "Açık Yeşil Beton Tozu"
+    price: 4.0
+  PINK_CONCRETE_POWDER:
+    display-name: "Pembe Beton Tozu"
+    price: 4.0
+  GRAY_CONCRETE_POWDER:
+    display-name: "Gri Beton Tozu"
+    price: 4.0
+  LIGHT_GRAY_CONCRETE_POWDER:
+    display-name: "Açık Gri Beton Tozu"
+    price: 4.0
+  CYAN_CONCRETE_POWDER:
+    display-name: "Camgöbeği Beton Tozu"
+    price: 4.0
+  PURPLE_CONCRETE_POWDER:
+    display-name: "Mor Beton Tozu"
+    price: 4.0
+  BLUE_CONCRETE_POWDER:
+    display-name: "Mavi Beton Tozu"
+    price: 4.0
+  BROWN_CONCRETE_POWDER:
+    display-name: "Kahverengi Beton Tozu"
+    price: 4.0
+  GREEN_CONCRETE_POWDER:
+    display-name: "Yeşil Beton Tozu"
+    price: 4.0
+  RED_CONCRETE_POWDER:
+    display-name: "Kırmızı Beton Tozu"
+    price: 4.0
+  BLACK_CONCRETE_POWDER:
+    display-name: "Siyah Beton Tozu"
+    price: 4.0
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # ALETLER VE SİLAHLAR (TOOLS)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  WOODEN_SWORD:
+    display-name: "Tahta Kılıç"
+    price: 10.0
+  WOODEN_PICKAXE:
+    display-name: "Tahta Kazma"
+    price: 10.0
+  WOODEN_AXE:
+    display-name: "Tahta Balta"
+    price: 10.0
+  WOODEN_SHOVEL:
+    display-name: "Tahta Kürek"
+    price: 10.0
+  WOODEN_HOE:
+    display-name: "Tahta Çapa"
+    price: 10.0
+  STONE_SWORD:
+    display-name: "Taş Kılıç"
+    price: 20.0
+  STONE_PICKAXE:
+    display-name: "Taş Kazma"
+    price: 20.0
+  STONE_AXE:
+    display-name: "Taş Balta"
+    price: 20.0
+  STONE_SHOVEL:
+    display-name: "Taş Kürek"
+    price: 20.0
+  STONE_HOE:
+    display-name: "Taş Çapa"
+    price: 20.0
+  IRON_SWORD:
+    display-name: "Demir Kılıç"
+    price: 100.0
+  IRON_PICKAXE:
+    display-name: "Demir Kazma"
+    price: 150.0
+  IRON_AXE:
+    display-name: "Demir Balta"
+    price: 150.0
+  IRON_SHOVEL:
+    display-name: "Demir Kürek"
+    price: 50.0
+  IRON_HOE:
+    display-name: "Demir Çapa"
+    price: 100.0
+  GOLDEN_SWORD:
+    display-name: "Altın Kılıç"
+    price: 200.0
+  GOLDEN_PICKAXE:
+    display-name: "Altın Kazma"
+    price: 300.0
+  GOLDEN_AXE:
+    display-name: "Altın Balta"
+    price: 300.0
+  GOLDEN_SHOVEL:
+    display-name: "Altın Kürek"
+    price: 100.0
+  GOLDEN_HOE:
+    display-name: "Altın Çapa"
+    price: 200.0
+  DIAMOND_SWORD:
+    display-name: "Elmas Kılıç"
+    price: 1000.0
+  DIAMOND_PICKAXE:
+    display-name: "Elmas Kazma"
+    price: 1500.0
+  DIAMOND_AXE:
+    display-name: "Elmas Balta"
+    price: 1500.0
+  DIAMOND_SHOVEL:
+    display-name: "Elmas Kürek"
+    price: 500.0
+  DIAMOND_HOE:
+    display-name: "Elmas Çapa"
+    price: 1000.0
+  NETHERITE_SWORD:
+    display-name: "Netherite Kılıç"
+    price: 6000.0
+  NETHERITE_PICKAXE:
+    display-name: "Netherite Kazma"
+    price: 8000.0
+  NETHERITE_AXE:
+    display-name: "Netherite Balta"
+    price: 8000.0
+  NETHERITE_SHOVEL:
+    display-name: "Netherite Kürek"
+    price: 5500.0
+  NETHERITE_HOE:
+    display-name: "Netherite Çapa"
+    price: 6000.0
+  BOW:
+    display-name: "Yay"
+    price: 50.0
+  CROSSBOW:
+    display-name: "Arbalet"
+    price: 150.0
+  ARROW:
+    display-name: "Ok"
+    price: 3.0
+  SPECTRAL_ARROW:
+    display-name: "Spektral Ok"
+    price: 15.0
+  TIPPED_ARROW:
+    display-name: "İksirli Ok"
+    price: 20.0
+  SHIELD:
+    display-name: "Kalkan"
+    price: 100.0
+  FISHING_ROD:
+    display-name: "Olta"
+    price: 30.0
+  FLINT_AND_STEEL:
+    display-name: "Çakmak"
+    price: 25.0
+  SHEARS:
+    display-name: "Makas"
+    price: 40.0
+  COMPASS:
+    display-name: "Pusula"
+    price: 50.0
+  CLOCK:
+    display-name: "Saat"
+    price: 80.0
+  SPYGLASS:
+    display-name: "Dürbün"
+    price: 100.0
+  MAP:
+    display-name: "Harita"
+    price: 30.0
+  WRITABLE_BOOK:
+    display-name: "Yazılabilir Kitap"
+    price: 20.0
+  BOOK:
+    display-name: "Kitap"
+    price: 15.0
+  ENCHANTED_BOOK:
+    display-name: "Büyülü Kitap"
+    price: 200.0
+  PAPER:
+    display-name: "Kağıt"
+    price: 3.0
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # ZIRHLAR (ARMOR)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  LEATHER_HELMET:
+    display-name: "Deri Kask"
+    price: 40.0
+  LEATHER_CHESTPLATE:
+    display-name: "Deri Zırh"
+    price: 64.0
+  LEATHER_LEGGINGS:
+    display-name: "Deri Pantolon"
+    price: 56.0
+  LEATHER_BOOTS:
+    display-name: "Deri Bot"
+    price: 32.0
+  CHAINMAIL_HELMET:
+    display-name: "Zincir Kask"
+    price: 100.0
+  CHAINMAIL_CHESTPLATE:
+    display-name: "Zincir Zırh"
+    price: 160.0
+  CHAINMAIL_LEGGINGS:
+    display-name: "Zincir Pantolon"
+    price: 140.0
+  CHAINMAIL_BOOTS:
+    display-name: "Zincir Bot"
+    price: 80.0
+  IRON_HELMET:
+    display-name: "Demir Kask"
+    price: 100.0
+  IRON_CHESTPLATE:
+    display-name: "Demir Zırh"
+    price: 160.0
+  IRON_LEGGINGS:
+    display-name: "Demir Pantolon"
+    price: 140.0
+  IRON_BOOTS:
+    display-name: "Demir Bot"
+    price: 80.0
+  GOLDEN_HELMET:
+    display-name: "Altın Kask"
+    price: 200.0
+  GOLDEN_CHESTPLATE:
+    display-name: "Altın Zırh"
+    price: 320.0
+  GOLDEN_LEGGINGS:
+    display-name: "Altın Pantolon"
+    price: 280.0
+  GOLDEN_BOOTS:
+    display-name: "Altın Bot"
+    price: 160.0
+  DIAMOND_HELMET:
+    display-name: "Elmas Kask"
+    price: 2500.0
+  DIAMOND_CHESTPLATE:
+    display-name: "Elmas Zırh"
+    price: 4000.0
+  DIAMOND_LEGGINGS:
+    display-name: "Elmas Pantolon"
+    price: 3500.0
+  DIAMOND_BOOTS:
+    display-name: "Elmas Bot"
+    price: 2000.0
+  NETHERITE_HELMET:
+    display-name: "Netherite Kask"
+    price: 7500.0
+  NETHERITE_CHESTPLATE:
+    display-name: "Netherite Zırh"
+    price: 9000.0
+  NETHERITE_LEGGINGS:
+    display-name: "Netherite Pantolon"
+    price: 8500.0
+  NETHERITE_BOOTS:
+    display-name: "Netherite Bot"
+    price: 7000.0
+  TURTLE_HELMET:
+    display-name: "Kaplumbağa Kaskı"
+    price: 800.0
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # ÇİÇEKLER VE BİTKİLER (FLOWERS)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  DANDELION:
+    display-name: "Karahindiba"
+    price: 2.0
+  POPPY:
+    display-name: "Gelincik"
+    price: 2.0
+  BLUE_ORCHID:
+    display-name: "Mavi Orkide"
+    price: 5.0
+  ALLIUM:
+    display-name: "Allium"
+    price: 3.0
+  AZURE_BLUET:
+    display-name: "Gök Mavisi"
+    price: 2.0
+  RED_TULIP:
+    display-name: "Kırmızı Lale"
+    price: 3.0
+  ORANGE_TULIP:
+    display-name: "Turuncu Lale"
+    price: 3.0
+  WHITE_TULIP:
+    display-name: "Beyaz Lale"
+    price: 3.0
+  PINK_TULIP:
+    display-name: "Pembe Lale"
+    price: 3.0
+  OXEYE_DAISY:
+    display-name: "Papatya"
+    price: 2.0
+  CORNFLOWER:
+    display-name: "Peygamber Çiçeği"
+    price: 3.0
+  LILY_OF_THE_VALLEY:
+    display-name: "İnci Çiçeği"
+    price: 5.0
+  WITHER_ROSE:
+    display-name: "Wither Gülü"
+    price: 100.0
+  SUNFLOWER:
+    display-name: "Ayçiçeği"
+    price: 5.0
+  LILAC:
+    display-name: "Leylak"
+    price: 4.0
+  ROSE_BUSH:
+    display-name: "Gül Çalısı"
+    price: 4.0
+  PEONY:
+    display-name: "Şakayık"
+    price: 4.0
+  SPORE_BLOSSOM:
+    display-name: "Spor Çiçeği"
+    price: 20.0
+  AZALEA:
+    display-name: "Açelya"
+    price: 15.0
+  FLOWERING_AZALEA:
+    display-name: "Çiçekli Açelya"
+    price: 20.0
+  LILY_PAD:
+    display-name: "Nilüfer Yaprağı"
+    price: 5.0
+  FERN:
+    display-name: "Eğrelti Otu"
+    price: 2.0
+  LARGE_FERN:
+    display-name: "Büyük Eğrelti"
+    price: 3.0
+  DEAD_BUSH:
+    display-name: "Ölü Çalı"
+    price: 1.0
+  VINE:
+    display-name: "Sarmaşık"
+    price: 3.0
+  GLOW_LICHEN:
+    display-name: "Parlak Liken"
+    price: 10.0
+  HANGING_ROOTS:
+    display-name: "Asılı Kökler"
+    price: 5.0
+  DRIPLEAF:
+    display-name: "Damlayaprak"
+    price: 15.0
+  BIG_DRIPLEAF:
+    display-name: "Büyük Damlayaprak"
+    price: 20.0
+  SMALL_DRIPLEAF:
+    display-name: "Küçük Damlayaprak"
+    price: 10.0
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # MANTARLAR (MUSHROOMS)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  RED_MUSHROOM:
+    display-name: "Kırmızı Mantar"
+    price: 5.0
+  BROWN_MUSHROOM:
+    display-name: "Kahverengi Mantar"
+    price: 5.0
+  RED_MUSHROOM_BLOCK:
+    display-name: "Kırmızı Mantar Bloğu"
+    price: 15.0
+  BROWN_MUSHROOM_BLOCK:
+    display-name: "Kahverengi Mantar Bloğu"
+    price: 15.0
+  MUSHROOM_STEM:
+    display-name: "Mantar Sapı"
+    price: 10.0
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # REDSTONE EŞYALARİ (REDSTONE)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  REDSTONE_TORCH:
+    display-name: "Kızıltaş Meşalesi"
+    price: 12.0
+  REDSTONE_LAMP:
+    display-name: "Kızıltaş Lambası"
+    price: 50.0
+  REPEATER:
+    display-name: "Tekrarlayıcı"
+    price: 30.0
+  COMPARATOR:
+    display-name: "Karşılaştırıcı"
+    price: 50.0
+  PISTON:
+    display-name: "Piston"
+    price: 40.0
+  STICKY_PISTON:
+    display-name: "Yapışkan Piston"
+    price: 50.0
+  OBSERVER:
+    display-name: "Gözlemci"
+    price: 60.0
+  HOPPER:
+    display-name: "Huni"
+    price: 100.0
+  DROPPER:
+    display-name: "Düşürücü"
+    price: 30.0
+  DISPENSER:
+    display-name: "Dağıtıcı"
+    price: 40.0
+  LEVER:
+    display-name: "Kol"
+    price: 5.0
+  TRIPWIRE_HOOK:
+    display-name: "Tel Kancası"
+    price: 15.0
+  DAYLIGHT_DETECTOR:
+    display-name: "Gün Işığı Sensörü"
+    price: 50.0
+  TNT:
+    display-name: "TNT"
+    price: 100.0
+  NOTE_BLOCK:
+    display-name: "Nota Bloğu"
+    price: 20.0
+  JUKEBOX:
+    display-name: "Müzik Kutusu"
+    price: 600.0
+  BELL:
+    display-name: "Çan"
+    price: 200.0
+  LIGHTNING_ROD:
+    display-name: "Yıldırım Çubuğu"
+    price: 50.0
+  SCULK_SENSOR:
+    display-name: "Sculk Sensörü"
+    price: 100.0
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # SANDIKLAR VE DEPOLAMA (STORAGE)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  CHEST:
+    display-name: "Sandık"
+    price: 20.0
+  TRAPPED_CHEST:
+    display-name: "Tuzaklı Sandık"
+    price: 25.0
+  BARREL:
+    display-name: "Fıçı"
+    price: 25.0
+  FURNACE:
+    display-name: "Fırın"
+    price: 30.0
+  BLAST_FURNACE:
+    display-name: "Yüksek Fırın"
+    price: 100.0
+  SMOKER:
+    display-name: "Tütsüleyici"
+    price: 80.0
+  CRAFTING_TABLE:
+    display-name: "Çalışma Masası"
+    price: 15.0
+  CARTOGRAPHY_TABLE:
+    display-name: "Haritacılık Masası"
+    price: 30.0
+  FLETCHING_TABLE:
+    display-name: "Ok Yapım Masası"
+    price: 30.0
+  SMITHING_TABLE:
+    display-name: "Demircilik Masası"
+    price: 50.0
+  LOOM:
+    display-name: "Dokuma Tezgahı"
+    price: 30.0
+  STONECUTTER:
+    display-name: "Taş Kesici"
+    price: 40.0
+  GRINDSTONE:
+    display-name: "Bileme Taşı"
+    price: 50.0
+  LECTERN:
+    display-name: "Kürsü"
+    price: 60.0
+  COMPOSTER:
+    display-name: "Kompost"
+    price: 25.0
+  BREWING_STAND:
+    display-name: "İksir Tezgahı"
+    price: 200.0
+  CAULDRON:
+    display-name: "Kazan"
+    price: 140.0
+  ENCHANTING_TABLE:
+    display-name: "Büyü Masası"
+    price: 1500.0
+  ANVIL:
+    display-name: "Örs"
+    price: 600.0
+  CHIPPED_ANVIL:
+    display-name: "Çatlak Örs"
+    price: 400.0
+  DAMAGED_ANVIL:
+    display-name: "Hasarlı Örs"
+    price: 200.0
+  BEACON:
+    display-name: "İşaret Feneri"
+    price: 15000.0
+  CONDUIT:
+    display-name: "Kanal"
+    price: 5000.0
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # İKSİRLER VE MALZEMELER (POTIONS)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  GLASS_BOTTLE:
+    display-name: "Cam Şişe"
+    price: 3.0
+  WATER_BUCKET:
+    display-name: "Su Kovası"
+    price: 20.0
+  LAVA_BUCKET:
+    display-name: "Lav Kovası"
+    price: 50.0
+  MILK_BUCKET:
+    display-name: "Süt Kovası"
+    price: 30.0
+  BUCKET:
+    display-name: "Kova"
+    price: 60.0
+  POTION:
+    display-name: "İksir"
+    price: 50.0
+  SPLASH_POTION:
+    display-name: "Sıçrayan İksir"
+    price: 75.0
+  LINGERING_POTION:
+    display-name: "Kalıcı İksir"
+    price: 100.0
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # IŞIK KAYNAKLARI (LIGHT)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  TORCH:
+    display-name: "Meşale"
+    price: 2.0
+  LANTERN:
+    display-name: "Fener"
+    price: 15.0
+  CAMPFIRE:
+    display-name: "Kamp Ateşi"
+    price: 20.0
+  CANDLE:
+    display-name: "Mum"
+    price: 10.0
+  WHITE_CANDLE:
+    display-name: "Beyaz Mum"
+    price: 12.0
+  ORANGE_CANDLE:
+    display-name: "Turuncu Mum"
+    price: 12.0
+  MAGENTA_CANDLE:
+    display-name: "Eflatun Mum"
+    price: 12.0
+  LIGHT_BLUE_CANDLE:
+    display-name: "Açık Mavi Mum"
+    price: 12.0
+  YELLOW_CANDLE:
+    display-name: "Sarı Mum"
+    price: 12.0
+  LIME_CANDLE:
+    display-name: "Açık Yeşil Mum"
+    price: 12.0
+  PINK_CANDLE:
+    display-name: "Pembe Mum"
+    price: 12.0
+  GRAY_CANDLE:
+    display-name: "Gri Mum"
+    price: 12.0
+  LIGHT_GRAY_CANDLE:
+    display-name: "Açık Gri Mum"
+    price: 12.0
+  CYAN_CANDLE:
+    display-name: "Camgöbeği Mum"
+    price: 12.0
+  PURPLE_CANDLE:
+    display-name: "Mor Mum"
+    price: 12.0
+  BLUE_CANDLE:
+    display-name: "Mavi Mum"
+    price: 12.0
+  BROWN_CANDLE:
+    display-name: "Kahverengi Mum"
+    price: 12.0
+  GREEN_CANDLE:
+    display-name: "Yeşil Mum"
+    price: 12.0
+  RED_CANDLE:
+    display-name: "Kırmızı Mum"
+    price: 12.0
+  BLACK_CANDLE:
+    display-name: "Siyah Mum"
+    price: 12.0
+  JACK_O_LANTERN:
+    display-name: "Balkabağı Feneri"
+    price: 15.0
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # MÜZİK DİSKLERİ (MUSIC)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  MUSIC_DISC_13:
+    display-name: "Müzik Diski - 13"
+    price: 500.0
+  MUSIC_DISC_CAT:
+    display-name: "Müzik Diski - Cat"
+    price: 500.0
+  MUSIC_DISC_BLOCKS:
+    display-name: "Müzik Diski - Blocks"
+    price: 500.0
+  MUSIC_DISC_CHIRP:
+    display-name: "Müzik Diski - Chirp"
+    price: 500.0
+  MUSIC_DISC_FAR:
+    display-name: "Müzik Diski - Far"
+    price: 500.0
+  MUSIC_DISC_MALL:
+    display-name: "Müzik Diski - Mall"
+    price: 500.0
+  MUSIC_DISC_MELLOHI:
+    display-name: "Müzik Diski - Mellohi"
+    price: 500.0
+  MUSIC_DISC_STAL:
+    display-name: "Müzik Diski - Stal"
+    price: 500.0
+  MUSIC_DISC_STRAD:
+    display-name: "Müzik Diski - Strad"
+    price: 500.0
+  MUSIC_DISC_WARD:
+    display-name: "Müzik Diski - Ward"
+    price: 500.0
+  MUSIC_DISC_11:
+    display-name: "Müzik Diski - 11"
+    price: 1000.0
+  MUSIC_DISC_WAIT:
+    display-name: "Müzik Diski - Wait"
+    price: 500.0
+  MUSIC_DISC_PIGSTEP:
+    display-name: "Müzik Diski - Pigstep"
+    price: 2000.0
+  MUSIC_DISC_OTHERSIDE:
+    display-name: "Müzik Diski - Otherside"
+    price: 1500.0
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # BAYRAKLAR VE BANNERLAR (BANNERS)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  WHITE_BANNER:
+    display-name: "Beyaz Bayrak"
+    price: 50.0
+  ORANGE_BANNER:
+    display-name: "Turuncu Bayrak"
+    price: 50.0
+  MAGENTA_BANNER:
+    display-name: "Eflatun Bayrak"
+    price: 50.0
+  LIGHT_BLUE_BANNER:
+    display-name: "Açık Mavi Bayrak"
+    price: 50.0
+  YELLOW_BANNER:
+    display-name: "Sarı Bayrak"
+    price: 50.0
+  LIME_BANNER:
+    display-name: "Açık Yeşil Bayrak"
+    price: 50.0
+  PINK_BANNER:
+    display-name: "Pembe Bayrak"
+    price: 50.0
+  GRAY_BANNER:
+    display-name: "Gri Bayrak"
+    price: 50.0
+  LIGHT_GRAY_BANNER:
+    display-name: "Açık Gri Bayrak"
+    price: 50.0
+  CYAN_BANNER:
+    display-name: "Camgöbeği Bayrak"
+    price: 50.0
+  PURPLE_BANNER:
+    display-name: "Mor Bayrak"
+    price: 50.0
+  BLUE_BANNER:
+    display-name: "Mavi Bayrak"
+    price: 50.0
+  BROWN_BANNER:
+    display-name: "Kahverengi Bayrak"
+    price: 50.0
+  GREEN_BANNER:
+    display-name: "Yeşil Bayrak"
+    price: 50.0
+  RED_BANNER:
+    display-name: "Kırmızı Bayrak"
+    price: 50.0
+  BLACK_BANNER:
+    display-name: "Siyah Bayrak"
+    price: 50.0
+  OMINOUS_BANNER:
+    display-name: "Uğursuz Bayrak"
+    price: 500.0
+
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # DİĞER EŞYALAR (MISC)
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  FIREWORK_ROCKET:
+    display-name: "Havai Fişek"
+    price: 30.0
+  FIREWORK_STAR:
+    display-name: "Havai Fişek Yıldızı"
+    price: 20.0
+  FIRE_CHARGE:
+    display-name: "Ateş Topu"
+    price: 15.0
+  SNOWBALL:
+    display-name: "Kartopu"
+    price: 1.0
+  ENDER_PEARL:
+    display-name: "Ender İncisi"
+    price: 100.0
+  EYE_OF_ENDER:
+    display-name: "Ender Gözü"
+    price: 200.0
+  NETHER_BRICK:
+    display-name: "Nether Tuğla Parçası"
+    price: 2.0
+  PRISMARINE_SHARD:
+    display-name: "Prismarin Parçası"
+    price: 12.0
+  PRISMARINE_CRYSTALS:
+    display-name: "Prismarin Kristali"
+    price: 15.0
+  RABBIT_FOOT:
+    display-name: "Tavşan Ayağı"
+    price: 50.0
+  RABBIT_HIDE:
+    display-name: "Tavşan Derisi"
+    price: 5.0
+  ARMOR_STAND:
+    display-name: "Zırh Standı"
+    price: 30.0
+  ITEM_FRAME:
+    display-name: "Eşya Çerçevesi"
+    price: 20.0
+  GLOW_ITEM_FRAME:
+    display-name: "Parlak Eşya Çerçevesi"
+    price: 50.0
+  PAINTING:
+    display-name: "Tablo"
+    price: 25.0
+  FLOWER_POT:
+    display-name: "Saksı"
+    price: 10.0
+  BOWL:
+    display-name: "Kase"
+    price: 5.0
+  BRICK:
+    display-name: "Tuğla"
+    price: 5.0
+  NETHER_BRICK:
+    display-name: "Nether Tuğla"
+    price: 8.0
+  CLAY_BALL:
+    display-name: "Kil Topu"
+    price: 3.0
+  COAL_ORE:
+    display-name: "Kömür Cevheri"
+    price: 8.0
+  IRON_ORE:
+    display-name: "Demir Cevheri"
+    price: 25.0
+  GOLD_ORE:
+    display-name: "Altın Cevheri"
+    price: 80.0
+  DIAMOND_ORE:
+    display-name: "Elmas Cevheri"
+    price: 600.0
+  EMERALD_ORE:
+    display-name: "Zümrüt Cevheri"
+    price: 400.0
+  LAPIS_ORE:
+    display-name: "Lapis Cevheri"
+    price: 50.0
+  REDSTONE_ORE:
+    display-name: "Kızıltaş Cevheri"
+    price: 30.0
+  COPPER_ORE:
+    display-name: "Bakır Cevheri"
+    price: 15.0
+  DEEPSLATE_COAL_ORE:
+    display-name: "Derin Kömür Cevheri"
+    price: 10.0
+  DEEPSLATE_IRON_ORE:
+    display-name: "Derin Demir Cevheri"
+    price: 30.0
+  DEEPSLATE_GOLD_ORE:
+    display-name: "Derin Altın Cevheri"
+    price: 90.0
+  DEEPSLATE_DIAMOND_ORE:
+    display-name: "Derin Elmas Cevheri"
+    price: 700.0
+  DEEPSLATE_EMERALD_ORE:
+    display-name: "Derin Zümrüt Cevheri"
+    price: 500.0
+  DEEPSLATE_LAPIS_ORE:
+    display-name: "Derin Lapis Cevheri"
+    price: 60.0
+  DEEPSLATE_REDSTONE_ORE:
+    display-name: "Derin Kızıltaş Cevheri"
+    price: 40.0
+  DEEPSLATE_COPPER_ORE:
+    display-name: "Derin Bakır Cevheri"
+    price: 18.0
+  BOOKSHELF:
+    display-name: "Kitaplık"
+    price: 50.0
+  LADDER:
+    display-name: "Merdiven"
+    price: 5.0
+  SCAFFOLDING:
+    display-name: "İskele"
+    price: 8.0
+  RAIL:
+    display-name: "Ray"
+    price: 15.0
+  POWERED_RAIL:
+    display-name: "Güçlendirilmiş Ray"
+    price: 100.0
+  DETECTOR_RAIL:
+    display-name: "Algılayıcı Ray"
+    price: 50.0
+  ACTIVATOR_RAIL:
+    display-name: "Etkinleştirici Ray"
+    price: 60.0
+  MINECART:
+    display-name: "Vagonet"
+    price: 100.0
+  CHEST_MINECART:
+    display-name: "Sandıklı Vagonet"
+    price: 120.0
+  HOPPER_MINECART:
+    display-name: "Hunili Vagonet"
+    price: 200.0
+  TNT_MINECART:
+    display-name: "TNT'li Vagonet"
+    price: 200.0
+  FURNACE_MINECART:
+    display-name: "Fırınlı Vagonet"
+    price: 130.0
+  OAK_BOAT:
+    display-name: "Meşe Kayık"
+    price: 30.0
+  SPRUCE_BOAT:
+    display-name: "Ladin Kayık"
+    price: 30.0
+  BIRCH_BOAT:
+    display-name: "Huş Kayık"
+    price: 30.0
+  JUNGLE_BOAT:
+    display-name: "Orman Kayık"
+    price: 30.0
+  ACACIA_BOAT:
+    display-name: "Akasya Kayık"
+    price: 30.0
+  DARK_OAK_BOAT:
+    display-name: "Koyu Meşe Kayık"
+    price: 30.0
+
+
+  # ═══════════════════════════════════════════════════════════════════════════════
+  # EKSİK EŞYALAR - KATEGORİLERDEN
+  # ═══════════════════════════════════════════════════════════════════════════════
+  
+  # Blok kategorisinden
+  CHERRY_LOG:
+    display-name: "Kiraz Kütüğü"
+    price: 8.0
+  
+  # Silah kategorisinden
+  WOODEN_SWORD:
+    display-name: "Tahta Kılıç"
+    price: 10.0
+  STONE_SWORD:
+    display-name: "Taş Kılıç"
+    price: 25.0
+  
+  # Alet kategorisinden
+  WOODEN_PICKAXE:
+    display-name: "Tahta Kazma"
+    price: 8.0
+  STONE_PICKAXE:
+    display-name: "Taş Kazma"
+    price: 20.0
+  IRON_PICKAXE:
+    display-name: "Demir Kazma"
+    price: 80.0
+  DIAMOND_PICKAXE:
+    display-name: "Elmas Kazma"
+    price: 800.0
+  NETHERITE_PICKAXE:
+    display-name: "Netherite Kazma"
+    price: 12000.0
+  WOODEN_AXE:
+    display-name: "Tahta Balta"
+    price: 8.0
+  STONE_AXE:
+    display-name: "Taş Balta"
+    price: 20.0
+  IRON_AXE:
+    display-name: "Demir Balta"
+    price: 80.0
+  DIAMOND_AXE:
+    display-name: "Elmas Balta"
+    price: 800.0
+  NETHERITE_AXE:
+    display-name: "Netherite Balta"
+    price: 12000.0
+  
+  # Nadir kategorisinden
+  NETHER_STAR:
+    display-name: "Nether Yıldızı"
+    price: 25000.0
+  DRAGON_EGG:
+    display-name: "Ejderha Yumurtası"
+    price: 100000.0
+  DRAGON_BREATH:
+    display-name: "Ejderha Nefesi"
+    price: 1000.0
+  TOTEM_OF_UNDYING:
+    display-name: "Ölümsüzlük Totemi"
+    price: 15000.0
+  HEART_OF_THE_SEA:
+    display-name: "Denizin Kalbi"
+    price: 10000.0
+  BEACON:
+    display-name: "İşaret Feneri"
+    price: 30000.0
+  SHULKER_SHELL:
+    display-name: "Shulker Kabuğu"
+    price: 2000.0
+  
+  # Nether kategorisinden
+  BLAZE_ROD:
+    display-name: "Alev Çubuğu"
+    price: 100.0
+  BLAZE_POWDER:
+    display-name: "Alev Tozu"
+    price: 50.0
+  GHAST_TEAR:
+    display-name: "Ghast Gözyaşı"
+    price: 200.0
+  MAGMA_CREAM:
+    display-name: "Magma Kremi"
+    price: 75.0
+  
+  # End kategorisinden
+  END_STONE:
+    display-name: "End Taşı"
+    price: 5.0
+  END_STONE_BRICKS:
+    display-name: "End Taş Tuğla"
+    price: 8.0
+  PURPUR_BLOCK:
+    display-name: "Purpur Bloğu"
+    price: 15.0
+  END_ROD:
+    display-name: "End Çubuğu"
+    price: 50.0
+  CHORUS_FRUIT:
+    display-name: "Koro Meyvesi"
+    price: 25.0
+  ENDER_PEARL:
+    display-name: "Ender İncisi"
+    price: 100.0
+  ENDER_EYE:
+    display-name: "Ender Gözü"
+    price: 250.0
+  ELYTRA:
+    display-name: "Elytra"
+    price: 50000.0
+  
+  # Redstone kategorisinden
+  REDSTONE_TORCH:
+    display-name: "Kızıltaş Meşalesi"
+    price: 12.0
+  REPEATER:
+    display-name: "Tekrarlayıcı"
+    price: 30.0
+  COMPARATOR:
+    display-name: "Karşılaştırıcı"
+    price: 50.0
+  PISTON:
+    display-name: "Piston"
+    price: 40.0
+  STICKY_PISTON:
+    display-name: "Yapışkan Piston"
+    price: 60.0
+  OBSERVER:
+    display-name: "Gözlemci"
+    price: 75.0
+  HOPPER:
+    display-name: "Huni"
+    price: 100.0
+  DROPPER:
+    display-name: "Düşürücü"
+    price: 35.0
+  DISPENSER:
+    display-name: "Dağıtıcı"
+    price: 40.0
+  LEVER:
+    display-name: "Kol"
+    price: 5.0
+  NOTE_BLOCK:
+    display-name: "Nota Bloğu"
+    price: 25.0

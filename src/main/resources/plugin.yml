@@ -1,0 +1,153 @@
+# ╔═══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                               ║
+# ║                              DeliveryCore                                     ║
+# ║                    Türkiye'nin En Kapsamlı Teslimat Sistemi                   ║
+# ║                                                                               ║
+# ╚═══════════════════════════════════════════════════════════════════════════════╝
+
+name: DeliveryCore
+version: ${project.version}
+main: com.deliverycore.DeliveryCorePlugin
+api-version: '1.16'
+authors:
+  - Maolide
+  - 3Mustafa5
+description: |
+ Sunucu sahipleri için kapsamlı teslimat sistemi.
+ 1.16.5+ tüm versiyonlarla uyumlu.
+website: https://modrinth.com/plugin/delicerycore
+softdepend:
+  - PlaceholderAPI
+  - Vault
+  - HolographicDisplays
+  - DecentHolograms
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# KOMUTLAR
+# ═══════════════════════════════════════════════════════════════════════════════
+
+commands:
+  deliverycore:
+    description: DeliveryCore admin komutları
+    usage: /<command> <help|reload|list|start|stop|status>
+    aliases: [dc]
+    permission: deliverycore.admin
+  
+  # Oyuncu teslimat menüsü (Türkçe)
+  teslimat:
+    description: Teslimat menüsünü açar
+    usage: /<command> [bilgi|top]
+    aliases: [tm]
+    permission: deliverycore.use
+  
+  # Oyuncu teslimat menüsü (İngilizce)
+  delivery:
+    description: Opens delivery menu
+    usage: /<command> [info|top]
+    aliases: [deliver, deliverymenu, dm]
+    permission: deliverycore.use
+  
+  # Hızlı teslimat komutu (Türkçe)
+  teslim:
+    description: Eşyaları hızlıca teslim eder
+    usage: /<command> [kategori|sandik]
+    aliases: []
+    permission: deliverycore.deliver
+  
+  # Hızlı teslimat komutu (İngilizce)
+  deliver:
+    description: Quickly delivers items
+    usage: /<command> [category|chest]
+    aliases: [del]
+    permission: deliverycore.deliver
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# YETKİLER
+# ═══════════════════════════════════════════════════════════════════════════════
+
+permissions:
+  # ─────────────────────────────────────────────────────────────────────────────
+  # ANA YETKİLER
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  deliverycore.*:
+    description: Tüm DeliveryCore yetkileri
+    default: op
+    children:
+      deliverycore.admin: true
+      deliverycore.use: true
+      deliverycore.deliver: true
+      deliverycore.bypass: true
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # ADMİN YETKİLERİ
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  deliverycore.admin:
+    description: Tüm admin yetkileri
+    default: op
+    children:
+      deliverycore.admin.reload: true
+      deliverycore.admin.start: true
+      deliverycore.admin.stop: true
+      deliverycore.admin.list: true
+      deliverycore.admin.status: true
+  
+  deliverycore.admin.reload:
+    description: Konfigürasyonu yeniden yükleme
+    default: op
+  
+  deliverycore.admin.start:
+    description: Teslimat başlatma
+    default: op
+  
+  deliverycore.admin.stop:
+    description: Teslimat durdurma
+    default: op
+  
+  deliverycore.admin.list:
+    description: Teslimat listesi görüntüleme
+    default: op
+  
+  deliverycore.admin.status:
+    description: Durum görüntüleme
+    default: op
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # OYUNCU YETKİLERİ
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  deliverycore.use:
+    description: Teslimat menüsünü kullanma
+    default: true
+  
+  deliverycore.deliver:
+    description: Eşya teslim etme
+    default: true
+  
+  deliverycore.deliver.auto:
+    description: Otomatik teslimat kullanma (/teslim kategori)
+    default: true
+  
+  deliverycore.deliver.chest:
+    description: Sandık teslimatı kullanma
+    default: true
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # BYPASS YETKİLERİ
+  # ─────────────────────────────────────────────────────────────────────────────
+  
+  deliverycore.bypass:
+    description: Tüm bypass yetkileri
+    default: op
+    children:
+      deliverycore.bypass.cooldown: true
+      deliverycore.bypass.limit: true
+  
+  deliverycore.bypass.cooldown:
+    description: Bekleme süresini atla
+    default: op
+  
+  deliverycore.bypass.limit:
+    description: Teslimat limitini atla
+    default: op

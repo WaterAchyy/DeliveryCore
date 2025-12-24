@@ -1,0 +1,428 @@
+# ╔═══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                               ║
+# ║                      DeliveryCore - Türkçe Dil Dosyası                        ║
+# ║                                                                               ║
+# ║  Minecraft Sunucuları için Profesyonel Teslimat Etkinlik Sistemi              ║
+# ║  Tüm mesajlar renk kodları ve placeholder'ları destekler                      ║
+# ║                                                                               ║
+# ╚═══════════════════════════════════════════════════════════════════════════════╝
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# RENK KODLARI
+# ═══════════════════════════════════════════════════════════════════════════════
+#   &0 Siyah       &1 Koyu Mavi    &2 Koyu Yeşil   &3 Koyu Camgöbeği
+#   &4 Koyu Kırmızı &5 Koyu Mor    &6 Altın        &7 Gri
+#   &8 Koyu Gri    &9 Mavi         &a Yeşil        &b Camgöbeği
+#   &c Kırmızı     &d Açık Mor     &e Sarı         &f Beyaz
+#   &l Kalın       &o İtalik       &n Altı Çizili  &m Üstü Çizili
+#   &k Sihirli     &r Sıfırla
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+# PLACEHOLDER'LAR
+# ═══════════════════════════════════════════════════════════════════════════════
+#   {player}          - Oyuncu adı
+#   {player_uuid}     - Oyuncu UUID
+#   {category}        - Kategori adı
+#   {item}            - Eşya adı
+#   {delivery_name}   - Teslimat etkinlik adı
+#   {amount}          - Miktar/Sayı
+#   {rank}            - Sıralama
+#   {total}           - Toplam teslimat
+#   {start_time}      - Başlangıç zamanı
+#   {end_time}        - Bitiş zamanı
+#   {remaining_time}  - Kalan süre
+#   {timezone}        - Saat dilimi
+#   {winner_count}    - Kazanan sayısı
+#   {winners}         - Kazananlar listesi
+#   {error}           - Hata mesajı
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │  GENEL AYARLAR                                                              │
+# └─────────────────────────────────────────────────────────────────────────────┘
+
+general:
+  # Plugin prefix - tüm mesajların önünde görünür
+  prefix: "&e&lD&6elivery&e&lC&6ore &8»"
+  
+  # Yetki yok mesajı
+  no_permission: "&cBu komutu kullanma yetkiniz yok."
+  
+  # Konsol oyuncu komutu kullanmaya çalışırsa
+  player_only: "&cBu komut sadece oyuncular tarafından kullanılabilir."
+  
+  # Bilinmeyen alt komut
+  unknown_command: "&cBilinmeyen komut: &f{command}"
+  unknown_command_tip: "&7Yardım için: &e/dc help"
+  
+  # Konsol gönderen adı
+  console_name: "Konsol"
+  
+  # Plugin açılış/kapanış
+  enabled: "&aDeliveryCore aktif edildi!"
+  disabled: "&cDeliveryCore devre dışı bırakıldı!"
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │  KOMUT MESAJLARI                                                            │
+# └─────────────────────────────────────────────────────────────────────────────┘
+
+command:
+  # /dc reload
+  reload:
+    start: "&7⟳ Konfigürasyon yeniden yükleniyor..."
+    success: "&a✓ Konfigürasyon başarıyla yüklendi!"
+    success_with_warnings: "&e⚠ {count} uyarı ile yüklendi. Konsolu kontrol edin."
+    failed: "&c✗ Yükleme başarısız! Önceki ayarlar aktif."
+  
+  # /dc help
+  help:
+    header: "&8&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    title: "&6&l  DeliveryCore &8│ &fYardım Menüsü"
+    footer: "&8&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    
+    basic_header: "&e&lTemel Komutlar"
+    cmd_help: "  &e/dc help &8- &7Bu menüyü gösterir"
+    cmd_version: "  &e/dc version &8- &7Sürüm bilgisi"
+    
+    admin_header: "&c&lYönetim Komutları"
+    cmd_reload: "  &e/dc reload &8- &7Konfigürasyonu yenile"
+    cmd_info: "  &e/dc info &8- &7Sistem bilgisi"
+    cmd_categories: "  &e/dc categories &8- &7Kategorileri listele"
+    
+    event_header: "&a&lEtkinlik Yönetimi"
+    cmd_list: "  &e/dc list &8- &7Tüm teslimatları listele"
+    cmd_status: "  &e/dc status [ad] &8- &7Etkinlik durumu"
+    cmd_start: "  &e/dc start <ad> [süre] [kazanan] &8- &7Etkinlik başlat"
+    cmd_stop: "  &e/dc stop <ad> &8- &7Etkinliği durdur"
+    cmd_top: "  &e/dc top [ad] &8- &7Sıralama tablosu"
+    
+    player_header: "&b&lOyuncu Komutları"
+    cmd_delivery: "  &e/teslimat &8- &7Teslimat menüsünü aç"
+    cmd_deliver: "  &e/teslim &8- &7Envanterden teslim et"
+    
+    tip: "&7Admin: &f/dc&7, Oyuncu: &f/teslimat&7, &f/teslim"
+  
+  # /dc version
+  version:
+    header: "&6&l  ╔══════════════════════════════╗"
+    title: "&6&l  ║     &e&lD&6elivery&e&lC&6ore &f&lv1.0.0    &6&l║"
+    footer: "&6&l  ╚══════════════════════════════╝"
+    description: "&7  Zamanlanmış teslimat etkinlik sistemi"
+    description2: "&7  Minecraft sunucuları için."
+    authors: "&7  Geliştiriciler: &fMaolide&7, &f3Mustafa5"
+    api: "&7  API: &fSpigot/Paper 1.20+"
+  
+  # /dc info
+  info:
+    header: "&8&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    title: "&6&l  DeliveryCore &8│ &fSistem Bilgisi"
+    categories: "  &7Kategoriler    &8│ &f{count}"
+    deliveries: "  &7Teslimatlar    &8│ &f{total} &7(&a{enabled} aktif&7)"
+    active: "  &7Çalışan        &8│ &a{count} &7etkinlik"
+    languages: "  &7Diller         &8│ &ftr, en"
+  
+  # /dc list
+  list:
+    header: "&8&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    title: "&6&l  DeliveryCore &8│ &fTeslimat Listesi"
+    empty: "&7  Tanımlı teslimat yok."
+    empty_tip: "&7  &odeliveries.yml dosyasını düzenleyin."
+    item_running: "  &a▶ &f{name} &a[ÇALIŞIYOR]"
+    item_ready: "  &e● &f{name} &e[HAZIR]"
+    item_disabled: "  &c○ &f{name} &c[KAPALI]"
+    category: "     &7Kategori: &f{category} &8({mode})"
+    winners: "     &7Kazanan: &f{count} kişi"
+    total: "&7  Toplam: &f{count} &7teslimat"
+  
+  # /dc status
+  status:
+    header: "&8&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    title: "&6&l  DeliveryCore &8│ &f{name}"
+    running: "  &7Durum        &8│ &a● Çalışıyor"
+    not_running: "  &7Durum        &8│ &c○ Çalışmıyor"
+    category: "  &7Kategori     &8│ &f{category}"
+    item: "  &7Eşya         &8│ &e{item}"
+    participants: "  &7Katılımcı    &8│ &f{count} kişi"
+    deliveries: "  &7Teslimat     &8│ &f{count} adet"
+    start_time: "  &7Başlangıç    &8│ &f{time}"
+    end_time: "  &7Bitiş        &8│ &f{time}"
+    not_found: "&c✗ Teslimat bulunamadı: &f{name}"
+    not_active: "&7ℹ Bu teslimat şu an aktif değil: &f{name}"
+    not_active_tip: "&7  Başlatmak için: &e/dc start {name}"
+    no_active: "&7ℹ Şu an aktif etkinlik yok."
+    no_active_tip: "&7  &oManuel başlatmak için: &e/dc start <ad>"
+  
+  # /dc start
+  start:
+    usage: "&c✗ Kullanım: &e/dc start <teslimat> [süre] [kazanan]"
+    usage_duration: "&7  Süre formatı: &f1h&7, &f30m&7, &f2h30m"
+    usage_winners: "&7  Kazanan: &f1-10 &7arası sayı"
+    usage_example: "&7  Örnek: &e/dc start gunluk 2h 3"
+    usage_list: "&7  Mevcut teslimatlar için: &e/dc list"
+    not_found: "&c✗ Teslimat bulunamadı: &f{name}"
+    already_running: "&c✗ Bu etkinlik zaten çalışıyor: &f{name}"
+    already_running_tip: "&7  Durumu görmek için: &e/dc status {name}"
+    invalid_duration: "&c✗ Geçersiz süre formatı: &f{duration}"
+    invalid_duration_tip: "&7  Örnek: &f1h&7, &f30m&7, &f2h30m"
+    invalid_winners: "&c✗ Kazanan sayısı 1-10 arası olmalı: &f{count}"
+    failed: "&c✗ Etkinlik başlatılamadı!"
+    failed_tip: "&7  Kategori veya eşya bulunamadı."
+    success: "&a✓ Etkinlik başlatıldı!"
+    success_delivery: "  &7Teslimat    &8│ &f{name}"
+    success_category: "  &7Kategori    &8│ &f{category}"
+    success_item: "  &7Eşya        &8│ &e{item}"
+    success_duration: "  &7Süre        &8│ &f{duration}"
+    success_winners: "  &7Kazanan     &8│ &f{count} kişi"
+  
+  # /dc stop
+  stop:
+    usage: "&c✗ Kullanım: &e/dc stop <teslimat>"
+    usage_tip: "&7  Aktif etkinlikler için: &e/dc status"
+    not_found: "&c✗ Bu etkinlik aktif değil: &f{name}"
+    success: "&c■ Etkinlik durduruldu: &f{name}"
+    winners_header: "&7Kazananlar:"
+    winner_format: "  {medal} &f{player} &7- &e{count} teslimat"
+    no_winners: "&7  Kazanan yok - kimse teslim etmedi."
+  
+  # /dc top
+  top:
+    header: "&8&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    title: "&6&l  Sıralama &8│ &f{item}"
+    empty: "&7  Henüz kimse teslim etmedi."
+    entry: "  {medal} &f{player} &8- &e{count} &7teslimat"
+    total: "&7  Toplam: &f{count} &7teslimat"
+    no_active: "&7ℹ Aktif etkinlik yok."
+  
+  # /dc categories
+  categories:
+    header: "&8&m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    title: "&6&l  DeliveryCore &8│ &fKategori Listesi"
+    empty: "&7  Tanımlı kategori yok."
+    empty_tip: "&7  &ocategories.yml dosyasını kontrol edin."
+    item: "  &e▸ &f{name} &8(&7{count} eşya&8)"
+    total: "&7  Toplam: &f{count} &7kategori"
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │  ETKİNLİK MESAJLARI                                                         │
+# └─────────────────────────────────────────────────────────────────────────────┘
+
+event:
+  # Etkinlik başlangıç duyurusu
+  start:
+    broadcast: "&a{delivery} &7başladı! &eİstenen: &f{item}"
+    title: "&a&l{delivery}"
+    subtitle: "&7İstenen: &e{item}"
+  
+  # Etkinlik bitiş duyurusu
+  end:
+    broadcast: "&c{delivery} &7sona erdi!"
+    winners_header: "&6Kazananlar:"
+    winner_format: "  {color}{rank}. &f{player} &8- &e{count} &7teslimat"
+    no_winners: "&7  Kazanan yok - kimse teslim etmedi."
+    title: "&c&lETKİNLİK BİTTİ!"
+    subtitle: "&7{delivery}"
+  
+  # Aktif etkinlik bilgisi
+  active:
+    info: "&7Aktif: &f{delivery}"
+    item: "&7Eşya: &e{item}"
+    category: "&7Kategori: &f{category}"
+    remaining: "&7Kalan: &f{time}"
+    participants: "&7Katılımcı: &f{count}"
+  
+  # Aktif etkinlik yok
+  none:
+    message: "&7Şu an aktif teslimat etkinliği yok."
+    tip: "&7Zamanlanmış etkinlikleri bekleyin."
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │  TESLİMAT MESAJLARI                                                         │
+# └─────────────────────────────────────────────────────────────────────────────┘
+
+delivery:
+  # Başarılı teslimat
+  success:
+    title: "&a&lTESLİM EDİLDİ!"
+    subtitle: "&e{amount} &7adet &f{item}"
+    message: "&a{amount} &7adet &e{item} &7teslim edildi!"
+    stats: "&7Toplam: &f{total} &8| &7Sıra: &e#{rank}"
+  
+  # Sandıktan teslimat
+  chest:
+    prompt: "&aBir sandığa sağ tıkla! &7(10 saniye)"
+    success: "&a{amount} &7adet &e{item} &7sandıktan teslim edildi!"
+    not_chest: "&cBu bir sandık değil!"
+    empty: "&cSandıkta &e{item} &cyok!"
+    timeout: "&cSandık seçim süresi doldu."
+  
+  # Envanterden teslimat
+  inventory:
+    empty: "&cEnvanterinde &e{item} &cyok!"
+  
+  # Hatalar
+  error:
+    no_active: "&cAktif teslimat etkinliği yok!"
+    invalid_item: "&cGeçersiz eşya: &f{item}"
+    not_started: "&cBu teslimat henüz başlamadı!"
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │  ÖDÜL MESAJLARI                                                             │
+# └─────────────────────────────────────────────────────────────────────────────┘
+
+reward:
+  # Ödül alındı
+  received:
+    item: "&a&l✦ ÖDÜL &r&7Aldın: &f{amount}x {item}&7!"
+    command: "&a&l✦ ÖDÜL &r&7Ödül komutu çalıştırıldı!"
+    both: "&a&l✦ ÖDÜL &r&7Aldın: &f{amount}x {item} &7+ bonus!"
+  
+  # Bekleyen ödüller
+  pending:
+    has_pending: "&eBekleyen ödüllerin var! Kısa süre içinde teslim edilecek."
+    delivered: "&aBekleyen ödüllerin teslim edildi!"
+    none: "&7Bekleyen ödülün yok."
+  
+  # Envanter dolu
+  inventory_full: "&eEnvanter dolu! Ödül daha sonra teslim edilecek."
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │  GUI MESAJLARI                                                              │
+# └─────────────────────────────────────────────────────────────────────────────┘
+
+gui:
+  # Ana menü
+  main:
+    title: "Teslimat Menüsü"
+    active_delivery: "&a{name}"
+    waiting_delivery: "&7{name}"
+    leaderboard: "&bSıralama"
+    leaderboard_lore: "&7En çok teslim edenleri gör"
+    help: "&fYardım"
+    help_lore: "&7Sistemi öğren"
+  
+  # Teslimat detay menüsü
+  detail:
+    title: "Teslimat: {name}"
+    info: "&e{name}"
+    required_item: "&7İstenen Eşya"
+    category: "&7Kategori: &f{category}"
+    total_deliveries: "&7Toplam Teslimat: &e{count}"
+    your_deliveries: "&7Senin Teslimat: &a{count}"
+    your_rank: "&7Sıran: &e#{rank}"
+    deliver_inventory: "&aEnvanterden Teslim Et"
+    deliver_inventory_lore: "&7Envanterindeki tüm {item} eşyalarını teslim et"
+    deliver_chest: "&6Sandıktan Teslim Et"
+    deliver_chest_lore: "&7Bir sandığa sağ tıkla"
+    deliver_chest_time: "&e10 saniye süren var"
+    back: "&cGeri"
+    back_lore: "&7Ana menüye dön"
+  
+  # Sıralama menüsü
+  leaderboard:
+    title: "Sıralama"
+    no_active: "&7Aktif Teslimat Yok"
+    no_active_lore: "&8Sıralama için teslimat bekleniyor"
+    entry: "{color}#{rank} {player}"
+    entry_lore: "&7Teslimat: &e{count}"
+    back: "&cGeri"
+    back_lore: "&7Ana menüye dön"
+  
+  # Bekleyen teslimat
+  waiting:
+    status: "&8Bekliyor"
+    start_time: "&7Başlangıç: &e{time}"
+    not_started: "&8Henüz başlamadı"
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │  HATA MESAJLARI                                                             │
+# └─────────────────────────────────────────────────────────────────────────────┘
+
+error:
+  config_load: "&cKonfigürasyon hatası: &f{error}"
+  event_start: "&cEtkinlik başlatılamadı: &f{error}"
+  event_end: "&cEtkinlik bitirilemedi: &f{error}"
+  reward_give: "&cÖdül verilemedi: &f{error}"
+  webhook_send: "&cWebhook hatası: &f{error}"
+  invalid_player: "&cGeçersiz oyuncu: &f{player}"
+  database: "&cVeritabanı hatası oluştu."
+  internal: "&cDahili bir hata oluştu."
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │  DOĞRULAMA MESAJLARI                                                        │
+# └─────────────────────────────────────────────────────────────────────────────┘
+
+validation:
+  missing_field: "Eksik alan: {field}"
+  invalid_value: "Geçersiz değer: {field} = {value}"
+  invalid_category: "Kategori bulunamadı: {category}"
+  invalid_item: "Geçersiz eşya: {item}"
+  invalid_timezone: "Geçersiz saat dilimi: {timezone}"
+  invalid_schedule: "Geçersiz zamanlama: {expression}"
+  empty_category: "Boş kategori: {category}"
+  duplicate_delivery: "Tekrarlanan teslimat adı: {name}"
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │  WEBHOOK MESAJLARI                                                          │
+# └─────────────────────────────────────────────────────────────────────────────┘
+
+webhook:
+  # Etkinlik başlangıç bildirimi
+  start:
+    title: "📦 {delivery} Başladı!"
+    description: "Yeni bir teslimat etkinliği başladı!\n\n**🎯 Teslim Edilecek Eşya:**\n`{item}`\n\n**📁 Kategori:** {category}\n**⏱️ Süre:** {duration}\n**🏆 Kazanan Sayısı:** {winners} kişi\n\n*Hemen sunucuya gir ve teslimata başla!*"
+    color: 65280  # Yeşil (#00FF00)
+    footer: "DeliveryCore • Teslimat Etkinlik Sistemi"
+  
+  # Etkinlik bitiş bildirimi
+  end:
+    title: "🏆 {delivery} Sona Erdi!"
+    description: "Teslimat etkinliği tamamlandı!\n\n**📦 Teslim Edilen:** `{item}`\n**📁 Kategori:** {category}\n**👥 Katılımcı:** {participants} kişi\n**📊 Toplam Teslimat:** {total} adet"
+    color: 16766720  # Altın (#FFD700)
+    footer: "DeliveryCore • Teslimat Etkinlik Sistemi"
+    winners_title: "🎖️ Kazananlar"
+    winner_format: "{medal} **{player}** - {count} teslimat"
+    no_winners: "*Kimse katılmadı*"
+  
+  # Madalya sembolleri
+  medals:
+    first: "🥇"
+    second: "🥈"
+    third: "🥉"
+    other: "🏅"
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │  ZAMAN FORMATLARI                                                           │
+# └─────────────────────────────────────────────────────────────────────────────┘
+
+time:
+  day: "{count} gün"
+  days: "{count} gün"
+  hour: "{count} saat"
+  hours: "{count} saat"
+  minute: "{count} dakika"
+  minutes: "{count} dakika"
+  second: "{count} saniye"
+  seconds: "{count} saniye"
+  now: "Şimdi"
+  and: "ve"
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │  MADALYA SEMBOLLERİ                                                         │
+# └─────────────────────────────────────────────────────────────────────────────┘
+
+medals:
+  first: "&6&l①"
+  second: "&f&l②"
+  third: "&c&l③"
+  other: "&7{rank}."
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │  SIRALAMA RENKLERİ                                                          │
+# └─────────────────────────────────────────────────────────────────────────────┘
+
+rank_colors:
+  first: "&6"   # Altın
+  second: "&f"  # Beyaz
+  third: "&c"   # Kırmızı
+  other: "&7"   # Gri

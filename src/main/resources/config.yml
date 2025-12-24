@@ -1,0 +1,200 @@
+# ╔═══════════════════════════════════════════════════════════════════════════════╗
+# ║                                                                               ║
+# ║                          D e l i v e r y C o r e                              ║
+# ║                    Profesyonel Teslimat Etkinlik Sistemi                      ║
+# ║                              Sürüm: 1.0.0                                     ║
+# ║                                                                               ║
+# ╚═══════════════════════════════════════════════════════════════════════════════╝
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GENEL AYARLAR
+# ═══════════════════════════════════════════════════════════════════════════════
+
+general:
+  # Dil dosyası (lang klasöründe: tr.yml, en.yml)
+  language: tr
+  
+  # Saat dilimi
+  timezone: Europe/Istanbul
+  
+  # Debug modu (konsola detaylı log)
+  debug: false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# KATEGORİ GÖRÜNEN İSİMLERİ
+# ═══════════════════════════════════════════════════════════════════════════════
+
+category-display-names:
+  farm: "Çiftlik"
+  ore: "Maden"
+  block: "Blok"
+  food: "Yiyecek"
+  wood: "Odun"
+  rare: "Nadir"
+  nether: "Nether"
+  end: "End"
+  mob: "Mob Drop"
+  dye: "Boya"
+  tool: "Alet"
+  armor: "Zırh"
+  combat: "Savaş"
+  potion: "İksir"
+  decoration: "Dekorasyon"
+  redstone: "Kızıltaş"
+  misc: "Çeşitli"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TESLİMAT GÖRÜNEN İSİMLERİ
+# ═══════════════════════════════════════════════════════════════════════════════
+
+delivery-display-names:
+  gunluk: "Günlük Teslimat"
+  maden: "Maden Teslimatı"
+  blok: "Blok Teslimatı"
+  elmas: "Elmas Teslimatı"
+  ciftlik: "Çiftlik Teslimatı"
+  buyuk-etkinlik: "Büyük Etkinlik"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ETKİNLİK AYARLARI
+# ═══════════════════════════════════════════════════════════════════════════════
+
+events:
+  # Aynı anda maksimum aktif etkinlik
+  max-concurrent: 5
+  
+  # Duyurular
+  announcements:
+    start: true
+    end: true
+  
+  # Sesler
+  sounds:
+    enabled: true
+    start: "ENTITY_PLAYER_LEVELUP"
+    end: "UI_TOAST_CHALLENGE_COMPLETE"
+  
+  # Title gösterimi
+  title:
+    enabled: true
+    fade-in: 10
+    stay: 70
+    fade-out: 20
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WEBHOOK (Discord)
+# ═══════════════════════════════════════════════════════════════════════════════
+# 
+# Discord webhook entegrasyonu ile etkinlik başlangıç ve bitiş bildirimlerini
+# Discord sunucunuza otomatik olarak gönderin.
+#
+# Webhook URL nasıl alınır:
+# 1. Discord sunucunuzda bir kanal seçin
+# 2. Kanal Ayarları > Entegrasyonlar > Webhooks
+# 3. "Yeni Webhook" oluşturun ve URL'yi kopyalayın
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+webhook:
+  # Webhook'u aktif/pasif yap
+  enabled: true
+  
+  # Discord Webhook URL'si (buraya Discord webhook URL'nizi yapıştırın)
+  url: "YOUR_WEBHOOK_URL_HERE"
+  
+  # @everyone mention'ı gönder (dikkat: spam olabilir!)
+  mention-everyone: false
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # ETKİNLİK BAŞLANGIÇ EMBED'İ
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Placeholders:
+  #   {delivery}    - Teslimat adı
+  #   {item}        - İstenen eşya
+  #   {category}    - Kategori adı
+  #   {duration}    - Süre
+  #   {winners}     - Kazanan sayısı
+  #   {end_time}    - Bitiş zamanı
+  # ─────────────────────────────────────────────────────────────────────────────
+  start:
+    # Embed başlığı
+    title: "📦 {delivery} Başladı!"
+    
+    # Embed açıklaması (\\n ile yeni satır)
+    description: "Yeni bir teslimat etkinliği başladı!\\n\\n**🎯 Teslim Edilecek Eşya:**\\n`{item}`\\n\\n**📁 Kategori:** {category}\\n**⏱️ Süre:** {duration}\\n**🏆 Kazanan Sayısı:** {winners} kişi\\n\\n*Hemen sunucuya gir ve teslimata başla!*"
+    
+    # Embed rengi (hex: #00FF00 veya decimal: 65280)
+    color: "#00FF00"
+    
+    # Footer metni
+    footer: "DeliveryCore • Teslimat Etkinlik Sistemi"
+    
+    # Thumbnail resmi (URL veya boş bırak)
+    thumbnail: ""
+    
+    # Author bilgisi
+    author:
+      name: "Teslimat" # (sunucu isminiz)
+      icon: ""
+    
+    # Ek alanlar (fields)
+    fields:
+      - name: "Nasıl Katılırım?"
+        value: "Sunucuya gir ve `/teslimat` komutu ile menüyü aç!"
+        inline: false
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # ETKİNLİK BİTİŞ EMBED'İ
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Placeholders:
+  #   {delivery}    - Teslimat adı
+  #   {item}        - Teslim edilen eşya
+  #   {category}    - Kategori adı
+  #   {total}       - Toplam teslimat sayısı
+  #   {participants}- Katılımcı sayısı
+  #   {winners}     - Kazananlar listesi (otomatik oluşturulur)
+  # ─────────────────────────────────────────────────────────────────────────────
+  end:
+    # Embed başlığı
+    title: "🏆 {delivery} Sona Erdi!"
+    
+    # Embed açıklaması
+    description: "Teslimat etkinliği tamamlandı!\\n\\n**📦 Teslim Edilen:** `{item}`\\n**📁 Kategori:** {category}\\n**👥 Katılımcı:** {participants} kişi\\n**📊 Toplam Teslimat:** {total} adet"
+    
+    # Embed rengi
+    color: "#FFD700"
+    
+    # Footer metni
+    footer: "DeliveryCore • Teslimat Sistemi"
+    
+    # Thumbnail resmi
+    thumbnail: ""
+    
+    # Kazananlar bölümü
+    winners:
+      # Kazananlar başlığı
+      title: "🎖️ Kazananlar"
+      
+      # Kazanan formatı ({rank}, {player}, {count} kullanılabilir)
+      format: "{medal} **{player}** - {count} teslimat"
+      
+      # Madalya sembolleri
+      medals:
+        first: "🥇"
+        second: "🥈"
+        third: "🥉"
+        other: "🏅"
+      
+      # Kazanan yoksa gösterilecek mesaj
+      no-winners: "*Kimse katılmadı*"
+      
+      # Maksimum gösterilecek kazanan sayısı
+      max-display: 5
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# VERİ KAYDETME
+# ═══════════════════════════════════════════════════════════════════════════════
+
+data:
+  auto-save-interval: 5
+  file: "data.yml"
