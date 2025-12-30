@@ -15,6 +15,7 @@ import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -25,6 +26,14 @@ import java.util.regex.Pattern;
  * Parses natural language schedule expressions and manages event scheduling.
  * Supports event resumption after server restart.
  * 
+ * Supported formats:
+ * - "every day HH:mm" - Her gün
+ * - "every monday HH:mm" - Her pazartesi (tüm günler desteklenir)
+ * - "every week monday HH:mm" - Haftalık (her pazartesi)
+ * - "every month 15 HH:mm" - Aylık (her ayın 15'i)
+ * - "every month first monday HH:mm" - Aylık (her ayın ilk pazartesisi)
+ * - "every month last friday HH:mm" - Aylık (her ayın son cuması)
+ * 
  * Requirements: 4.1, 4.2, 4.3, 4.4, 4.5
  */
 public class SchedulerServiceImpl implements SchedulerService {
@@ -32,10 +41,31 @@ public class SchedulerServiceImpl implements SchedulerService {
     private static final Logger LOGGER = Logger.getLogger(SchedulerServiceImpl.class.getName());
     
     // Pattern: "every <day> HH:mm" or "every day HH:mm"
-    private static final Pattern SCHEDULE_PATTERN = Pattern.compile(
+    private static final Pattern DAILY_PATTERN = Pattern.compile(
         "^every\\s+(monday|tuesday|wednesday|thursday|friday|saturday|sunday|day)\\s+(\\d{1,2}):(\\d{2})$",
         Pattern.CASE_INSENSITIVE
     );
+    
+    // Pattern: "every week <day> HH:mm" - Haftalık
+    private static final Pattern WEEKLY_PATTERN = Pattern.compile(
+        "^every\\s+week\\s+(monday|tuesday|wednesday|thursday|friday|saturday|sunday)\\s+(\\d{1,2}):(\\d{2})$",
+        Pattern.CASE_INSENSITIVE
+    );
+    
+    // Pattern: "every month <day_number> HH:mm" - Aylık (belirli gün)
+    private static final Pattern MONTHLY_DAY_PATTERN = Pattern.compile(
+        "^every\\s+month\\s+(\\d{1,2})\\s+(\\d{1,2}):(\\d{2})$",
+        Pattern.CASE_INSENSITIVE
+    );
+    
+    // Pattern: "every month first/last <day> HH:mm" - Aylık (ilk/son gün)
+    private static final Pattern MONTHLY_ORDINAL_PATTERN = Pattern.compile(
+        "^every\\s+month\\s+(first|last|1st|2nd|3rd|4th)\\s+(monday|tuesday|wednesday|thursday|friday|saturday|sunday)\\s+(\\d{1,2}):(\\d{2})$",
+        Pattern.CASE_INSENSITIVE
+    );
+    
+    // Alias for DAILY_PATTERN - used by parseScheduleExpression and isValidExpression
+    private static final Pattern SCHEDULE_PATTERN = DAILY_PATTERN;
     
     private static final Map<String, DayOfWeek> DAY_MAP = Map.of(
         "monday", DayOfWeek.MONDAY,
@@ -45,6 +75,15 @@ public class SchedulerServiceImpl implements SchedulerService {
         "friday", DayOfWeek.FRIDAY,
         "saturday", DayOfWeek.SATURDAY,
         "sunday", DayOfWeek.SUNDAY
+    );
+    
+    private static final Map<String, Integer> ORDINAL_MAP = Map.of(
+        "first", 1,
+        "1st", 1,
+        "2nd", 2,
+        "3rd", 3,
+        "4th", 4,
+        "last", -1
     );
     
     private final Map<String, ScheduledFuture<?>> scheduledTasks = new HashMap<>();

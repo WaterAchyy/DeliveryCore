@@ -14,37 +14,51 @@ authors:
   - 3Mustafa5
 description: |
  Sunucu sahipleri için kapsamlı teslimat sistemi.
- 1.16.5+ tüm versiyonlarla uyumlu.
-website: https://github.com/deliverycore
+ 1.16.5+ tüm versiyonlarla uyumlu. v1.1: Sezonluk sistem, Tab entegrasyonu, Hologram desteği.
+website: https://modrinth.com/plugin/delicerycore
 softdepend:
   - PlaceholderAPI
   - Vault
   - HolographicDisplays
   - DecentHolograms
+  - ProtocolLib
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # KOMUTLAR
 # ═══════════════════════════════════════════════════════════════════════════════
 
 commands:
-  # Ana admin komutu
   deliverycore:
     description: DeliveryCore admin komutları
-    usage: /<command> <help|reload|list|start|stop|status>
+    usage: /<command> <help|reload|list|start|stop|status|holo|additem>
     aliases: [dc]
     permission: deliverycore.admin
   
-  # Oyuncu teslimat menüsü
+  # Oyuncu teslimat menüsü (Türkçe)
   teslimat:
     description: Teslimat menüsünü açar
     usage: /<command> [bilgi|top]
-    aliases: [deliver, deliverymenu, dm, tm]
+    aliases: [tm]
     permission: deliverycore.use
   
-  # Hızlı teslimat komutu
+  # Oyuncu teslimat menüsü (İngilizce)
+  delivery:
+    description: Opens delivery menu
+    usage: /<command> [info|top]
+    aliases: [deliverymenu, dm]
+    permission: deliverycore.use
+  
+  # Hızlı teslimat komutu (Türkçe)
   teslim:
     description: Eşyaları hızlıca teslim eder
     usage: /<command> [kategori|sandik]
+    aliases: []
+    permission: deliverycore.deliver
+  
+  # Hızlı teslimat komutu (İngilizce)
+  deliver:
+    description: Quickly delivers items
+    usage: /<command> [category|chest]
     aliases: [del]
     permission: deliverycore.deliver
 
@@ -79,6 +93,7 @@ permissions:
       deliverycore.admin.stop: true
       deliverycore.admin.list: true
       deliverycore.admin.status: true
+      deliverycore.admin.holo: true
   
   deliverycore.admin.reload:
     description: Konfigürasyonu yeniden yükleme
@@ -98,6 +113,10 @@ permissions:
   
   deliverycore.admin.status:
     description: Durum görüntüleme
+    default: op
+  
+  deliverycore.admin.holo:
+    description: Hologram yönetimi (create, list, remove)
     default: op
   
   # ─────────────────────────────────────────────────────────────────────────────

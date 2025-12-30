@@ -1,41 +1,17 @@
 # ╔═══════════════════════════════════════════════════════════════════════════════╗
-# ║                                                                               ║
 # ║                    DeliveryCore - Teslimat Tanımları                          ║
-# ║                                                                               ║
 # ╚═══════════════════════════════════════════════════════════════════════════════╝
 #
-# ═══════════════════════════════════════════════════════════════════════════════
-# KATEGORİ VE EŞYA SEÇİMİ
-# ═══════════════════════════════════════════════════════════════════════════════
+# ZAMANLAMA FORMATLARI:
+#   "every day HH:mm"              → Her gün
+#   "every monday HH:mm"           → Her pazartesi (tüm günler desteklenir)
+#   "every week monday HH:mm"      → Haftalık
+#   "every month 15 HH:mm"         → Aylık (ayın 15'i)
+#   "every month first monday HH:mm" → Aylık (ilk pazartesi)
 #
-#   category:
-#     mode: random              → Rastgele kategori seç
-#     mode: fixed               → Sabit kategori kullan
-#       value: block            → Kategori adı (categories.yml'den)
-#
-#   item:
-#     mode: random              → Kategoriden rastgele eşya seç
-#     mode: fixed               → Sabit eşya kullan
-#       value: DIAMOND          → Eşya adı
-#
-# ═══════════════════════════════════════════════════════════════════════════════
-# ZAMANLAMA
-# ═══════════════════════════════════════════════════════════════════════════════
-#
-#   schedule:
-#     start: "every day 20:00"      → Her gün 20:00'da başla
-#     end: "every day 21:00"        → Her gün 21:00'da bitir
-#
-# ═══════════════════════════════════════════════════════════════════════════════
-# WEBHOOK
-# ═══════════════════════════════════════════════════════════════════════════════
-#
-#   webhook:
-#     enabled: true/false       → Bu teslimat için webhook aktif mi?
-#     url: ""                   → Özel URL (boş bırakırsan config.yml'deki kullanılır)
-#
-#   NOT: Webhook ayarları (embed, renkler, format) config.yml'den alınır.
-#        Burada sadece aktif/pasif ve opsiyonel özel URL belirtilir.
+# KATEGORİ/EŞYA SEÇİMİ:
+#   mode: random  → Rastgele seç
+#   mode: fixed   → Sabit değer kullan (value: ile belirt)
 #
 # ═══════════════════════════════════════════════════════════════════════════════
 
@@ -49,6 +25,7 @@ deliveries:
     enabled: true
     display-name: "Günlük Teslimat"
     visible-before-start: true
+    winner-count: 3
     
     category:
       mode: random
@@ -65,11 +42,6 @@ deliveries:
       enabled: true
       tax-rate: 0.0
     
-    end-commands:
-      enabled: false 
-      commands:
-        - "cc give {player} vote 1"
-
     rewards:
       1:
         type: both
@@ -88,19 +60,76 @@ deliveries:
         type: item
         item: DIAMOND
         amount: 3
-      4-10:
-        type: command
-        commands:
-          - "eco give {player} 500"
       default:
         type: command
         commands:
           - "eco give {player} 100"
     
-    # Webhook - config.yml'deki ayarları kullanır
     webhook:
       enabled: true
-      url: ""  # Boş = config.yml'deki global URL
+    
+    tab-display:
+      enabled: true
+
+  # ┌─────────────────────────────────────────────────────────────────────────────┐
+  # │  HAFTALIK TESLİMAT                                                          │
+  # └─────────────────────────────────────────────────────────────────────────────┘
+  
+  haftalik:
+    enabled: true
+    display-name: "Haftalık Teslimat"
+    visible-before-start: true
+    winner-count: 5
+    
+    category:
+      mode: random
+    item:
+      mode: random
+    
+    timezone: Europe/Istanbul
+    
+    schedule:
+      start: "every monday 19:00"
+      end: "every monday 21:00"
+    
+    sellable:
+      enabled: true
+      tax-rate: 0.05
+    
+    rewards:
+      1:
+        type: both
+        item: DIAMOND
+        amount: 32
+        commands:
+          - "eco give {player} 20000"
+          - "broadcast &d&l⚡ &e{player} &7haftalık yarışı kazandı!"
+      2:
+        type: both
+        item: DIAMOND
+        amount: 16
+        commands:
+          - "eco give {player} 10000"
+      3:
+        type: both
+        item: DIAMOND
+        amount: 8
+        commands:
+          - "eco give {player} 5000"
+      4-5:
+        type: command
+        commands:
+          - "eco give {player} 2000"
+      default:
+        type: command
+        commands:
+          - "eco give {player} 500"
+    
+    webhook:
+      enabled: true
+    
+    tab-display:
+      enabled: true
 
   # ┌─────────────────────────────────────────────────────────────────────────────┐
   # │  MADEN TESLİMATI                                                            │
@@ -110,6 +139,7 @@ deliveries:
     enabled: true
     display-name: "Maden Teslimatı"
     visible-before-start: true
+    winner-count: 3
     
     category:
       mode: fixed
@@ -127,10 +157,6 @@ deliveries:
       enabled: true
       tax-rate: 0.0
     
-    end-commands:
-      enabled: false
-      commands: []
-    
     rewards:
       1:
         type: command
@@ -144,61 +170,58 @@ deliveries:
         type: command
         commands:
           - "eco give {player} 2500"
-      4-5:
-        type: command
-        commands:
-          - "eco give {player} 1000"
     
     webhook:
       enabled: true
-      url: ""
+    
+    tab-display:
+      enabled: true
 
   # ┌─────────────────────────────────────────────────────────────────────────────┐
-  # │  BLOK TESLİMATI                                                             │
+  # │  ÇİFTLİK TESLİMATI                                                          │
   # └─────────────────────────────────────────────────────────────────────────────┘
   
-  blok:
+  ciftlik:
     enabled: true
-    display-name: "Blok Teslimatı"
+    display-name: "Çiftlik Teslimatı"
     visible-before-start: true
+    winner-count: 3
     
     category:
       mode: fixed
-      value: block
+      value: farm
     item:
       mode: random
     
     timezone: Europe/Istanbul
     
     schedule:
-      start: "every sunday 14:00"
-      end: "every sunday 16:00"
+      start: "every wednesday 21:00"
+      end: "every wednesday 22:00"
     
     sellable:
       enabled: true
       tax-rate: 0.05
     
-    end-commands:
-      enabled: false
-      commands: []
-    
     rewards:
       1:
         type: item
-        item: DIAMOND
-        amount: 5
+        item: GOLDEN_CARROT
+        amount: 64
       2:
         type: item
-        item: DIAMOND
-        amount: 3
+        item: GOLDEN_CARROT
+        amount: 32
       3:
         type: item
-        item: DIAMOND
-        amount: 1
+        item: GOLDEN_CARROT
+        amount: 16
     
     webhook:
       enabled: true
-      url: ""
+    
+    tab-display:
+      enabled: false
 
   # ┌─────────────────────────────────────────────────────────────────────────────┐
   # │  ELMAS TESLİMATI                                                            │
@@ -208,6 +231,7 @@ deliveries:
     enabled: true
     display-name: "Elmas Teslimatı"
     visible-before-start: true
+    winner-count: 5
     
     category:
       mode: fixed
@@ -225,11 +249,6 @@ deliveries:
     sellable:
       enabled: true
       tax-rate: 0.20
-    
-    end-commands:
-      enabled: true
-      commands:
-        - "cc give {player} elmas_teslimat 1"
     
     rewards:
       1:
@@ -250,7 +269,7 @@ deliveries:
         amount: 8
         commands:
           - "eco give {player} 2500"
-      4-10:
+      4-5:
         type: command
         commands:
           - "eco give {player} 1000"
@@ -261,64 +280,19 @@ deliveries:
     
     webhook:
       enabled: true
-      url: ""
+    
+    tab-display:
+      enabled: true
 
   # ┌─────────────────────────────────────────────────────────────────────────────┐
-  # │  ÇİFTLİK TESLİMATI                                                          │
-  # └─────────────────────────────────────────────────────────────────────────────┘
-  
-  ciftlik:
-    enabled: true
-    display-name: "Çiftlik Teslimatı"
-    visible-before-start: true
-    
-    category:
-      mode: fixed
-      value: farm
-    item:
-      mode: random
-    
-    timezone: Europe/Istanbul
-    
-    schedule:
-      start: "every wednesday 21:00"
-      end: "every wednesday 22:00"
-    
-    sellable:
-      enabled: true
-      tax-rate: 0.05
-    
-    end-commands:
-      enabled: false
-      commands: []
-    
-    rewards:
-      1:
-        type: item
-        item: GOLDEN_CARROT
-        amount: 64
-      2:
-        type: item
-        item: GOLDEN_CARROT
-        amount: 32
-      3:
-        type: item
-        item: GOLDEN_CARROT
-        amount: 16
-    
-    webhook:
-      enabled: true
-      url: ""
-
-  # ┌─────────────────────────────────────────────────────────────────────────────┐
-  # │  BÜYÜK TESLİMAT ETKİNLİĞİ                                                   │
-  # │  Özel webhook URL örneği - farklı Discord kanalına gönderir                 │
+  # │  BÜYÜK ETKİNLİK                                                             │
   # └─────────────────────────────────────────────────────────────────────────────┘
   
   buyuk-etkinlik:
     enabled: true
     display-name: "Büyük Teslimat Etkinliği"
     visible-before-start: true
+    winner-count: 10
     
     category:
       mode: random
@@ -334,12 +308,6 @@ deliveries:
     sellable:
       enabled: true
       tax-rate: 0.15
-    
-    end-commands:
-      enabled: true
-      commands:
-        - "cc give {player} buyuk_etkinlik 1"
-        - "cc give {player} siralama_{rank} 1"
     
     rewards:
       1:
@@ -365,24 +333,102 @@ deliveries:
         type: command
         commands:
           - "eco give {player} 5000"
-      11-25:
-        type: command
-        commands:
-          - "eco give {player} 2500"
-      26-50:
-        type: command
-        commands:
-          - "eco give {player} 1000"
-      51-100:
-        type: command
-        commands:
-          - "eco give {player} 500"
       default:
         type: command
         commands:
           - "eco give {player} 100"
     
-    # Özel webhook URL - farklı Discord kanalına gönderir
     webhook:
       enabled: true
-      url: ""  # Buraya özel URL yazabilirsin, boşsa config.yml'deki kullanılır
+    
+    tab-display:
+      enabled: true
+
+  # ┌─────────────────────────────────────────────────────────────────────────────┐
+  # │  SEZONLUK ETKİNLİK (YAZ)                                                    │
+  # └─────────────────────────────────────────────────────────────────────────────┘
+  
+  yaz-sezonu:
+    enabled: false  # Sezon dışında kapalı
+    display-name: "Yaz Sezonu Teslimatı"
+    visible-before-start: true
+    winner-count: 5
+    
+    category:
+      mode: fixed
+      value: farm
+    item:
+      mode: random
+    
+    timezone: Europe/Istanbul
+    
+    schedule:
+      start: "every saturday 15:00"
+      end: "every saturday 18:00"
+    
+    # Sezon sistemi - sadece yaz aylarında aktif
+    season:
+      enabled: true
+      months: [6, 7, 8]  # Haziran, Temmuz, Ağustos
+    
+    sellable:
+      enabled: true
+      tax-rate: 0.10
+    
+    rewards:
+      1:
+        type: both
+        item: GOLDEN_APPLE
+        amount: 16
+        commands:
+          - "eco give {player} 15000"
+          - "broadcast &6&l☀ &e{player} &7yaz sezonunu kazandı!"
+      2:
+        type: both
+        item: GOLDEN_APPLE
+        amount: 8
+        commands:
+          - "eco give {player} 7500"
+      3:
+        type: both
+        item: GOLDEN_APPLE
+        amount: 4
+        commands:
+          - "eco give {player} 3000"
+      4-5:
+        type: command
+        commands:
+          - "eco give {player} 1500"
+      default:
+        type: command
+        commands:
+          - "eco give {player} 200"
+    
+    webhook:
+      enabled: true
+    
+    tab-display:
+      enabled: true
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# AÇIKLAMALAR
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# winner-count: Kaç kişi kazanacak (varsayılan: 1)
+#
+# rewards:
+#   type: item     → Sadece eşya ver
+#   type: command  → Sadece komut çalıştır
+#   type: both     → Hem eşya hem komut
+#
+# season:
+#   enabled: true
+#   months: [1, 2, 3]  → Sadece bu aylarda aktif (1=Ocak, 12=Aralık)
+#
+# tab-display:
+#   enabled: true  → Tab listesinde göster
+#
+# webhook:
+#   enabled: true  → Discord webhook gönder
+#
+# ═══════════════════════════════════════════════════════════════════════════════

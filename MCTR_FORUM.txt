@@ -1,190 +1,240 @@
 [CENTER]
-[SIZE=7][B][COLOR=#FFD700]D[/COLOR][COLOR=#FFA500]elivery[/COLOR][COLOR=#FFD700]C[/COLOR][COLOR=#FFA500]ore[/COLOR][/B][/SIZE]
-[SIZE=4][COLOR=#888888]Profesyonel Teslimat Etkinlik Sistemi[/COLOR][/SIZE]
+[SIZE=7][B][COLOR=#FFD700]🚚 D[/COLOR][COLOR=#FFA500]elivery[/COLOR][COLOR=#FFD700]C[/COLOR][COLOR=#FFA500]ore[/COLOR] [COLOR=#FFD700]v1.0.0 🚚[/B][/SIZE]
+[SIZE=4][COLOR=#87CEEB]Profesyonel Teslimat Etkinlik Sistemi[/COLOR][/SIZE]
 
-[IMG]https://i.imgur.com/placeholder-banner.png[/IMG]
+bı
 
 [SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
 [/CENTER]
 
-[SIZE=5][B][COLOR=#4CAF50]HAKKINDA[/COLOR][/B][/SIZE]
+[SIZE=5][B][COLOR=#32CD32]📦 DeliveryCore Nedir?[/COLOR][/B][/SIZE]
 [SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
 
-DeliveryCore, sunucunuz için profesyonel bir teslimat etkinlik sistemidir. Oyuncular belirli eşyaları toplayıp teslim ederek ödüller kazanır. Zamanlanmış etkinlikler, gerçek zamanlı sıralama ve Discord entegrasyonu ile sunucunuza heyecan katın.
+DeliveryCore, Minecraft sunucunuz için geliştirilmiş [B]en kapsamlı teslimat etkinlik sistemi[/B]dir! Oyuncular belirli eşyaları toplayıp teslim ederek ödüller kazanır, sıralamada yükselir ve Discord'da duyurular alır. Tamamen özelleştirilebilir ve profesyonel bir deneyim sunar.
+
+[SIZE=5][B][COLOR=#FF6347]✨ Temel Özellikler[/COLOR][/B][/SIZE]
+[SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
 
 [LIST]
-[*][B]Zamanlanmış Etkinlikler[/B] - Belirlediğiniz saatlerde otomatik başlar
-[*][B]Kategori Sistemi[/B] - Çiftlik, maden, mob drop ve daha fazlası
-[*][B]Gerçek Zamanlı Sıralama[/B] - Anlık liderlik tablosu
-[*][B]Sandık Teslimi[/B] - Envanterden veya sandıktan teslim (Double Chest destekli)
-[*][B]Discord Webhook[/B] - Etkinlik bildirimlerini Discord'a gönder
-[*][B]Türkçe Destek[/B] - Tam Türkçe arayüz ve mesajlar
+[*]🕐 [B]Akıllı Zamanlama:[/B] Doğal dil ile etkinlik programlama ("her gün saat 18:00", "her pazartesi 20:30")
+[*]📦 [B]17 Kategori:[/B] Çiftlik, Maden, Blok, Yiyecek, Odun, Nadir, Nether, End, Mob, Boya, Alet, Zırh, Savaş, İksir, Dekorasyon, Kızıltaş, Çeşitli
+[*]🎯 [B]Akıllı Seçim:[/B] Rastgele veya sabit kategori/eşya seçimi
+[*]🎨 [B]Güzel GUI:[/B] Özel kafa dokuları ile profesyonel arayüz
+[*]🏆 [B]Canlı Sıralama:[/B] Gerçek zamanlı leaderboard sistemi
+[*]📱 [B]Çift Teslimat:[/B] Envanterden veya sandıktan teslim etme
+[*]🌍 [B]Çoklu Dil:[/B] Türkçe & İngilizce tam destek + dinamik dil değiştirme
 [/LIST]
 
-[SIZE=5][B][COLOR=#2196F3]ÖZELLİKLER[/COLOR][/B][/SIZE]
+[SIZE=5][B][COLOR=#9370DB]🔥 Gelişmiş Özellikler[/COLOR][/B][/SIZE]
 [SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
 
-[TABLE]
-[TR]
-[TD][B][COLOR=#FFD700]Etkinlik Sistemi[/COLOR][/B][/TD]
-[TD][B][COLOR=#FFD700]GUI Sistemi[/COLOR][/B][/TD]
-[TD][B][COLOR=#FFD700]Ödül Sistemi[/COLOR][/B][/TD]
-[/TR]
-[TR]
-[TD]
-- Zamanlanmış başlangıç
-- Otomatik eşya seçimi
-- Kategori bazlı etkinlikler
-- Süreli etkinlikler
-[/TD]
-[TD]
-- Modern arayüz
-- SmallCaps font
-- Özel kafa tekstürleri
-- Kolay kullanım
-[/TD]
-[TD]
-- Sıralama ödülleri
-- Komut ödülleri
-- Eşya ödülleri
-- Offline ödül saklama
-[/TD]
-[/TR]
-[/TABLE]
+[LIST]
+[*]💬 [B]Discord Webhook:[/B] Etkinlik başlangıç/bitiş bildirimleri + kazanan sıralaması
+[*]🎁 [B]Akıllı Ödül Sistemi:[/B] Eşya + komut ödülleri, çevrimdışı oyuncular için bekleyen ödüller
+[*]🔒 [B]Koruma Uyumluluğu:[/B] WorldGuard, GriefPrevention, ASkyBlock ile tam uyumlu
+[*]💾 [B]Veri Kalıcılığı:[/B] Sunucu yeniden başlatmalarında etkinlik verilerini koruma
+[*]🎮 [B]Admin Kontrolü:[/B] Manuel etkinlik başlatma/durdurma, süre ayarlama
+[*]📊 [B]Placeholder Sistemi:[/B] 12+ placeholder ile tam entegrasyon
+[*]🔧 [B]Canlı Yenileme:[/B] Sunucu kapatmadan tüm ayarları yenileme
+[/LIST]
 
-[SIZE=5][B][COLOR=#FF9800]KOMUTLAR[/COLOR][/B][/SIZE]
-[SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
-
-[B][COLOR=#4CAF50]Oyuncu Komutları[/COLOR][/B]
-[CODE]
-/teslimat                     - Teslimat menüsünü açar
-/teslimat top                 - Sıralama tablosunu gösterir
-/teslimat bilgi               - Aktif teslimat bilgisi
-
-/teslim                       - Envanterdeki tüm eşyaları teslim eder
-/teslim <teslimat>            - Belirli teslimata teslim eder
-/teslim <teslimat> <sayı>     - Belirli miktarda teslim eder
-[/CODE]
-
-[B][COLOR=#F44336]Yönetici Komutları[/COLOR][/B]
-[CODE]
-/deliverycore reload          - Konfigürasyonu yeniden yükler
-/deliverycore start <teslimat> - Etkinliği manuel başlatır
-/deliverycore stop <teslimat>  - Etkinliği durdurur
-/deliverycore list            - Tüm teslimat listesi
-[/CODE]
-
-[SIZE=5][B][COLOR=#9C27B0]İZİNLER[/COLOR][/B][/SIZE]
+[SIZE=5][B][COLOR=#FF1493]🎮 Oyuncu Komutları[/COLOR][/B][/SIZE]
 [SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
 
 [CODE]
-deliverycore.use       - Teslimat menüsünü kullanma (varsayılan: true)
-deliverycore.deliver   - Eşya teslim etme (varsayılan: true)
-deliverycore.admin     - Yönetici komutları
-deliverycore.reload    - Konfigürasyon yeniden yükleme
+/teslimat                     - Ana teslimat menüsünü açar
+/teslim                       - Envanterden hızlı teslimat yapar
 [/CODE]
 
-[SIZE=5][B][COLOR=#00BCD4]KONFİGÜRASYON[/COLOR][/B][/SIZE]
+[SIZE=5][B][COLOR=#FF4500]⚡ Admin Komutları[/COLOR][/B][/SIZE]
 [SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
 
-[B]deliveries.yml - Teslimat Tanımları[/B]
+[CODE]
+/dc help                      - Yardım menüsü
+/dc reload                    - Tüm konfigürasyonları yenile
+/dc info                      - Sistem bilgilerini göster
+/dc version                   - Plugin sürüm bilgisi
+
+/dc list                      - Tüm teslimatları listele
+/dc status [ad]               - Etkinlik durumunu göster
+/dc start <ad> [süre] [kazanan] - Manuel etkinlik başlat
+/dc stop <ad>                 - Aktif etkinliği durdur
+/dc top [ad]                  - Sıralama tablosunu göster
+/dc categories                - Kategorileri listele
+[/CODE]
+
+[SIZE=5][B][COLOR=#00CED1]🔧 Konfigürasyon Dosyaları[/COLOR][/B][/SIZE]
+[SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
+
+[LIST]
+[*][B]config.yml:[/B] Genel ayarlar, webhook, görünen isimler
+[*][B]categories.yml:[/B] Eşya kategorileri ve içerikleri
+[*][B]deliveries.yml:[/B] Teslimat etkinlik tanımları
+[*][B]items.yml:[/B] Eşya görünen isimleri ve fiyatları
+[*][B]lang/tr.yml & lang/en.yml:[/B] Dil dosyaları
+[/LIST]
+
+[SIZE=5][B][COLOR=#32CD32]📱 Discord Entegrasyonu[/COLOR][/B][/SIZE]
+[SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
+
+[LIST]
+[*]Etkinlik başlangıç bildirimleri (embed mesajlar)
+[*]Etkinlik bitiş bildirimleri + kazanan sıralaması
+[*]Özelleştirilebilir embed renkleri ve mesajları
+[*]@everyone mention desteği
+[*]Madalya sembolleri (🥇🥈🥉🏅)
+[/LIST]
+
+[SPOILER="Discord Webhook Örneği"]
 [CODE=yaml]
-deliveries:
-  gunluk-teslimat:
-    enabled: true
-    category: farm
-    duration: 2h
-    schedule: "every day 20:00"
-    rewards:
-      1:
-        commands:
-          - "eco give %player% 5000"
-          - "broadcast %player% 1. oldu!"
-      2:
-        commands:
-          - "eco give %player% 2500"
-      3:
-        commands:
-          - "eco give %player% 1000"
+webhook:
+  enabled: true
+  url: "YOUR_DISCORD_WEBHOOK_URL"
+  start:
+    title: "📦 {delivery} Başladı!"
+    description: "**🎯 Teslim Edilecek:** {item}\n**📁 Kategori:** {category}"
+    color: "#00FF00"
+  end:
+    title: "🏆 {delivery} Sona Erdi!"
+    description: "**📦 Teslim Edilen:** {item}\n**👥 Katılımcı:** {participants}"
+    color: "#FFD700"
 [/CODE]
+[/SPOILER]
 
-[B]items.yml - Eşya Tanımları[/B]
-[CODE=yaml]
-items:
-  DIAMOND:
-    display-name: "Elmas"
-    price: 500
-  WHEAT:
-    display-name: "Buğday"
-    price: 5
-  ENDER_PEARL:
-    display-name: "Ender İncisi"
-    price: 30
-  MAGMA_BLOCK:
-    display-name: "Magma Bloğu"
-    price: 15
-[/CODE]
-
-[B]categories.yml - Kategori Tanımları[/B]
-[CODE=yaml]
-categories:
-  farm:
-    items:
-      - WHEAT
-      - CARROT
-      - POTATO
-      - BEETROOT
-  ore:
-    items:
-      - DIAMOND
-      - EMERALD
-      - IRON_INGOT
-      - GOLD_INGOT
-  nether:
-    items:
-      - MAGMA_BLOCK
-      - NETHER_WART
-      - BLAZE_ROD
-[/CODE]
-
-[SIZE=5][B][COLOR=#E91E63]ZAMANLAMA FORMATI[/COLOR][/B][/SIZE]
+[SIZE=5][B][COLOR=#FF69B4]🎁 Ödül Sistemi[/COLOR][/B][/SIZE]
 [SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
 
-[CODE]
-every day 20:00        - Her gün saat 20:00'de
-every day 08:00,20:00  - Her gün 08:00 ve 20:00'de
-every monday 19:00     - Her pazartesi 19:00'da
-every friday 21:00     - Her cuma 21:00'de
-every hour             - Her saat başında
-[/CODE]
+[LIST]
+[*]Eşya ödülleri (miktar + tip)
+[*]Komut ödülleri (özelleştirilebilir)
+[*]Çevrimdışı oyuncular için bekleyen ödüller
+[*]Envanter dolu ise otomatik gecikme
+[*]Sıralama bazlı farklı ödüller
+[/LIST]
 
-[SIZE=5][B][COLOR=#607D8B]KURULUM[/COLOR][/B][/SIZE]
+[SPOILER="Ödül Konfigürasyonu Örneği"]
+[CODE=yaml]
+rewards:
+  1:  # 1. sıra
+    items:
+      - type: DIAMOND
+        amount: 64
+    commands:
+      - "eco give %player% 10000"
+      - "broadcast &6%player% teslimat etkinliğinde 1. oldu!"
+  2:  # 2. sıra
+    items:
+      - type: EMERALD
+        amount: 32
+    commands:
+      - "eco give %player% 5000"
+  3:  # 3. sıra
+    commands:
+      - "eco give %player% 2500"
+[/CODE]
+[/SPOILER]
+
+[SIZE=5][B][COLOR=#9370DB]🔒 Güvenlik & Uyumluluk[/COLOR][/B][/SIZE]
+[SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
+
+[LIST]
+[*]WorldGuard bölge koruması
+[*]GriefPrevention claim sistemi
+[*]ASkyBlock ada koruması
+[*]LWC/Lockette sandık kilidi
+[*]Admin bypass yetkisi
+[*]Tabela kilidi kontrolü
+[/LIST]
+
+[SIZE=5][B][COLOR=#FFB6C1]⚙️ Kurulum[/COLOR][/B][/SIZE]
 [SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
 
 [LIST=1]
-[*]JAR dosyasını [B]plugins[/B] klasörüne kopyalayın
+[*]JAR dosyasını [B]plugins[/B] klasörüne atın
 [*]Sunucuyu yeniden başlatın
-[*][B]plugins/DeliveryCore[/B] klasöründeki dosyaları düzenleyin
-[*][B]/deliverycore reload[/B] komutu ile değişiklikleri yükleyin
+[*][B]plugins/DeliveryCore/[/B] klasöründeki ayarları düzenleyin
+[*]Discord webhook URL'nizi [B]config.yml[/B]'ye ekleyin
+[*][B]/dc reload[/B] komutu ile ayarları yükleyin
 [/LIST]
 
-[SIZE=5][B][COLOR=#795548]GEREKSİNİMLER[/COLOR][/B][/SIZE]
+[SIZE=5][B][COLOR=#00CED1]🔧 Desteklenen Sürümler[/COLOR][/B][/SIZE]
 [SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
 
 [LIST]
-[*][B]Minecraft:[/B] 1.20+
-[*][B]Java:[/B] 17+
-[*][B]Sunucu:[/B] Spigot / Paper / Purpur
+[*][B]Minecraft:[/B] 1.16.5, 1.17.1, 1.18.2, 1.19.4, 1.20.1, 1.20.2, 1.20.4
+[*][B]Sunucular:[/B] Spigot, Paper, Purpur, Bukkit
+[*][B]Java:[/B] 8+ (önerilen: 17+)
 [/LIST]
+
+[SIZE=5][B][COLOR=#FFB6C1]📸 Ekran Görüntüleri[/COLOR][/B][/SIZE]
+[SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
+
+[SPOILER="Ana Menü - Aktif ve Bekleyen Etkinlikler"]
+[IMG]https://i.imgur.com/placeholder1.png[/IMG]
+Güzel tasarlanmış ana menü ile aktif etkinlikleri görün ve bekleyen etkinlikleri takip edin.
+[/SPOILER]
+
+[SPOILER="Teslimat Detay Menüsü"]
+[IMG]https://i.imgur.com/placeholder2.png[/IMG]
+Detaylı teslimat bilgileri, sıralamanız ve teslimat seçenekleri.
+[/SPOILER]
+
+[SPOILER="Sıralama Tablosu"]
+[IMG]https://i.imgur.com/placeholder3.png[/IMG]
+Gerçek zamanlı sıralama tablosu ile en iyi teslimatçıları görün.
+[/SPOILER]
+
+[SPOILER="Discord Webhook Bildirimleri"]
+[IMG]https://i.imgur.com/placeholder4.png[/IMG]
+Profesyonel Discord bildirimleri ile topluluk bilgilendirmesi.
+[/SPOILER]
+
+[SIZE=5][B][COLOR=#E91E63]⏰ Zamanlama Örnekleri[/COLOR][/B][/SIZE]
+[SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
+
+[CODE]
+every day 20:00           - Her gün saat 20:00'de
+every day 08:00,20:00     - Her gün 08:00 ve 20:00'de
+every monday 19:00        - Her pazartesi 19:00'da
+every friday 21:00        - Her cuma 21:00'de
+every saturday 15:00      - Her cumartesi 15:00'te
+every sunday 18:30        - Her pazar 18:30'da
+[/CODE]
+
+[SIZE=5][B][COLOR=#607D8B]📋 İzinler[/COLOR][/B][/SIZE]
+[SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
+
+[CODE]
+deliverycore.use              - Teslimat GUI kullanma (varsayılan: true)
+deliverycore.deliver          - Eşya teslim etme (varsayılan: true)
+deliverycore.admin            - Tüm admin komutları
+deliverycore.reload           - Konfigürasyon yenileme
+deliverycore.bypass.protection - Koruma bypass
+[/CODE]
 
 [CENTER]
 [SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
 
-[SIZE=4][B][COLOR=#4CAF50]İNDİRME[/COLOR][/B][/SIZE]
+[SIZE=5][B][COLOR=#FFD700]🏆 Neden DeliveryCore?[/COLOR][/B][/SIZE]
 
-[URL='#'][SIZE=3][B][COLOR=#2196F3][ SPIGOT SAYFASI ][/COLOR][/B][/SIZE][/URL]   [URL='#'][SIZE=3][B][COLOR=#333333][ GITHUB ][/COLOR][/B][/SIZE][/URL]
+[LIST]
+[*]Tamamen ücretsiz ve açık kaynak
+[*]Düzenli güncellemeler ve destek
+[*]Türk geliştiriciler tarafından Türk sunucular için
+[*]Kapsamlı dokümantasyon ve örnekler
+[*]Aktif topluluk desteği
+[/LIST]
 
 [SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
 
-[SIZE=2][COLOR=#888888]Versiyon: 1.0.0 | Geliştirici: YourName[/COLOR][/SIZE]
+[SIZE=4][B][COLOR=#98FB98]💾 İndirme Linkleri[/COLOR][/B][/SIZE]
+
+[URL="https://github.com/username/DeliveryCore/releases"][SIZE=4][B][COLOR=#333333]📥 GitHub Releases[/COLOR][/B][/SIZE][/URL]
+[URL="https://modrinth.com/plugin/deliverycore"][SIZE=4][B][COLOR=#1BD96A]📦 Modrinth[/COLOR][/B][/SIZE][/URL]
+[URL="https://www.spigotmc.org/resources/deliverycore"][SIZE=4][B][COLOR=#ED8106]🔧 SpigotMC[/COLOR][/B][/SIZE][/URL]
+
+[SIZE=2][COLOR=#666666]━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[/COLOR][/SIZE]
+
+[SIZE=3][COLOR=#D3D3D3]Geliştiriciler: [B]Maolide[/B] & [B]3Mustafa5[/B]
+Lisans: MIT | Sürüm: 1.0.0 | Son Güncelleme: 24.12.2024[/COLOR][/SIZE]
 [/CENTER]

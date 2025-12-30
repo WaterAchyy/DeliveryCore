@@ -1,0 +1,21 @@
+start:
+  title: "📦 {delivery} Başladı!"
+  description: "Yeni bir teslimat etkinliği başladı!\n\n**🎯 Teslim Edilecek Eşya:**\n`{item}`\n\n**📁 Kategori:** {category}"
+  color: "#00FF00"
+  footer: "DeliveryCore v1.1"
+
+end:
+  title: "🏆 {delivery} Sona Erdi!"
+  description: "Teslimat etkinliği tamamlandı!\n\n**📦 Teslim Edilen:** `{item}`\n**📁 Kategori:** {category}"
+  color: "#FFD700"
+  footer: "DeliveryCore v1.1"
+
+warning:
+  enabled: true
+  minutes-before: 5
+  title: "⏰ {delivery} Bitiyor!"
+  description: "Etkinlik **{minutes} dakika** içinde sona erecek!\n\n**📦 Eşya:** `{item}`\n**📁 Kategori:** {category}\n\n**Toplam Teslimat:** {total}\n**Katılımcı:** {participants}"
+  color: "#FF6600"
+  footer: "Son şansınızı kaçırmayın!"
+
+mention-everyone: false

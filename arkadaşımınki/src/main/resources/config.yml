@@ -1,0 +1,91 @@
+general:
+  language: tr
+  timezone: Europe/Istanbul
+  debug: false
+
+category-display-names:
+  farm: "Çiftlik"
+  ore: "Maden"
+  block: "Blok"
+  food: "Yiyecek"
+  wood: "Odun"
+  rare: "Nadir"
+  nether: "Nether"
+  end: "End"
+  mob: "Mob Drop"
+  dye: "Boya"
+  tool: "Alet"
+  armor: "Zırh"
+  combat: "Savaş"
+  potion: "İksir"
+  decoration: "Dekorasyon"
+  redstone: "Kızıltaş"
+  misc: "Çeşitli"
+
+delivery-display-names:
+  gunluk: "Günlük Teslimat"
+  haftalik: "Haftalık Teslimat"
+  aylik: "Aylık Teslimat"
+  maden: "Maden Teslimatı"
+  blok: "Blok Teslimatı"
+  elmas: "Elmas Teslimatı"
+  ciftlik: "Çiftlik Teslimatı"
+  buyuk-etkinlik: "Büyük Etkinlik"
+  sezonluk: "Sezonluk Etkinlik"
+
+events:
+  max-concurrent: 5
+  announcements:
+    start: true
+    end: true
+  sounds:
+    enabled: true
+    start: "ENTITY_PLAYER_LEVELUP"
+    end: "UI_TOAST_CHALLENGE_COMPLETE"
+  title:
+    enabled: true
+    fade-in: 10
+    stay: 70
+    fade-out: 20
+
+hologram:
+  enabled: false
+  location:
+    world: "world"
+    x: 0.5
+    y: 65.0
+    z: 0.5
+  update-interval: 1
+  lines:
+    - "&e&l✦ TESLIMAT ETKINLIGI ✦"
+    - "&7"
+    - "&fEtkinlik: &e{event}"
+    - "&fİstenen: &a{item}"
+    - "&fKategori: &b{category}"
+    - "&7"
+    - "&fKalan Süre: &c{time}"
+    - "&fKatılımcı: &e{participants}"
+    - "&7"
+    - "&6&l EN İYİLER "
+    - "&e1. &f{top1}"
+    - "&f2. &7{top2}"
+    - "&c3. &7{top3}"
+  no-event-lines:
+    - "&e&l✦ TESLIMAT ETKINLIGI ✦"
+    - "&7"
+    - "&cŞu an aktif etkinlik yok"
+    - "&7"
+    - "&fSonraki etkinlik için bekleyin!"
+
+webhook:
+  enabled: false
+  url: ""
+
+gui:
+  background:
+    material: BLACK_STAINED_GLASS_PANE
+    name: " "
+
+data:
+  auto-save-interval: 5
+  file: "data.yml"

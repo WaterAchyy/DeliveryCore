@@ -20,10 +20,22 @@ public class DeliveryServiceImpl implements DeliveryService {
     private final SchedulerService schedulerService;
     private final Map<String, ActiveEvent> activeEvents = new ConcurrentHashMap<>();
     
+    // v1.1 services
+    private SeasonService seasonService;
+    private TabListService tabListService;
+    
     public DeliveryServiceImpl(DeliveryConfig deliveryConfig, CategoryService categoryService, SchedulerService schedulerService) {
         this.deliveryConfig = deliveryConfig;
         this.categoryService = categoryService;
         this.schedulerService = schedulerService;
+    }
+    
+    /**
+     * Sets the v1.1 services for enhanced functionality.
+     */
+    public void setV11Services(SeasonService seasonService, TabListService tabListService) {
+        this.seasonService = seasonService;
+        this.tabListService = tabListService;
     }
     
     @Override
@@ -45,6 +57,14 @@ public class DeliveryServiceImpl implements DeliveryService {
             return Optional.empty();
         }
         
+        // Check seasonal restrictions (v1.1)
+        if (def.season().enabled() && seasonService != null) {
+            if (!seasonService.isSeasonActive(def.season())) {
+                LOGGER.info("Delivery is not in season: " + deliveryName);
+                return Optional.empty();
+            }
+        }
+        
         try {
             Category category = categoryService.resolveCategory(def.category().mode(), def.category().value());
             if (category == null || category.items().isEmpty()) {
@@ -63,6 +83,10 @@ public class DeliveryServiceImpl implements DeliveryService {
             
             ActiveEvent event = new ActiveEvent(deliveryName, category.name(), item, now, endTime, def.timezone());
             activeEvents.put(deliveryName, event);
+            
+            // Update v1.1 services
+            updateV11Services(deliveryName, event, def);
+            
             LOGGER.info("Started delivery: " + deliveryName + " [" + category.name() + ", " + item + "]");
             return Optional.of(event);
         } catch (Exception e) {
@@ -87,7 +111,16 @@ public class DeliveryServiceImpl implements DeliveryService {
             winnerCount = deliveryConfig.getDelivery(deliveryName).map(DeliveryDefinition::winnerCount).orElse(1);
         }
         
-        List<Winner> winners = calculateWinners(event, winnerCount, uuid -> "Player_" + uuid.toString().substring(0, 8));
+        // Oyuncu isimlerini Bukkit API ile çöz
+        List<Winner> winners = calculateWinners(event, winnerCount, uuid -> {
+            org.bukkit.OfflinePlayer offlinePlayer = org.bukkit.Bukkit.getOfflinePlayer(uuid);
+            String name = offlinePlayer.getName();
+            return name != null ? name : "Player_" + uuid.toString().substring(0, 8);
+        });
+        
+        // Clear v1.1 services for this delivery
+        clearV11Services(deliveryName);
+        
         LOGGER.info("Ended delivery: " + deliveryName + " with " + winners.size() + " winners");
         return winners;
     }
@@ -97,6 +130,9 @@ public class DeliveryServiceImpl implements DeliveryService {
         ActiveEvent event = activeEvents.get(deliveryName);
         if (event == null || !event.isActive()) return false;
         event.recordDelivery(playerUuid, amount);
+        
+        // Hologram devre dışı - v1.2'de eklenecek
+        
         return true;
     }
     
@@ -118,6 +154,12 @@ public class DeliveryServiceImpl implements DeliveryService {
         if (event != null && event.getDeliveryName() != null) {
             activeEvents.put(event.getDeliveryName(), event);
             LOGGER.info("Restored event: " + event.getDeliveryName());
+            
+            // v1.1 servislerini güncelle (hologram, tab list)
+            var defOpt = deliveryConfig.getDelivery(event.getDeliveryName());
+            if (defOpt.isPresent()) {
+                updateV11Services(event.getDeliveryName(), event, defOpt.get());
+            }
         }
     }
     
@@ -137,5 +179,72 @@ public class DeliveryServiceImpl implements DeliveryService {
             winners.add(new Winner(entry.getKey(), nameResolver.resolve(entry.getKey()), entry.getValue(), rank++));
         }
         return winners;
+    }
+    
+    /**
+     * Updates v1.1 services when an event starts.
+     */
+    private void updateV11Services(String deliveryName, ActiveEvent event, DeliveryDefinition def) {
+        try {
+            // Update tab list - enable tab display for this delivery
+            if (def.tabDisplay().enabled() && tabListService != null) {
+                tabListService.enableTabDisplay(deliveryName);
+                tabListService.updateAllTabLists();
+            }
+            
+            // Hologram devre dışı - v1.2'de eklenecek
+        } catch (Exception e) {
+            LOGGER.warning("Failed to update v1.1 services for " + deliveryName + ": " + e.getMessage());
+        }
+    }
+    
+    /**
+     * Clears v1.1 services when an event ends.
+     */
+    private void clearV11Services(String deliveryName) {
+        try {
+            // Clear tab list - disable tab display for this delivery
+            if (tabListService != null) {
+                tabListService.disableTabDisplay(deliveryName);
+            }
+            
+            // Hologram devre dışı - v1.2'de eklenecek
+        } catch (Exception e) {
+            LOGGER.warning("Failed to clear v1.1 services for " + deliveryName + ": " + e.getMessage());
+        }
+    }
+    
+    /**
+     * Creates leaderboard data from an active event.
+     */
+    private List<HologramService.PlayerLeaderboardEntry> createLeaderboardData(ActiveEvent event) {
+        return event.getPlayerDeliveries().entrySet().stream()
+            .sorted(Map.Entry.<UUID, Integer>comparingByValue().reversed())
+            .limit(10)
+            .map(entry -> {
+                int rank = calculatePlayerRank(event, entry.getKey());
+                // Oyuncu ismini Bukkit API ile çöz
+                org.bukkit.OfflinePlayer offlinePlayer = org.bukkit.Bukkit.getOfflinePlayer(entry.getKey());
+                String playerName = offlinePlayer.getName();
+                if (playerName == null) {
+                    playerName = "Player_" + entry.getKey().toString().substring(0, 8);
+                }
+                return new HologramService.PlayerLeaderboardEntry(playerName, entry.getValue(), rank);
+            })
+            .collect(Collectors.toList());
+    }
+    
+    /**
+     * Calculates a player's rank in an event.
+     */
+    private int calculatePlayerRank(ActiveEvent event, UUID playerUuid) {
+        int playerCount = event.getPlayerDeliveries().getOrDefault(playerUuid, 0);
+        if (playerCount == 0) return 0;
+        
+        int rank = 1;
+        for (int count : event.getPlayerDeliveries().values()) {
+            if (count > playerCount) rank++;
+        }
+        return rank;
     }
 }

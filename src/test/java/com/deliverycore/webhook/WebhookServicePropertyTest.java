@@ -22,11 +22,8 @@ class WebhookServicePropertyTest {
     private final WebhookService webhookService = new WebhookServiceImpl(placeholderEngine);
     
     /**
-     * Feature: delivery-core, Property 20: Webhook Embed Building
-     * For any EmbedConfig with title, description, and color,
-     * building a WebhookEmbed should produce a structure containing
-     * all configured fields with placeholders resolved.
-     * Validates: Requirements 7.2, 7.3
+     * Test webhook embed building functionality.
+     * Verifies that webhook embeds are properly constructed with all fields.
      */
     @Property(tries = 100)
     void webhookEmbedBuilding(

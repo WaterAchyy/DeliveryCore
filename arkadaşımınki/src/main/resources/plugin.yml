@@ -1,0 +1,66 @@
+name: DeliveryCore
+version: ${project.version}
+main: com.deliverycore.DeliveryCorePlugin
+api-version: '1.16'
+authors:
+  - Noramu
+description: Scheduled delivery event system for Minecraft servers
+softdepend:
+  - PlaceholderAPI
+  - Vault
+
+commands:
+  deliverycore:
+    description: DeliveryCore admin commands
+    usage: /<command> <help|reload|list|start|stop|status>
+    aliases: [dc]
+    permission: deliverycore.admin
+  
+  teslimat:
+    description: Opens delivery menu
+    usage: /<command> [info|top]
+    aliases: [tm, delivery, dm]
+    permission: deliverycore.use
+  
+  teslim:
+    description: Quickly delivers items
+    usage: /<command> [delivery] [amount]
+    aliases: [deliver, del]
+    permission: deliverycore.deliver
+
+permissions:
+  deliverycore.*:
+    description: All DeliveryCore permissions
+    default: op
+    children:
+      deliverycore.admin: true
+      deliverycore.use: true
+      deliverycore.deliver: true
+  
+  deliverycore.admin:
+    description: Admin permissions
+    default: op
+    children:
+      deliverycore.admin.reload: true
+      deliverycore.admin.event: true
+      deliverycore.admin.info: true
+  
+  deliverycore.admin.reload:
+    description: Reload configuration
+    default: op
+  
+  deliverycore.admin.event:
+    description: Event management (start, stop, list, status)
+    default: op
+  
+  deliverycore.admin.info:
+    description: View system info
+    default: op
+  
+  deliverycore.use:
+    description: Use delivery menu
+    default: true
+  
+  deliverycore.deliver:
+    description: Deliver items
+    default: true

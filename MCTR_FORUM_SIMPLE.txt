@@ -1,0 +1,111 @@
+DeliveryCore v1.0.0 - Profesyonel Teslimat Etkinlik Sistemi
+
+DeliveryCore, Minecraft sunucunuz için geliştirilmiş en kapsamlı teslimat etkinlik sistemidir! Oyuncular belirli eşyaları toplayıp teslim ederek ödüller kazanır, sıralamada yükselir ve Discord'da duyurular alır.
+
+Temel Özellikler:
+- Akıllı Zamanlama: Doğal dil ile etkinlik programlama (her gün saat 18:00, her pazartesi 20:30)
+- 17 Kategori: Çiftlik, Maden, Blok, Yiyecek, Odun, Nadir, Nether, End, Mob, Boya, Alet, Zırh, Savaş, İksir, Dekorasyon, Kızıltaş, Çeşitli
+- Akıllı Seçim: Rastgele veya sabit kategori/eşya seçimi
+- Güzel GUI: Özel kafa dokuları ile profesyonel arayüz
+- Canlı Sıralama: Gerçek zamanlı leaderboard sistemi
+- Çift Teslimat: Envanterden veya sandıktan teslim etme
+- Çoklu Dil: Türkçe & İngilizce tam destek + dinamik dil değiştirme
+
+Gelişmiş Özellikler:
+- Discord Webhook: Etkinlik başlangıç/bitiş bildirimleri + kazanan sıralaması
+- Akıllı Ödül Sistemi: Eşya + komut ödülleri, çevrimdışı oyuncular için bekleyen ödüller
+- Koruma Uyumluluğu: WorldGuard, GriefPrevention, ASkyBlock ile tam uyumlu
+- Veri Kalıcılığı: Sunucu yeniden başlatmalarında etkinlik verilerini koruma
+- Admin Kontrolü: Manuel etkinlik başlatma/durdurma, süre ayarlama
+- Placeholder Sistemi: 12+ placeholder ile tam entegrasyon
+- Canlı Yenileme: Sunucu kapatmadan tüm ayarları yenileme
+
+Oyuncu Komutları:
+/teslimat - Ana teslimat menüsünü açar
+/delivery - Opens delivery menu (English)
+/teslim - Envanterden hızlı teslimat yapar
+/deliver - Quick deliver from inventory (English)
+
+Admin Komutları:
+/dc help - Yardım menüsü
+/dc reload - Tüm konfigürasyonları yenile
+/dc info - Sistem bilgilerini göster
+/dc version - Plugin sürüm bilgisi
+/dc list - Tüm teslimatları listele
+/dc status [ad] - Etkinlik durumunu göster
+/dc start <ad> [süre] [kazanan] - Manuel etkinlik başlat
+/dc stop <ad> - Aktif etkinliği durdur
+/dc top [ad] - Sıralama tablosunu göster
+/dc categories - Kategorileri listele
+
+Konfigürasyon Dosyaları:
+- config.yml: Genel ayarlar, webhook, görünen isimler
+- categories.yml: Eşya kategorileri ve içerikleri
+- deliveries.yml: Teslimat etkinlik tanımları
+- items.yml: Eşya görünen isimleri ve fiyatları
+- lang/tr.yml & lang/en.yml: Dil dosyaları
+
+Discord Entegrasyonu:
+- Etkinlik başlangıç bildirimleri (embed mesajlar)
+- Etkinlik bitiş bildirimleri + kazanan sıralaması
+- Özelleştirilebilir embed renkleri ve mesajları
+- @everyone mention desteği
+- Madalya sembolleri (🥇🥈🥉🏅)
+
+Ödül Sistemi:
+- Eşya ödülleri (miktar + tip)
+- Komut ödülleri (özelleştirilebilir)
+- Çevrimdışı oyuncular için bekleyen ödüller
+- Envanter dolu ise otomatik gecikme
+- Sıralama bazlı farklı ödüller
+
+Güvenlik & Uyumluluk:
+- WorldGuard bölge koruması
+- GriefPrevention claim sistemi
+- ASkyBlock ada koruması
+- LWC/Lockette sandık kilidi
+- Admin bypass yetkisi
+- Tabela kilidi kontrolü
+
+Kurulum:
+1. JAR dosyasını plugins klasörüne atın
+2. Sunucuyu yeniden başlatın
+3. plugins/DeliveryCore/ klasöründeki ayarları düzenleyin
+4. Discord webhook URL'nizi config.yml'ye ekleyin
+5. /dc reload komutu ile ayarları yükleyin
+
+Desteklenen Sürümler:
+- Minecraft: 1.16.5, 1.17.1, 1.18.2, 1.19.4, 1.20.1, 1.20.2, 1.20.4
+- Sunucular: Spigot, Paper, Purpur, Bukkit
+- Java: 8+ (önerilen: 17+)
+
+Zamanlama Örnekleri:
+every day 20:00 - Her gün saat 20:00'de
+every day 08:00,20:00 - Her gün 08:00 ve 20:00'de
+every monday 19:00 - Her pazartesi 19:00'da
+every friday 21:00 - Her cuma 21:00'de
+every saturday 15:00 - Her cumartesi 15:00'te
+every sunday 18:30 - Her pazar 18:30'da
+
+İzinler:
+deliverycore.use - Teslimat GUI kullanma (varsayılan: true)
+deliverycore.deliver - Eşya teslim etme (varsayılan: true)
+deliverycore.admin - Tüm admin komutları
+deliverycore.reload - Konfigürasyon yenileme
+deliverycore.bypass.protection - Koruma bypass
+
+Neden DeliveryCore?
+- Tamamen ücretsiz ve açık kaynak
+- Düzenli güncellemeler ve destek
+- Türk geliştiriciler tarafından Türk sunucular için
+- Kapsamlı dokümantasyon ve örnekler
+- Aktif topluluk desteği
+- İki dilli destek (Türkçe & İngilizce)
+
+İndirme Linkleri:
+GitHub Releases: https://github.com/username/DeliveryCore/releases
+Modrinth: https://modrinth.com/plugin/deliverycore
+SpigotMC: https://www.spigotmc.org/resources/deliverycore
+
+Geliştiriciler: Maolide & 3Mustafa5
+Lisans: MIT | Sürüm: 1.0.0 | Son Güncelleme: 24.12.2024

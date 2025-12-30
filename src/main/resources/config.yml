@@ -2,7 +2,9 @@
 # ║                                                                               ║
 # ║                          D e l i v e r y C o r e                              ║
 # ║                    Profesyonel Teslimat Etkinlik Sistemi                      ║
-# ║                              Sürüm: 1.0.0                                     ║
+# ║                              Version: 1.1.0                                     ║
+# ║                                                                               ║
+# ║     Desteklenen Sürümler: 1.16.5 - 1.21.x (Spigot/Paper/Purpur)              ║
 # ║                                                                               ║
 # ╚═══════════════════════════════════════════════════════════════════════════════╝
 
@@ -11,10 +13,10 @@
 # ═══════════════════════════════════════════════════════════════════════════════
 
 general:
-  # Dil dosyası (lang klasöründe: tr.yml, en.yml)
+  # Dil seçimi: tr (Türkçe), en (English)
   language: tr
   
-  # Saat dilimi
+  # Saat dilimi (Java ZoneId formatında)
   timezone: Europe/Istanbul
   
   # Debug modu (konsola detaylı log)
@@ -49,11 +51,14 @@ category-display-names:
 
 delivery-display-names:
   gunluk: "Günlük Teslimat"
+  haftalik: "Haftalık Teslimat"
+  aylik: "Aylık Teslimat"
   maden: "Maden Teslimatı"
   blok: "Blok Teslimatı"
   elmas: "Elmas Teslimatı"
   ciftlik: "Çiftlik Teslimatı"
   buyuk-etkinlik: "Büyük Etkinlik"
+  sezonluk: "Sezonluk Etkinlik"
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ETKİNLİK AYARLARI
@@ -82,6 +87,219 @@ events:
     fade-out: 20
 
 # ═══════════════════════════════════════════════════════════════════════════════
+# TAB LIST AYARLARI (v1.1)
+# ═══════════════════════════════════════════════════════════════════════════════
+# 
+# Tab list'te aktif etkinlik bilgilerini gösterir.
+# Oyuncular TAB tuşuna bastığında etkinlik durumunu görebilir.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+tab-list:
+  # Tab list özelliğini aktif/pasif yap
+  enabled: false
+  
+  # Güncelleme aralığı (saniye)
+  update-interval: 5
+  
+  # Header formatı (üst kısım)
+  header: "&e&lDeliveryCore &7- &fTeslimat Sistemi"
+  
+  # Footer formatı (alt kısım) - Placeholders: {event}, {item}, {time}, {participants}
+  footer: "&7Aktif: &e{event} &8| &7Eşya: &f{item} &8| &7Kalan: &c{time}"
+  
+  # Etkinlik yokken gösterilecek mesaj
+  no-event: "&7Şu an aktif etkinlik yok"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# HOLOGRAM AYARLARI (v1.1)
+# ═══════════════════════════════════════════════════════════════════════════════
+# 
+# DecentHolograms eklentisi ile entegre çalışır.
+# Etkinlik başladığında otomatik hologram oluşturur.
+#
+# Gereksinim: DecentHolograms eklentisi
+# İndirme: https://www.spigotmc.org/resources/decentholograms.96927/
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+hologram:
+  # Hologram özelliğini aktif/pasif yap
+  enabled: false
+  
+  # Hologram konumu (world, x, y, z)
+  location:
+    world: "world"
+    x: 0.5
+    y: 65.0
+    z: 0.5
+  
+  # Güncelleme aralığı (saniye)
+  update-interval: 1
+  
+  # Hologram satırları - Placeholders: {event}, {item}, {category}, {time}, {participants}, {top1}, {top2}, {top3}
+  lines:
+    - "&e&l✦ TESLIMAT ETKINLIGI ✦"
+    - "&7"
+    - "&fEtkinlik: &e{event}"
+    - "&fİstenen: &a{item}"
+    - "&fKategori: &b{category}"
+    - "&7"
+    - "&fKalan Süre: &c{time}"
+    - "&fKatılımcı: &e{participants}"
+    - "&7"
+    - "&6&l EN İYİLER "
+    - "&e1. &f{top1}"
+    - "&f2. &7{top2}"
+    - "&c3. &7{top3}"
+  
+  # Etkinlik yokken gösterilecek satırlar
+  no-event-lines:
+    - "&e&l✦ TESLIMAT ETKINLIGI ✦"
+    - "&7"
+    - "&cŞu an aktif etkinlik yok"
+    - "&7"
+    - "&fSonraki etkinlik için bekleyin!"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SEZON SİSTEMİ (v1.1)
+# ═══════════════════════════════════════════════════════════════════════════════
+# 
+# Sezon sistemi ile belirli tarihler arasında etkinlik sezonu oluşturabilirsiniz.
+# Action bar'da geri sayım gösterilir (görseldeki gibi).
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+season:
+  # Sezon sistemini aktif/pasif yap
+  enabled: true
+  
+  # Sezon adı
+  name: "Teslimat Sezonu"
+  
+  # Başlangıç tarihi (YYYY-MM-DD veya YYYY-MM-DD HH:mm)
+  start-date: "2024-12-01"
+  
+  # Bitiş tarihi (YYYY-MM-DD veya YYYY-MM-DD HH:mm)
+  end-date: "2025-02-28 23:59"
+  
+  # Action bar formatı
+  # Placeholders: {season}, {countdown}
+  action-bar-format: "&6• &eÖdüllü {season} bitişine: &7(/teslimat)&r {countdown}"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SEZON AYARLARI (v1.1)
+# ═══════════════════════════════════════════════════════════════════════════════
+# 
+# Sezonluk etkinlikler için başlangıç ve bitiş tarihi belirleyebilirsiniz.
+# Belirli günlerde aktif olacak etkinlikler oluşturabilirsiniz.
+#
+# Tarih formatı: YYYY-MM-DD (örn: 2024-12-25)
+# Gün isimleri: MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+seasons:
+  # Örnek sezon tanımları (deliveries.yml'de referans verilebilir)
+  yaz-sezonu:
+    start-date: "2024-06-01"
+    end-date: "2024-08-31"
+    active-days:
+      - SATURDAY
+      - SUNDAY
+  
+  kis-sezonu:
+    start-date: "2024-12-01"
+    end-date: "2025-02-28"
+    active-days:
+      - FRIDAY
+      - SATURDAY
+      - SUNDAY
+  
+  # Tüm yıl aktif sezon (her gün)
+  tum-yil:
+    start-date: "2024-01-01"
+    end-date: "2024-12-31"
+    active-days:
+      - MONDAY
+      - TUESDAY
+      - WEDNESDAY
+      - THURSDAY
+      - FRIDAY
+      - SATURDAY
+      - SUNDAY
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ITEMSADDER & ORAXEN ENTEGRASYONU (v1.1)
+# ═══════════════════════════════════════════════════════════════════════════════
+# 
+# ItemsAdder ve Oraxen eklentileri ile özel itemları teslimat sisteminde
+# kullanabilirsiniz.
+#
+# ItemsAdder: https://www.spigotmc.org/resources/itemsadder.73355/
+# Oraxen: https://www.spigotmc.org/resources/oraxen.72448/
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+custom-items:
+  # ItemsAdder entegrasyonu
+  itemsadder:
+    # ItemsAdder desteğini aktif/pasif yap
+    enabled: true
+    
+    # Örnek ItemsAdder itemları (categories.yml'de kullanılabilir)
+    # Format: "namespace:item_id"
+    items:
+      # ornek_item: "iasurvival:ruby"
+      # ornek_item2: "iasurvival:amethyst"
+  
+  # Oraxen entegrasyonu
+  oraxen:
+    # Oraxen desteğini aktif/pasif yap
+    enabled: true
+    
+    # Örnek Oraxen itemları
+    # Format: "item_id"
+    items:
+      # ornek_item: "ruby_ore"
+      # ornek_item2: "amethyst_gem"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CUSTOMMODELDATA DESTEĞİ (v1.1)
+# ═══════════════════════════════════════════════════════════════════════════════
+# 
+# Resource pack kullanarak özel görünümlü itemlar oluşturabilirsiniz.
+# CustomModelData değeri ile farklı texture'lar atayabilirsiniz.
+#
+# Nasıl Kullanılır:
+# 1. Resource pack'inizde item modeli oluşturun
+# 2. CustomModelData değerini belirleyin
+# 3. Aşağıda tanımlayın veya /dc additem komutu ile ekleyin
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+custom-model-data:
+  # CustomModelData desteğini aktif/pasif yap
+  enabled: true
+  
+  # Örnek CustomModelData itemları
+  # Format: base-item + custom-model-data değeri
+  items:
+    # ornek_kilic:
+    #   base-item: DIAMOND_SWORD
+    #   custom-model-data: 1001
+    #   display-name: "&b&lEfsanevi Kılıç"
+    #   price: 5000.0
+    #   category: rare
+    
+    # ornek_kazma:
+    #   base-item: DIAMOND_PICKAXE
+    #   custom-model-data: 2001
+    #   display-name: "&e&lAltın Kazma"
+    #   price: 3000.0
+    #   category: tool
+
+# ═══════════════════════════════════════════════════════════════════════════════
 # WEBHOOK (Discord)
 # ═══════════════════════════════════════════════════════════════════════════════
 # 
@@ -108,93 +326,106 @@ webhook:
   # ─────────────────────────────────────────────────────────────────────────────
   # ETKİNLİK BAŞLANGIÇ EMBED'İ
   # ─────────────────────────────────────────────────────────────────────────────
-  # Placeholders:
-  #   {delivery}    - Teslimat adı
-  #   {item}        - İstenen eşya
-  #   {category}    - Kategori adı
-  #   {duration}    - Süre
-  #   {winners}     - Kazanan sayısı
-  #   {end_time}    - Bitiş zamanı
-  # ─────────────────────────────────────────────────────────────────────────────
   start:
-    # Embed başlığı
     title: "📦 {delivery} Başladı!"
-    
-    # Embed açıklaması (\\n ile yeni satır)
-    description: "Yeni bir teslimat etkinliği başladı!\\n\\n**🎯 Teslim Edilecek Eşya:**\\n`{item}`\\n\\n**📁 Kategori:** {category}\\n**⏱️ Süre:** {duration}\\n**🏆 Kazanan Sayısı:** {winners} kişi\\n\\n*Hemen sunucuya gir ve teslimata başla!*"
-    
-    # Embed rengi (hex: #00FF00 veya decimal: 65280)
+    description: "Yeni bir teslimat etkinliği başladı!\\n\\n**🎯 Teslim Edilecek Eşya:**\\n`{item}`\\n\\n**📁 Kategori:** {category}\\n**⏱️ Süre:** {duration}\\n**🏆 Kazanan Sayısı:** {winners} kişi"
     color: "#00FF00"
-    
-    # Footer metni
-    footer: "DeliveryCore • Teslimat Etkinlik Sistemi"
-    
-    # Thumbnail resmi (URL veya boş bırak)
-    thumbnail: ""
-    
-    # Author bilgisi
-    author:
-      name: "Teslimat" # (sunucu isminiz)
-      icon: ""
-    
-    # Ek alanlar (fields)
-    fields:
-      - name: "Nasıl Katılırım?"
-        value: "Sunucuya gir ve `/teslimat` komutu ile menüyü aç!"
-        inline: false
+    footer: "DeliveryCore v1.1"
   
   # ─────────────────────────────────────────────────────────────────────────────
   # ETKİNLİK BİTİŞ EMBED'İ
   # ─────────────────────────────────────────────────────────────────────────────
-  # Placeholders:
-  #   {delivery}    - Teslimat adı
-  #   {item}        - Teslim edilen eşya
-  #   {category}    - Kategori adı
-  #   {total}       - Toplam teslimat sayısı
-  #   {participants}- Katılımcı sayısı
-  #   {winners}     - Kazananlar listesi (otomatik oluşturulur)
-  # ─────────────────────────────────────────────────────────────────────────────
   end:
-    # Embed başlığı
     title: "🏆 {delivery} Sona Erdi!"
-    
-    # Embed açıklaması
     description: "Teslimat etkinliği tamamlandı!\\n\\n**📦 Teslim Edilen:** `{item}`\\n**📁 Kategori:** {category}\\n**👥 Katılımcı:** {participants} kişi\\n**📊 Toplam Teslimat:** {total} adet"
-    
-    # Embed rengi
     color: "#FFD700"
+    footer: "DeliveryCore v1.1"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GUI AYARLARI
+# ═══════════════════════════════════════════════════════════════════════════════
+# 
+# GUI görünümünü özelleştirin. CustomModelData ile özel texture kullanabilirsiniz.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+gui:
+  # Arka plan cam paneli
+  background:
+    material: BLACK_STAINED_GLASS_PANE
+    custom-model-data: 0
+    name: " "
+  
+  # Ana menü butonları
+  main-menu:
+    delivery-button:
+      material: PLAYER_HEAD
+      custom-model-data: 0
     
-    # Footer metni
-    footer: "DeliveryCore • Teslimat Sistemi"
+    waiting-button:
+      material: PLAYER_HEAD
+      custom-model-data: 0
     
-    # Thumbnail resmi
-    thumbnail: ""
+    leaderboard-button:
+      material: PLAYER_HEAD
+      custom-model-data: 0
     
-    # Kazananlar bölümü
-    winners:
-      # Kazananlar başlığı
-      title: "🎖️ Kazananlar"
-      
-      # Kazanan formatı ({rank}, {player}, {count} kullanılabilir)
-      format: "{medal} **{player}** - {count} teslimat"
-      
-      # Madalya sembolleri
-      medals:
-        first: "🥇"
-        second: "🥈"
-        third: "🥉"
-        other: "🏅"
-      
-      # Kazanan yoksa gösterilecek mesaj
-      no-winners: "*Kimse katılmadı*"
-      
-      # Maksimum gösterilecek kazanan sayısı
-      max-display: 5
+    help-button:
+      material: PLAYER_HEAD
+      custom-model-data: 0
+  
+  # Teslimat detay menüsü butonları
+  delivery-menu:
+    info-button:
+      material: PLAYER_HEAD
+      custom-model-data: 0
+    
+    inventory-deliver-button:
+      material: PLAYER_HEAD
+      custom-model-data: 0
+    
+    chest-deliver-button:
+      material: PLAYER_HEAD
+      custom-model-data: 0
+    
+    back-button:
+      material: PLAYER_HEAD
+      custom-model-data: 0
+  
+  # Sıralama menüsü
+  leaderboard-menu:
+    player-head:
+      material: PLAYER_HEAD
+      custom-model-data: 0
+    
+    back-button:
+      material: PLAYER_HEAD
+      custom-model-data: 0
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # VERİ KAYDETME
 # ═══════════════════════════════════════════════════════════════════════════════
 
 data:
+  # Otomatik kaydetme aralığı (dakika)
   auto-save-interval: 5
+  
+  # Veri dosyası
   file: "data.yml"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# KOMUTLAR
+# ═══════════════════════════════════════════════════════════════════════════════
+# 
+# /teslimat veya /dc - Ana GUI'yi açar
+# /dc start <isim> [süre] - Manuel etkinlik başlatır
+# /dc stop <isim> - Etkinliği durdurur
+# /dc reload - Ayarları yeniden yükler
+# /dc additem <kategori> <isim> <fiyat> - Elindeki itemi özel item olarak ekler
+# /dc removeitem <kategori> <isim> - Özel itemi siler
+# /dc listitems [kategori] - Özel itemları listeler
+# /dc hologram create - Hologram oluşturur
+# /dc hologram remove - Hologramı siler
+# /dc webhook test - Webhook bağlantısını test eder
+#
+# ═══════════════════════════════════════════════════════════════════════════════

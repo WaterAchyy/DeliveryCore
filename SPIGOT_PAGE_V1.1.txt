@@ -1,0 +1,175 @@
+[CENTER]
+[IMG]https://i.imgur.com/YOUR_BANNER.png[/IMG]
+
+[SIZE=6][B][COLOR=#FF6600]DeliveryCore[/COLOR][/B][/SIZE]
+[SIZE=4][I]Scheduled Delivery Event System for Minecraft Servers[/I][/SIZE]
+
+[SIZE=3][COLOR=#00AA00]Version 1.1.0[/COLOR][/SIZE]
+[/CENTER]
+
+[HR][/HR]
+
+[SIZE=5][B][COLOR=#3366FF]📦 What is DeliveryCore?[/COLOR][/B][/SIZE]
+
+DeliveryCore is a powerful and flexible delivery event plugin that allows server owners to create scheduled item collection events. Players compete to deliver specific items within a time limit, with automatic rewards for top performers.
+
+[SIZE=5][B][COLOR=#3366FF]✨ Features[/COLOR][/B][/SIZE]
+
+[LIST]
+[*][B]Scheduled Events[/B] - Daily, weekly, monthly scheduling with cron-like syntax
+[*][B]Random/Fixed Items[/B] - Random item selection from categories or fixed items
+[*][B]Multiple Categories[/B] - Ore, Farm, Block, and custom categories
+[*][B]Automatic Rewards[/B] - Items, commands, or both for winners
+[*][B]Discord Webhooks[/B] - Start, end, and warning notifications
+[*][B]Beautiful GUI[/B] - Clean inventory-based interface
+[*][B]Multi-language[/B] - Turkish and English support
+[*][B]Tab List Integration[/B] - Show active events in player tab (TAB plugin compatible)
+[*][B]Season System[/B] - Restrict events to specific months
+[*][B]Custom Items[/B] - Add custom items with NBT data
+[*][B]Chest Delivery[/B] - Deliver from chests with protection support
+[/LIST]
+
+[SIZE=5][B][COLOR=#3366FF]🆕 What's New in v1.1[/COLOR][/B][/SIZE]
+
+[LIST]
+[*][COLOR=#00AA00][B]Tab List Integration[/B][/COLOR] - Active events shown in tab header/footer
+[*][COLOR=#00AA00][B]TAB Plugin Support[/B][/COLOR] - Works with TAB plugin or vanilla
+[*][COLOR=#00AA00][B]Discord Warning Webhook[/B][/COLOR] - Notify X minutes before event ends
+[*][COLOR=#00AA00][B]Custom Item System[/B][/COLOR] - Add items with /dc additem command
+[*][COLOR=#00AA00][B]Season System[/B][/COLOR] - Events only active in specific months
+[*][COLOR=#00AA00][B]Improved Scheduling[/B][/COLOR] - More reliable event timing
+[*][COLOR=#00AA00][B]Server Restart Persistence[/B][/COLOR] - Events survive restarts
+[/LIST]
+
+[SIZE=5][B][COLOR=#3366FF]📋 Commands[/COLOR][/B][/SIZE]
+
+[CODE]
+/dc help              - Show help menu
+/dc reload            - Reload configuration
+/dc list              - List all deliveries
+/dc status [name]     - Show active event status
+/dc start <name> [duration] [winners] - Start event manually
+/dc stop <name>       - Stop active event
+/dc top [name]        - Show leaderboard
+/dc tab <name> on/off - Toggle tab display
+/dc additem <cat> <name> [price] - Add held item to category
+/dc removeitem <cat> <name> - Remove custom item
+/dc listcustom        - List custom items
+
+/teslimat             - Open delivery GUI (player)
+/teslim               - Deliver items from inventory
+/teslim sandik        - Deliver from chest
+[/CODE]
+
+[SIZE=5][B][COLOR=#3366FF]🔑 Permissions[/COLOR][/B][/SIZE]
+
+[CODE]
+deliverycore.*              - All permissions
+deliverycore.admin          - All admin permissions
+deliverycore.admin.reload   - Reload command
+deliverycore.admin.event    - Event management
+deliverycore.use            - Basic commands
+deliverycore.participate    - Participate in events
+[/CODE]
+
+[SIZE=5][B][COLOR=#3366FF]⚙️ Configuration[/COLOR][/B][/SIZE]
+
+[SPOILER="config.yml example"]
+[CODE=YAML]
+general:
+  language: tr  # tr or en
+
+webhook:
+  enabled: true
+  url: "https://discord.com/api/webhooks/YOUR_WEBHOOK"
+
+tab-list:
+  enabled: true
+  update-interval: 5
+[/CODE]
+[/SPOILER]
+
+[SPOILER="deliveries.yml example"]
+[CODE=YAML]
+deliveries:
+  gunluk:
+    enabled: true
+    display-name: "Daily Delivery"
+    winner-count: 3
+    
+    category:
+      mode: random
+    item:
+      mode: random
+    
+    timezone: Europe/Istanbul
+    
+    schedule:
+      start: "every day 20:00"
+      end: "every day 21:00"
+    
+    rewards:
+      1:
+        type: both
+        item: DIAMOND
+        amount: 10
+        commands:
+          - "eco give {player} 5000"
+      2:
+        type: item
+        item: DIAMOND
+        amount: 5
+      default:
+        type: command
+        commands:
+          - "eco give {player} 100"
+    
+    webhook:
+      enabled: true
+    
+    tab-display:
+      enabled: true
+[/CODE]
+[/SPOILER]
+
+[SIZE=5][B][COLOR=#3366FF]📅 Schedule Formats[/COLOR][/B][/SIZE]
+
+[CODE]
+"every day 14:00"              - Every day at 14:00
+"every monday 19:00"           - Every Monday at 19:00
+"every week saturday 20:00"    - Weekly on Saturday
+"every month 15 18:00"         - Monthly on 15th
+"every month first monday 14:00" - First Monday of month
+[/CODE]
+
+[SIZE=5][B][COLOR=#3366FF]🔗 Dependencies[/COLOR][/B][/SIZE]
+
+[LIST]
+[*][B]Required:[/B] Spigot/Paper 1.16.5 - 1.21.x
+[*][B]Optional:[/B] TAB plugin (for enhanced tab display)
+[*][B]Optional:[/B] Vault (for economy rewards)
+[/LIST]
+
+[SIZE=5][B][COLOR=#3366FF]📥 Installation[/COLOR][/B][/SIZE]
+
+[LIST=1]
+[*]Download the JAR file
+[*]Place in your plugins folder
+[*]Restart server
+[*]Edit config files in plugins/DeliveryCore/
+[*]Use /dc reload to apply changes
+[/LIST]
+
+[SIZE=5][B][COLOR=#3366FF]💬 Support[/COLOR][/B][/SIZE]
+
+[LIST]
+[*]GitHub Issues: [URL]https://github.com/YOUR_REPO[/URL]
+[*]Discord: [URL]https://discord.gg/YOUR_DISCORD[/URL]
+[/LIST]
+
+[HR][/HR]
+
+[CENTER]
+[SIZE=3][B]Authors: Maolide, 3Mustafa5[/B][/SIZE]
+[SIZE=2]Made with ❤️ for the Minecraft community[/SIZE]
+[/CENTER]

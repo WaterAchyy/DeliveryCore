@@ -1,6 +1,7 @@
 package com.deliverycore;
 
 import com.deliverycore.command.CommandHandler;
+import com.deliverycore.command.CustomItemCommand;
 import com.deliverycore.command.DeliverCommand;
 import com.deliverycore.config.ConfigManager;
 import com.deliverycore.config.ConfigManagerImpl;
@@ -20,6 +21,14 @@ import com.deliverycore.service.MessageService;
 import com.deliverycore.service.MessageServiceImpl;
 import com.deliverycore.service.SchedulerService;
 import com.deliverycore.service.SchedulerServiceImpl;
+import com.deliverycore.service.SeasonService;
+import com.deliverycore.service.SeasonServiceImpl;
+import com.deliverycore.service.TabListService;
+import com.deliverycore.service.TabListServiceImpl;
+import com.deliverycore.service.CustomItemService;
+import com.deliverycore.service.CustomItemServiceImpl;
+import com.deliverycore.service.SeasonManager;
+import com.deliverycore.handler.WebhookHandler;
 import com.deliverycore.util.LoggingService;
 import com.deliverycore.webhook.WebhookService;
 import com.deliverycore.webhook.WebhookServiceImpl;
@@ -66,6 +75,14 @@ public class DeliveryCorePlugin extends JavaPlugin implements Listener, TabCompl
     private LoggingService loggingService;
     private DataManager dataManager;
     
+    // v1.1 services
+    private SeasonService seasonService;
+    private TabListService tabListService;
+    private CustomItemService customItemService;
+    private CustomItemCommand customItemCommand;
+    private WebhookHandler webhookHandler;
+    private SeasonManager seasonManager;
+    
     // Global dil ayarı
     private String currentLanguage = "tr";
 
@@ -74,7 +91,7 @@ public class DeliveryCorePlugin extends JavaPlugin implements Listener, TabCompl
         long startTime = System.currentTimeMillis();
         
         getLogger().info("");
-        getLogger().info("  DeliveryCore v1.0.0");
+        getLogger().info("  DeliveryCore v1.1.0");
         getLogger().info("  Teslimat Etkinlik Sistemi");
         getLogger().info("");
         
@@ -89,8 +106,9 @@ public class DeliveryCorePlugin extends JavaPlugin implements Listener, TabCompl
             initializeServices();
             loadConfigurations();
             registerListeners();
+            registerPlaceholderAPI();
             resumeActiveEvents();
-            loadSavedEvents(); // Kaydedilmiş etkinlikleri yükle
+            loadSavedEvents();
             
             // items.yml yükle
             deliveryGUI.loadItemsConfig(getDataFolder());
@@ -103,10 +121,29 @@ public class DeliveryCorePlugin extends JavaPlugin implements Listener, TabCompl
             getServer().getPluginManager().disablePlugin(this);
         }
     }
+    
+    /**
+     * PlaceholderAPI expansion'ı kaydet
+     */
+    private void registerPlaceholderAPI() {
+        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+            new com.deliverycore.placeholder.DeliveryCorePlaceholders(
+                deliveryService, deliveryGUI, currentLanguage
+            ).register();
+            getLogger().info("PlaceholderAPI expansion kaydedildi!");
+        } else {
+            getLogger().info("PlaceholderAPI bulunamadi - placeholder'lar devre disi.");
+        }
+    }
 
     @Override
     public void onDisable() {
         getLogger().info("DeliveryCore kapatiliyor...");
+        
+        // Sezon action bar'ı durdur
+        if (seasonManager != null) {
+            seasonManager.stopActionBar();
+        }
         
         // Aktif etkinlikleri kaydet
         if (deliveryService != null && dataManager != null) {
@@ -114,6 +151,11 @@ public class DeliveryCorePlugin extends JavaPlugin implements Listener, TabCompl
             if (!activeEvents.isEmpty()) {
                 dataManager.saveAllActiveEvents(activeEvents);
             }
+        }
+        
+        // Custom item verilerini kaydet
+        if (customItemService != null) {
+            customItemService.saveCustomItems();
         }
         
         if (executorService != null && !executorService.isShutdown()) {
@@ -164,6 +206,33 @@ public class DeliveryCorePlugin extends JavaPlugin implements Listener, TabCompl
         webhookService = new WebhookServiceImpl(placeholderEngine);
         rewardService = new RewardServiceImpl(pendingRewardStore, placeholderEngine);
         
+        // Initialize v1.1 services
+        seasonService = new SeasonServiceImpl(getLogger());
+        
+        // TabListService - config'den ayarları yükle
+        tabListService = new TabListServiceImpl(this, getLogger(), null, seasonService, placeholderEngine);
+        boolean tabEnabled = getConfig().getBoolean("tab-list.enabled", false);
+        tabListService.setEnabled(tabEnabled);
+        if (tabEnabled) {
+            int updateInterval = getConfig().getInt("tab-list.update-interval", 5);
+            tabListService.scheduleTabUpdates(updateInterval * 20L); // saniye -> tick
+            getLogger().info("Tab list servisi aktif (güncelleme: " + updateInterval + " saniye)");
+        }
+        
+        customItemService = new CustomItemServiceImpl(this);
+        customItemService.loadCustomItems();
+        
+        // WebhookHandler - yeni webhook sistemi
+        webhookHandler = new WebhookHandler(this);
+        
+        // SeasonManager - sezon sistemi ve action bar
+        seasonManager = new SeasonManager(this);
+        seasonManager.loadConfig();
+        if (seasonManager.isEnabled()) {
+            seasonManager.startActionBar();
+            getLogger().info("Sezon sistemi aktif: " + seasonManager.getSeasonName());
+        }
+        
         getLogger().info("Servisler hazir.");
     }
     
@@ -187,8 +256,9 @@ public class DeliveryCorePlugin extends JavaPlugin implements Listener, TabCompl
                     try { p.playSound(p.getLocation(), org.bukkit.Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 1.0f); } catch (Exception ignored) {}
                 }
                 
-                // Webhook
-                sendWebhook(deliveryName, "start", itemTR, catTR);
+                // Webhook - yeni handler ile
+                webhookHandler.sendStartWebhook(delTR, itemTR, catTR);
+                webhookHandler.scheduleWarning(event, deliveryService, deliveryGUI::getItemDisplayName, deliveryGUI::getCategoryDisplayName);
             });
         }
     }
@@ -227,146 +297,8 @@ public class DeliveryCorePlugin extends JavaPlugin implements Listener, TabCompl
                 p.sendTitle("§c§lETKINLIK BITTI!", "§7" + delTR, 10, 70, 20);
             }
             
-            // Webhook - kazananlarla birlikte
-            sendWebhookWithWinners(deliveryName, itemTR, catTR, winners);
-        }
-    }
-    
-    private void sendWebhookWithWinners(String deliveryName, String itemTR, String categoryTR, 
-                                         java.util.List<com.deliverycore.model.Winner> winners) {
-        try {
-            File configFile = new File(getDataFolder(), "config.yml");
-            if (!configFile.exists()) return;
-            
-            var config = org.bukkit.configuration.file.YamlConfiguration.loadConfiguration(configFile);
-            boolean enabled = config.getBoolean("webhook.enabled", false);
-            String url = config.getString("webhook.url", "");
-            
-            if (!enabled || url == null || url.isEmpty() || url.contains("YOUR_WEBHOOK")) return;
-            
-            String delTR = deliveryGUI.getDeliveryDisplayName(deliveryName);
-            
-            // Kazananlar listesi oluştur
-            StringBuilder winnersText = new StringBuilder();
-            if (!winners.isEmpty()) {
-                winnersText.append("\\n\\n**🏆 Kazananlar:**");
-                int rank = 1;
-                for (var winner : winners) {
-                    String medal = rank == 1 ? "🥇" : rank == 2 ? "🥈" : rank == 3 ? "🥉" : rank + ".";
-                    winnersText.append("\\n").append(medal).append(" **").append(winner.playerName())
-                              .append("** - ").append(winner.deliveryCount()).append(" teslimat");
-                    rank++;
-                    if (rank > 5) break;
-                }
-            } else {
-                winnersText.append("\\n\\n*Kimse katılmadı*");
-            }
-            
-            String desc = "**Eşya:** " + itemTR + "\\n**Kategori:** " + categoryTR + winnersText;
-            String json = "{\"embeds\":[{\"title\":\"🏆 " + delTR + " Bitti!\",\"description\":\"" + desc + "\",\"color\":16766720,\"footer\":{\"text\":\"DeliveryCore\"}}]}";
-            
-            // Async webhook gönder
-            final String finalUrl = url;
-            final String finalJson = json;
-            Bukkit.getScheduler().runTaskAsynchronously(this, () -> {
-                sendWebhookRequest(finalUrl, finalJson, "END");
-            });
-        } catch (Exception e) {
-            getLogger().warning("[WEBHOOK] Hata: " + e.getMessage());
-        }
-    }
-    
-    /**
-     * Etkinlik başlangıcı için webhook gönderir
-     */
-    private void sendWebhook(String deliveryName, String type, String itemTR, String categoryTR) {
-        try {
-            // Global webhook URL'yi al
-            File configFile = new File(getDataFolder(), "config.yml");
-            if (!configFile.exists()) return;
-            
-            var config = org.bukkit.configuration.file.YamlConfiguration.loadConfiguration(configFile);
-            boolean enabled = config.getBoolean("webhook.enabled", false);
-            String url = config.getString("webhook.url", "");
-            
-            if (!enabled || url == null || url.isEmpty() || url.contains("YOUR_WEBHOOK")) return;
-            
-            String delTR = deliveryGUI.getDeliveryDisplayName(deliveryName);
-            String title = "📦 " + delTR + " Başladı!";
-            String desc = "**Teslim Edilecek:** " + itemTR + "\\n**Kategori:** " + categoryTR;
-            
-            String json = "{\"embeds\":[{\"title\":\"" + title + "\",\"description\":\"" + desc + "\",\"color\":65280,\"footer\":{\"text\":\"DeliveryCore\"}}]}";
-            
-            // Async webhook gönder
-            final String finalUrl = url;
-            final String finalJson = json;
-            Bukkit.getScheduler().runTaskAsynchronously(this, () -> {
-                sendWebhookRequest(finalUrl, finalJson, "START");
-            });
-        } catch (Exception e) {
-            getLogger().warning("[WEBHOOK] Hata: " + e.getMessage());
-        }
-    }
-    
-    /**
-     * Discord Webhook gönderici - Tüm sunucularda çalışır
-     * TLSv1.2 ve TLSv1.3 destekler, sistem proxy ayarlarını kullanır
-     */
-    private void sendWebhookRequest(String urlString, String jsonPayload, String tag) {
-        try {
-            // URL doğrula
-            java.net.URL url = new java.net.URL(urlString);
-            
-            // Sistem varsayılan SSL context'ini kullan (en güvenilir yöntem)
-            javax.net.ssl.HttpsURLConnection connection = (javax.net.ssl.HttpsURLConnection) url.openConnection();
-            
-            // TLS 1.2/1.3 zorla
-            try {
-                javax.net.ssl.SSLContext sslContext = javax.net.ssl.SSLContext.getInstance("TLSv1.2");
-                sslContext.init(null, null, null);
-                connection.setSSLSocketFactory(sslContext.getSocketFactory());
-            } catch (Exception e) {
-                // Varsayılan SSL kullan
-            }
-            
-            // Bağlantı ayarları
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-Type", "application/json");
-            connection.setRequestProperty("User-Agent", "Mozilla/5.0 DeliveryCore/1.0");
-            connection.setRequestProperty("Accept", "application/json");
-            connection.setDoOutput(true);
-            connection.setDoInput(true);
-            connection.setUseCaches(false);
-            connection.setConnectTimeout(30000);
-            connection.setReadTimeout(30000);
-            
-            // Bağlan
-            connection.connect();
-            
-            // JSON gönder
-            try (java.io.OutputStream os = connection.getOutputStream();
-                 java.io.OutputStreamWriter writer = new java.io.OutputStreamWriter(os, java.nio.charset.StandardCharsets.UTF_8)) {
-                writer.write(jsonPayload);
-                writer.flush();
-            }
-            
-            // Yanıt al
-            int responseCode = connection.getResponseCode();
-            
-            if (responseCode == 200 || responseCode == 204 || responseCode == 201) {
-                getLogger().info("[WEBHOOK] Gonderildi (" + tag + ")");
-            } else {
-                getLogger().warning("[WEBHOOK] Hata: " + responseCode);
-            }
-            
-            connection.disconnect();
-            
-        } catch (java.net.SocketTimeoutException e) {
-            getLogger().warning("[WEBHOOK] Zaman asimi - Discord'a ulasilamiyor");
-        } catch (java.io.IOException e) {
-            getLogger().warning("[WEBHOOK] Baglanti hatasi: " + e.getMessage());
-        } catch (Exception e) {
-            getLogger().warning("[WEBHOOK] Hata: " + e.getMessage());
+            // Webhook - yeni handler ile kazananlarla birlikte
+            webhookHandler.sendEndWebhook(delTR, itemTR, catTR, winners);
         }
     }
 
@@ -423,6 +355,14 @@ public class DeliveryCorePlugin extends JavaPlugin implements Listener, TabCompl
             schedulerService
         );
         
+        // Set v1.1 services (hologram devre dışı)
+        ((DeliveryServiceImpl) deliveryService).setV11Services(seasonService, tabListService);
+        
+        // Set deliveryService to tabListService (circular dependency resolved)
+        if (tabListService instanceof TabListServiceImpl) {
+            ((TabListServiceImpl) tabListService).setDeliveryService(deliveryService);
+        }
+        
         messageService = new MessageServiceImpl(
             configManager.getLanguageConfig(),
             placeholderEngine,
@@ -436,6 +376,10 @@ public class DeliveryCorePlugin extends JavaPlugin implements Listener, TabCompl
             this::sendMessageToPlayer,
             getLogger()
         );
+        
+        // Initialize CustomItemCommand and set it
+        customItemCommand = new CustomItemCommand(customItemService, getLogger());
+        commandHandler.setCustomItemCommand(customItemCommand);
         
         deliveryGUI = new DeliveryGUI(configManager, deliveryService);
         deliveryGUI.setLanguageSupplier(this::getCurrentLanguage);
@@ -451,9 +395,10 @@ public class DeliveryCorePlugin extends JavaPlugin implements Listener, TabCompl
         );
         
         commandHandler.setDeliveryService(deliveryService);
+        commandHandler.setTabListService(tabListService);
         commandHandler.setReloadCallback(this::reloadAllSettings);
         commandHandler.setManualEndScheduler(this::scheduleManualEnd);
-        commandHandler.setWebhookTester(this::testWebhook);
+        commandHandler.setWebhookTester(webhookHandler::sendTestWebhook);
         deliverCommand.setDeliveryService(deliveryService);
     }
     
@@ -472,42 +417,6 @@ public class DeliveryCorePlugin extends JavaPlugin implements Listener, TabCompl
     }
     
     /**
-     * Webhook test fonksiyonu
-     */
-    private void testWebhook() {
-        try {
-            File configFile = new File(getDataFolder(), "config.yml");
-            if (!configFile.exists()) {
-                getLogger().warning("[WEBHOOK TEST] config.yml bulunamadi!");
-                return;
-            }
-            
-            var config = org.bukkit.configuration.file.YamlConfiguration.loadConfiguration(configFile);
-            String url = config.getString("webhook.url", "");
-            
-            getLogger().info("[WEBHOOK TEST] URL uzunluk: " + url.length());
-            
-            if (url.isEmpty() || url.contains("YOUR_WEBHOOK")) {
-                getLogger().warning("[WEBHOOK TEST] Webhook URL ayarlanmamis!");
-                return;
-            }
-            
-            String json = "{\"embeds\":[{\"title\":\"🧪 DeliveryCore Test\",\"description\":\"Webhook baglantisi basarili!\\n\\nBu bir test mesajidir.\",\"color\":65280,\"footer\":{\"text\":\"DeliveryCore v1.0.0\"}}]}";
-            
-            getLogger().info("[WEBHOOK TEST] Gonderiliyor...");
-            
-            final String finalUrl = url;
-            final String finalJson = json;
-            Bukkit.getScheduler().runTaskAsynchronously(this, () -> {
-                sendWebhookRequest(finalUrl, finalJson, "TEST");
-            });
-        } catch (Exception e) {
-            getLogger().warning("[WEBHOOK TEST] Hata: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
-    
-    /**
      * Tüm ayarları yeniden yükler (reload komutu için)
      */
     private void reloadAllSettings() {
@@ -522,6 +431,9 @@ public class DeliveryCorePlugin extends JavaPlugin implements Listener, TabCompl
         
         // GUI ayarlarını yeniden yükle
         loadGUISettings();
+        
+        // Webhook config yeniden yükle
+        webhookHandler.loadConfig();
         
         getLogger().info("Tum ayarlar yeniden yuklendi. Dil: " + currentLanguage);
     }

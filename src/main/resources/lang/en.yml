@@ -426,3 +426,130 @@ rank_colors:
   second: "&f"  # White
   third: "&c"   # Red
   other: "&7"   # Gray
+# ═══════════════════════════════════════════════════════════════════════════════
+# v1.1 NEW FEATURES - SEASONAL SYSTEM
+# ═══════════════════════════════════════════════════════════════════════════════
+
+season:
+  not-active: "&c✗ This delivery is currently out of season."
+  days-remaining: "&7Season ends in &e{days} &7days."
+  ended: "&c✗ Season has ended."
+  invalid-config: "&c✗ Invalid season configuration."
+  day-not-active: "&c✗ This delivery is not active today."
+  active-days: "&7Active days: &e{days}"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# v1.1 NEW FEATURES - TAB LIST INTEGRATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+tab:
+  enabled: "&a✓ Tab display enabled for: &f{delivery}"
+  disabled: "&c✗ Tab display disabled for: &f{delivery}"
+  no-active-events: "&7No active events."
+  format-error: "&c✗ Tab format error: {error}"
+  service-disabled: "&c✗ Tab service is disabled."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# v1.1 NEW FEATURES - HOLOGRAM SYSTEM
+# ═══════════════════════════════════════════════════════════════════════════════
+
+hologram:
+  created: "&a✓ Hologram created: &f{id}"
+  create-failed: "&c✗ Failed to create hologram: {error}"
+  updated: "&a✓ Hologram updated: &f{id}"
+  update-failed: "&c✗ Failed to update hologram: {error}"
+  deleted: "&a✓ Hologram deleted: &f{id}"
+  delete-failed: "&c✗ Failed to delete hologram: {error}"
+  not-found: "&c✗ Hologram not found: &f{id}"
+  already-exists: "&c✗ Hologram with this ID already exists: &f{id}"
+  service-disabled: "&c✗ HolographicDisplays plugin is not loaded."
+  invalid-location: "&c✗ Invalid location."
+  empty-lines: "&c✗ At least one line must be specified."
+  list-header: "&6&l⚡ HOLOGRAM LIST ⚡"
+  list-empty: "&7No holograms defined."
+  list-item: "&e▸ &f{id} &7({location}) &8- {status}"
+  list-footer: "&7Total: &f{count} &7holograms"
+  
+  # Hologram command help
+  help:
+    header: "&e&lHologram Commands:"
+    create: "&e/dc holo create <id> &8- &7Create hologram at your location"
+    list: "&e/dc holo list &8- &7List all holograms"
+    remove: "&e/dc holo remove <id> &8- &7Delete hologram"
+    footer: "&7Holograms automatically display leaderboard information."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# v1.1 NEW FEATURES - GENERAL MESSAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+v11:
+  features-enabled: "&a✓ v1.1 features enabled!"
+  minecraft-121-support: "&a✓ Minecraft 1.21 support active."
+  season-system: "&a✓ Seasonal system ready."
+  tab-integration: "&a✓ Tab integration ready."
+  hologram-system: "&a✓ Hologram system ready."
+  
+  # Error messages
+  error:
+    service-not-ready: "&c✗ {service} service is not ready yet."
+    feature-disabled: "&c✗ This feature is disabled: {feature}"
+    invalid-config: "&c✗ Invalid configuration: {config}"
+    permission-denied: "&c✗ You don't have permission to use this command."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PLACEHOLDER DESCRIPTIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+placeholders:
+  days-remaining: "Number of days remaining until season ends"
+  player-rank: "Player's ranking position (1, 2, 3, ...)"
+  total-deliveries: "Total number of deliveries in the event"
+  season-status: "Active/inactive status of the season"
+  tab-format: "Format to display in tab list"
+  hologram-lines: "Lines to display in hologram"
+# ═══════════════════════════════════════════════════════════════════════════════
+# v1.1 NEW FEATURES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Seasonal System
+season:
+  not-active: "&cThis delivery is currently out of season!"
+  days-remaining: "&e{days} &7days remaining"
+  ended: "&cSeason has ended!"
+  starting-soon: "&aSeason starting soon..."
+
+# Tab List Integration  
+tab:
+  format: "&6[DeliveryCore] &e{delivery} &7- &a{item}"
+  with-days: "&6[DeliveryCore] &e{delivery} &7- &a{item} &7({days} days)"
+  no-event: "&7No active delivery"
+
+# Hologram System
+hologram:
+  created: "&aHologram created: &f{id}"
+  deleted: "&cHologram deleted: &f{id}"
+  not-found: "&cHologram not found: &f{id}"
+  already-exists: "&cHologram with this ID already exists: &f{id}"
+  list-header: "&6&l⚡ HOLOGRAM LIST ⚡"
+  list-empty: "&7No holograms defined"
+  list-item: "&e▸ &f{id} &8- &7{location}"
+  
+  # Hologram content
+  title: "&6&l⚡ DELIVERY LEADERBOARD ⚡"
+  no-event: "&7No active event"
+  waiting: "&7Waiting for event..."
+  separator: "&7─────────────────────"
+  
+  # Rankings
+  rank-1: "&6&l①"
+  rank-2: "&f&l②" 
+  rank-3: "&c&l③"
+  rank-other: "&7{rank}."
+  
+  # Admin commands
+  admin:
+    usage: "&eUsage: &f/dc holo <create|list|remove>"
+    create-usage: "&eUsage: &f/dc holo create <id>"
+    remove-usage: "&eUsage: &f/dc holo remove <id>"
+    location-required: "&cCould not get location. You must be in-game."
+    plugin-required: "&cHolographicDisplays plugin is required."

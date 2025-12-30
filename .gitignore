@@ -2,7 +2,6 @@
 target/
 build/
 out/
-*.jar
 *.class
 
 # IDE
@@ -21,6 +20,7 @@ pom.xml.releaseBackup
 pom.xml.versionsBackup
 pom.xml.next
 release.properties
+dependency-reduced-pom.xml
 
 # OS
 .DS_Store
@@ -34,12 +34,10 @@ logs/
 # Test databases
 .jqwik-database
 
-# Dependency reduced pom
-dependency-reduced-pom.xml
-
 # Build outputs
 build_output.txt
 compile_output.txt
 
-# Kiro
-.kiro/
+# Kiro specs (development files)
+.kiro/specs/
+.kiro/settings/

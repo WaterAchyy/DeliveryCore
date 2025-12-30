@@ -1,5 +1,46 @@
 # Changelog
 
+## [1.1.0] - 2024-12-30
+
+### 🎉 v1.1 Yeni Özellikler
+- **Minecraft 1.21.x Desteği**: Tüm yeni 1.21 itemları (Pale Oak, Resin Brick, Creaking Heart vb.)
+- **PlaceholderAPI Entegrasyonu**: DecentHolograms, TAB ve diğer pluginlerle uyumlu 30+ placeholder
+- **Discord Webhook Sistemi**: Başlangıç, bitiş ve uyarı bildirimleri (kazanan listesi ile)
+- **Sezonluk Sistem**: Belirli tarih aralıklarında ve özel günlerde çalışan etkinlikler
+- **Tab List Entegrasyonu**: Tab listesinde aktif teslimat ve kalan süre gösterimi
+- **Özel Item Sistemi**: Eldeki item'ı kategoriye ekleme (`/dc additem`)
+- **Sunucu Restart Desteği**: Aktif etkinlikler restart sonrası devam eder
+
+### 🏷️ PlaceholderAPI Placeholder'ları
+```
+%deliverycore_active%              - Aktif teslimat adı
+%deliverycore_active_item%         - Aktif teslimat eşyası
+%deliverycore_time_left%           - Kalan süre (formatlanmış)
+%deliverycore_player_count%        - Oyuncunun teslimat sayısı
+%deliverycore_player_rank%         - Oyuncunun sırası
+%deliverycore_top_1_name%          - 1. sıradaki oyuncu
+%deliverycore_top_1_count%         - 1. sıradaki teslimat sayısı
+... ve daha fazlası
+```
+
+### 📋 Yeni Admin Komutları
+- `/dc tab <teslimat> on/off` - Tab gösterimini aç/kapat
+- `/dc additem <kategori> <isim>` - Eldeki item'ı kategoriye ekle
+- `/dc removeitem <kategori> <isim>` - Özel item'ı sil
+- `/dc listcustom` - Özel itemları listele
+- `/dc test webhook` - Webhook test et
+
+### 🔧 Teknik Geliştirmeler
+- Property-based testler eklendi (jqwik)
+- WebhookHandler ile gelişmiş webhook yönetimi
+- Geriye dönük uyumluluk korundu
+- Dinamik yeniden yükleme desteği
+
+### ⚠️ Kaldırılan Özellikler
+- Hologram sistemi v1.2'ye ertelendi (PlaceholderAPI ile DecentHolograms kullanılabilir)
+
+---
+
 ## [1.0.0] - 2024-12-23
 
 ### 🎉 Initial Release

@@ -1,0 +1,223 @@
+[CENTER]
+[IMG]https://i.imgur.com/YOUR_BANNER.png[/IMG]
+
+[SIZE=6][COLOR=#FF6600][B]⚡ DeliveryCore v1.1.0 ⚡[/B][/COLOR][/SIZE]
+[SIZE=4][COLOR=#888888]Zamanlanmış Teslimat Etkinlik Sistemi[/COLOR][/SIZE]
+
+[SIZE=3][COLOR=#00AA00]✓ Spigot/Paper 1.16.5 - 1.21.x Destekli[/COLOR][/SIZE]
+[/CENTER]
+
+[HR][/HR]
+
+[SIZE=5][COLOR=#FF6600][B]📦 DeliveryCore Nedir?[/B][/COLOR][/SIZE]
+
+DeliveryCore, sunucunuzda zamanlanmış teslimat etkinlikleri düzenlemenizi sağlayan gelişmiş bir eklentidir. Oyuncular belirlenen eşyaları toplayıp teslim eder, en çok teslim edenler ödüllendirilir!
+
+[SIZE=5][COLOR=#FF6600][B]✨ v1.1.0 Yenilikler[/B][/COLOR][/SIZE]
+
+[LIST]
+[*][B]Discord Webhook Sistemi[/B] - Etkinlik başlangıç, bitiş ve uyarı bildirimleri
+[*][B]Tab List Entegrasyonu[/B] - Aktif etkinlik bilgisi tab'da görünsün
+[*][B]Sezon Sistemi[/B] - Belirli aylarda aktif olan etkinlikler
+[*][B]Özel Item Sistemi[/B] - Eldeki item'ı kategoriye ekle
+[*][B]Gelişmiş Zamanlama[/B] - Günlük, haftalık, aylık etkinlikler
+[*][B]Sunucu Restart Desteği[/B] - Aktif etkinlikler restart sonrası devam eder
+[/LIST]
+
+[SIZE=5][COLOR=#FF6600][B]🎮 Özellikler[/B][/COLOR][/SIZE]
+
+[SPOILER="Temel Özellikler"]
+[LIST]
+[*]Zamanlanmış otomatik etkinlikler
+[*]Rastgele veya sabit kategori/eşya seçimi
+[*]Çoklu kazanan desteği (1-10 kişi)
+[*]Esnek ödül sistemi (item, komut veya ikisi)
+[*]GUI menü sistemi
+[*]Sandıktan toplu teslim
+[*]Çoklu dil desteği (TR/EN)
+[/LIST]
+[/SPOILER]
+
+[SPOILER="Zamanlama Formatları"]
+[CODE]
+# Günlük
+schedule:
+  start: "every day 20:00"
+  end: "every day 21:00"
+
+# Haftalık (belirli gün)
+schedule:
+  start: "every monday 19:00"
+  end: "every monday 21:00"
+
+# Aylık (ayın 15'i)
+schedule:
+  start: "every month 15 14:00"
+  end: "every month 15 16:00"
+
+# Aylık (ilk pazartesi)
+schedule:
+  start: "every month first monday 14:00"
+  end: "every month first monday 16:00"
+[/CODE]
+[/SPOILER]
+
+[SPOILER="Discord Webhook"]
+[CODE]
+# webhooks/discord.yml
+webhook:
+  enabled: true
+  url: "https://discord.com/api/webhooks/..."
+  
+  start:
+    enabled: true
+    title: "🚀 Teslimat Başladı!"
+    color: "#00FF00"
+    
+  end:
+    enabled: true
+    title: "🏁 Teslimat Bitti!"
+    color: "#FF0000"
+    max-winners: 10
+    
+  warning:
+    enabled: true
+    minutes-before: 5
+    title: "⚠️ Son 5 Dakika!"
+    color: "#FFA500"
+[/CODE]
+[/SPOILER]
+
+[SIZE=5][COLOR=#FF6600][B]📋 Komutlar[/B][/COLOR][/SIZE]
+
+[SPOILER="Admin Komutları"]
+[CODE]
+/dc help              - Yardım menüsü
+/dc reload            - Ayarları yeniden yükle
+/dc info              - Sistem bilgisi
+/dc list              - Teslimatları listele
+/dc status [ad]       - Etkinlik durumu
+/dc start <ad> [süre] - Manuel başlat
+/dc stop <ad>         - Etkinliği durdur
+/dc top [ad]          - Sıralama tablosu
+/dc tab <ad> on/off   - Belirlenen teslimat için tab gösterimini aç/kapat
+/dc additem <kat> <ad> - Eldeki item'ı ekle
+/dc removeitem <kat> <ad> - Item sil
+/dc listcustom        - Özel itemları listele
+[/CODE]
+[/SPOILER]
+
+[SPOILER="Oyuncu Komutları"]
+[CODE]
+/teslimat             - Ana menüyü aç
+/teslimat top         - Sıralama tablosu
+/teslim               - Envanterdeki eşyaları teslim et
+/teslim sandik        - Sandıktan teslim
+[/CODE]
+[/SPOILER]
+
+[SIZE=5][COLOR=#FF6600][B]🏷️ PlaceholderAPI Desteği[/B][/COLOR][/SIZE]
+
+DecentHolograms, HolographicDisplays, TAB ve diğer pluginlerle kullanılabilir!
+
+[SPOILER="Tüm Placeholder'lar"]
+[CODE]
+# Genel
+%deliverycore_active%              - Aktif teslimat adı
+%deliverycore_active_item%         - Aktif teslimat eşyası
+%deliverycore_active_category%     - Aktif teslimat kategorisi
+%deliverycore_total%               - Toplam teslimat sayısı
+%deliverycore_participants%        - Katılımcı sayısı
+%deliverycore_active_count%        - Aktif etkinlik sayısı
+
+# Zaman
+%deliverycore_time_left%           - Kalan süre (1:30:45)
+%deliverycore_time_left_seconds%   - Kalan süre (saniye)
+%deliverycore_time_left_minutes%   - Kalan süre (dakika)
+
+# Oyuncu Bazlı
+%deliverycore_player_count%        - Oyuncunun teslimat sayısı
+%deliverycore_player_rank%         - Oyuncunun sırası
+
+# Sıralama (Top 10)
+%deliverycore_top_1_name%          - 1. sıradaki oyuncu
+%deliverycore_top_1_count%         - 1. sıradaki teslimat sayısı
+%deliverycore_top_2_name%          - 2. sıradaki oyuncu
+%deliverycore_top_2_count%         - 2. sıradaki teslimat sayısı
+... (1-10 arası desteklenir)
+
+# Belirli Teslimat
+%deliverycore_gunluk_active%       - Günlük aktif mi (true/false)
+%deliverycore_gunluk_item%         - Günlük eşyası
+%deliverycore_gunluk_total%        - Günlük toplam teslimat
+%deliverycore_gunluk_time%         - Günlük kalan süre
+[/CODE]
+[/SPOILER]
+
+[SPOILER="DecentHolograms Örneği"]
+[CODE]
+# Hologram oluştur
+/dh create teslimat
+
+# Satırları ekle
+/dh line add teslimat "&e&lAKTİF TESLİMAT"
+/dh line add teslimat "&7İstenen: &f%deliverycore_active_item%"
+/dh line add teslimat "&7Kalan: &f%deliverycore_time_left%"
+/dh line add teslimat ""
+/dh line add teslimat "&6&l1. &f%deliverycore_top_1_name% &7- &e%deliverycore_top_1_count%"
+/dh line add teslimat "&f&l2. &f%deliverycore_top_2_name% &7- &e%deliverycore_top_2_count%"
+/dh line add teslimat "&c&l3. &f%deliverycore_top_3_name% &7- &e%deliverycore_top_3_count%"
+[/CODE]
+[/SPOILER]
+
+[SIZE=5][COLOR=#FF6600][B]🔑 Yetkiler[/B][/COLOR][/SIZE]
+
+[CODE]
+deliverycore.*              - Tüm yetkiler
+deliverycore.admin          - Admin yetkileri
+deliverycore.admin.reload   - Reload komutu
+deliverycore.admin.event    - Etkinlik yönetimi
+deliverycore.use            - Temel komutlar
+deliverycore.participate    - Etkinliklere katılım
+[/CODE]
+
+[SIZE=5][COLOR=#FF6600][B]⚙️ Kurulum[/B][/COLOR][/SIZE]
+
+[LIST=1]
+[*]JAR dosyasını [B]plugins[/B] klasörüne atın
+[*]Sunucuyu yeniden başlatın
+[*][B]plugins/DeliveryCore[/B] klasöründeki dosyaları düzenleyin
+[*][B]/dc reload[/B] ile ayarları yükleyin
+[/LIST]
+
+[SIZE=5][COLOR=#FF6600][B]📁 Dosya Yapısı[/B][/COLOR][/SIZE]
+
+[CODE]
+plugins/DeliveryCore/
+├── config.yml          # Ana ayarlar
+├── categories.yml      # Kategori tanımları
+├── deliveries.yml      # Teslimat tanımları
+├── items.yml           # Eşya görüntü isimleri
+├── webhooks/
+│   └── discord.yml     # Discord webhook ayarları
+└── lang/
+    ├── tr.yml          # Türkçe
+    └── en.yml          # İngilizce
+[/CODE]
+
+[SIZE=5][COLOR=#FF6600][B]📥 İndirme[/B][/COLOR][/SIZE]
+
+[CENTER]
+[SIZE=4][URL='LINK'][B]⬇️ DeliveryCore v1.1.0 İndir[/B][/URL][/SIZE]
+[/CENTER]
+
+[SIZE=5][COLOR=#FF6600][B]📞 Destek[/B][/COLOR][/SIZE]
+
+Sorularınız için bu konuya yazabilir veya Discord sunucumuza katılabilirsiniz.
+
+[HR][/HR]
+
+[CENTER]
+[SIZE=3][COLOR=#888888]Geliştiriciler: [B]Maolide[/B], [B]3Mustafa5[/B][/COLOR][/SIZE]
+[SIZE=2][COLOR=#666666]v1.1.0 | Spigot/Paper 1.16.5 - 1.21.x[/COLOR][/SIZE]
+[/CENTER]

@@ -67,6 +67,8 @@ public class CommandHandler {
     private final BiConsumer<String, String> messageSender;
     private final Logger logger;
     private DeliveryService deliveryService;
+    private CustomItemCommand customItemCommand; // v1.1
+    private com.deliverycore.service.TabListService tabListService; // v1.1
     private Runnable reloadCallback;
 
     // ═══════════════════════════════════════════════════════════════
@@ -90,6 +92,14 @@ public class CommandHandler {
 
     public void setDeliveryService(DeliveryService deliveryService) {
         this.deliveryService = deliveryService;
+    }
+    
+    public void setTabListService(com.deliverycore.service.TabListService tabListService) {
+        this.tabListService = tabListService;
+    }
+    
+    public void setCustomItemCommand(CustomItemCommand customItemCommand) {
+        this.customItemCommand = customItemCommand;
     }
 
     public void setReloadCallback(Runnable callback) {
@@ -126,6 +136,10 @@ public class CommandHandler {
             case "categories", "cat", "kategoriler" -> handleCategories(sender);
             case "toggle", "ac", "kapat" -> handleToggle(sender, subArgs);
             case "test" -> handleTest(sender, subArgs);
+            case "tab" -> handleTab(sender, subArgs);
+            case "additem", "itemeekle" -> handleAddItem(sender, subArgs);
+            case "removeitem", "itemsil" -> handleRemoveItem(sender, subArgs);
+            case "listcustom", "customliste" -> handleListCustom(sender);
             default -> {
                 msg(sender, "&c✗ Bilinmeyen komut: &f" + sub);
                 msg(sender, "&7Yardım için: &e/dc help");
@@ -147,7 +161,7 @@ public class CommandHandler {
                 completions.add("categories");
             }
             if (hasPerm(sender, PERM_ADMIN_EVENT)) {
-                completions.addAll(Arrays.asList("list", "status", "start", "stop", "top", "toggle", "test"));
+                completions.addAll(Arrays.asList("list", "status", "start", "stop", "top", "toggle", "test", "tab", "additem", "removeitem", "listcustom"));
             }
             
             return filter(completions, args[0]);
@@ -155,7 +169,7 @@ public class CommandHandler {
 
         if (args.length == 2 && hasPerm(sender, PERM_ADMIN_EVENT)) {
             String sub = args[0].toLowerCase();
-            if (List.of("stop", "status", "top", "toggle").contains(sub)) {
+            if (List.of("stop", "status", "top", "toggle", "tab").contains(sub)) {
                 return filter(getDeliveryNames(), args[1]);
             }
             if (sub.equals("start")) {
@@ -164,6 +178,11 @@ public class CommandHandler {
             if (sub.equals("test")) {
                 return filter(Arrays.asList("deliver", "reward", "webhook"), args[1]);
             }
+        }
+        
+        // Tab komutu için on/off önerileri
+        if (args.length == 3 && args[0].equalsIgnoreCase("tab") && hasPerm(sender, PERM_ADMIN_EVENT)) {
+            return filter(Arrays.asList("on", "off"), args[2]);
         }
         
         // Start komutu için süre önerileri
@@ -614,8 +633,12 @@ public class CommandHandler {
                     case 3 -> "&c&l③";
                     default -> "&7" + rank + ".";
                 };
-                // UUID'yi göster (gerçek uygulamada isim çözümlemesi yapılır)
-                String playerName = entry.getKey().toString().substring(0, 8) + "...";
+                // Oyuncu ismini Bukkit API ile çöz
+                org.bukkit.OfflinePlayer offlinePlayer = org.bukkit.Bukkit.getOfflinePlayer(entry.getKey());
+                String playerName = offlinePlayer.getName();
+                if (playerName == null) {
+                    playerName = entry.getKey().toString().substring(0, 8) + "...";
+                }
                 msg(sender, "  " + medal + " &f" + playerName + " &8- &e" + entry.getValue() + " &7teslimat");
                 rank++;
             }
@@ -783,6 +806,73 @@ public class CommandHandler {
     }
 
     // ═══════════════════════════════════════════════════════════════
+    // TAB KOMUTU (v1.1)
+    // ═══════════════════════════════════════════════════════════════
+    private boolean handleTab(String sender, String[] args) {
+        if (!hasPerm(sender, PERM_ADMIN_EVENT)) {
+            noPermission(sender);
+            return true;
+        }
+
+        if (tabListService == null) {
+            msg(sender, "&c✗ Tab servisi hazır değil.");
+            return true;
+        }
+
+        if (args.length == 0) {
+            msg(sender, "&e&lTab Komutları:");
+            msg(sender, "  &e/dc tab <teslimat> on &8- &7Tab gösterimini aç");
+            msg(sender, "  &e/dc tab <teslimat> off &8- &7Tab gösterimini kapat");
+            msg(sender, "");
+            msg(sender, "&7Tab gösterimi aktif etkinliklerde sıralama gösterir.");
+            return true;
+        }
+
+        if (args.length < 2) {
+            msg(sender, "&c✗ Kullanım: &e/dc tab <teslimat> <on|off>");
+            return true;
+        }
+
+        String deliveryName = args[0];
+        String action = args[1].toLowerCase();
+
+        // Teslimat var mı kontrol et
+        if (configManager.getDeliveryConfig().getDelivery(deliveryName).isEmpty()) {
+            msg(sender, "&c✗ Teslimat bulunamadı: &f" + deliveryName);
+            msg(sender, "&7  Mevcut teslimatlar için: &e/dc list");
+            return true;
+        }
+
+        switch (action) {
+            case "on", "ac", "aktif" -> {
+                tabListService.enableTabDisplay(deliveryName);
+                tabListService.updateAllTabLists();
+                msg(sender, "&a✓ Tab gösterimi açıldı: &f" + deliveryName);
+                logger.info(sender + " tab gösterimini açtı: " + deliveryName);
+            }
+            case "off", "kapat", "deaktif" -> {
+                tabListService.disableTabDisplay(deliveryName);
+                msg(sender, "&c■ Tab gösterimi kapatıldı: &f" + deliveryName);
+                logger.info(sender + " tab gösterimini kapattı: " + deliveryName);
+            }
+            default -> {
+                msg(sender, "&c✗ Geçersiz işlem: &f" + action);
+                msg(sender, "&7  Kullanım: &e/dc tab <teslimat> <on|off>");
+            }
+        }
+
+        return true;
+    }
+
+    // Oyuncu lokasyonunu al (yardımcı metod)
+    private String formatLocation(org.bukkit.Location location) {
+        if (location == null) return "Bilinmeyen";
+        return String.format("%.1f, %.1f, %.1f (%s)", 
+            location.getX(), location.getY(), location.getZ(),
+            location.getWorld() != null ? location.getWorld().getName() : "unknown");
+    }
+
+    // ═══════════════════════════════════════════════════════════════
     // YARDIM MENÜSÜ
     // ═══════════════════════════════════════════════════════════════
     private void sendHelp(String sender) {
@@ -820,6 +910,12 @@ public class CommandHandler {
             msg(sender, "  &e/dc start &8<&fad&8> &8- &7Etkinlik başlat");
             msg(sender, "  &e/dc stop &8<&fad&8> &8- &7Etkinliği durdur");
             msg(sender, "  &e/dc top &8[&fad&8] &8- &7Sıralama tablosu");
+            msg(sender, "  &e/dc tab &8<&fad&8> &8<&fon|off&8> &8- &7Tab gösterimini aç/kapat");
+            msg(sender, "");
+            msg(sender, "&d&lÖzel Item Yönetimi &7(v1.1)");
+            msg(sender, "  &e/dc additem &8<&fkategori&8> &8<&fisim&8> &8- &7Eldeki item'ı ekle");
+            msg(sender, "  &e/dc removeitem &8<&fkategori&8> &8<&fisim&8> &8- &7Özel item sil");
+            msg(sender, "  &e/dc listcustom &8- &7Özel itemları listele");
         }
 
         msg(sender, "");
@@ -841,7 +937,7 @@ public class CommandHandler {
     private void sendVersion(String sender) {
         msg(sender, "");
         msg(sender, "&6&l  ╔══════════════════════════════╗");
-        msg(sender, "&6&l  ║     &e&lD&6elivery&e&lC&6ore &f&lv1.0.0    &6&l║");
+        msg(sender, "&6&l  ║     &e&lD&6elivery&e&lC&6ore &f&lv1.1.0    &6&l║");
         msg(sender, "&6&l  ╚══════════════════════════════╝");
         msg(sender, "");
         msg(sender, "&7  Zamanlanmış teslimat etkinlik sistemi");
@@ -976,4 +1072,75 @@ public class CommandHandler {
     public static String getEventPermission() { return PERM_ADMIN_EVENT; }
     public static String getUsePermission() { return PERM_USE; }
     public static String getParticipatePermission() { return PERM_PARTICIPATE; }
+    
+    // ═══════════════════════════════════════════════════════════════
+    // ÖZEL ITEM KOMUTLARI (v1.1)
+    // ═══════════════════════════════════════════════════════════════
+    
+    private boolean handleAddItem(String sender, String[] args) {
+        if (!hasPerm(sender, PERM_ADMIN_EVENT)) {
+            noPermission(sender);
+            return true;
+        }
+        
+        if (customItemCommand == null) {
+            msg(sender, "&c✗ Özel item servisi hazır değil.");
+            return true;
+        }
+        
+        // Oyuncu kontrolü - bu komut sadece oyuncular tarafından kullanılabilir
+        org.bukkit.entity.Player player = getPlayerFromSender(sender);
+        if (player == null) {
+            msg(sender, "&c✗ Bu komut sadece oyuncular tarafından kullanılabilir.");
+            return true;
+        }
+        
+        return customItemCommand.handleAddItem(player, args);
+    }
+    
+    private boolean handleRemoveItem(String sender, String[] args) {
+        if (!hasPerm(sender, PERM_ADMIN_EVENT)) {
+            noPermission(sender);
+            return true;
+        }
+        
+        if (customItemCommand == null) {
+            msg(sender, "&c✗ Özel item servisi hazır değil.");
+            return true;
+        }
+        
+        org.bukkit.entity.Player player = getPlayerFromSender(sender);
+        if (player == null) {
+            msg(sender, "&c✗ Bu komut sadece oyuncular tarafından kullanılabilir.");
+            return true;
+        }
+        
+        return customItemCommand.handleRemoveItem(player, args);
+    }
+    
+    private boolean handleListCustom(String sender) {
+        if (!hasPerm(sender, PERM_ADMIN_INFO)) {
+            noPermission(sender);
+            return true;
+        }
+        
+        if (customItemCommand == null) {
+            msg(sender, "&c✗ Özel item servisi hazır değil.");
+            return true;
+        }
+        
+        org.bukkit.entity.Player player = getPlayerFromSender(sender);
+        if (player == null) {
+            msg(sender, "&c✗ Bu komut sadece oyuncular tarafından kullanılabilir.");
+            return true;
+        }
+        
+        return customItemCommand.handleListCustom(player, new String[0]);
+    }
+    
+    // Oyuncu getter - gerçek implementasyonda Bukkit.getPlayer() kullanılır
+    private org.bukkit.entity.Player getPlayerFromSender(String sender) {
+        if (sender == null || sender.isEmpty()) return null;
+        return org.bukkit.Bukkit.getPlayer(sender);
+    }
 }

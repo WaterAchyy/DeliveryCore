@@ -426,3 +426,132 @@ rank_colors:
   second: "&f"  # Beyaz
   third: "&c"   # Kırmızı
   other: "&7"   # Gri
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# v1.1 YENİ ÖZELLİKLER - SEZONLUK SİSTEM
+# ═══════════════════════════════════════════════════════════════════════════════
+
+season:
+  not-active: "&c✗ Bu teslimat şu an sezon dışında."
+  days-remaining: "&7Sezon bitişine &e{days} &7gün kaldı."
+  ended: "&c✗ Sezon sona erdi."
+  invalid-config: "&c✗ Geçersiz sezon konfigürasyonu."
+  day-not-active: "&c✗ Bu teslimat bugün aktif değil."
+  active-days: "&7Aktif günler: &e{days}"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# v1.1 YENİ ÖZELLİKLER - TAB LİST ENTEGRASYONU
+# ═══════════════════════════════════════════════════════════════════════════════
+
+tab:
+  enabled: "&a✓ Tab görüntüleme etkinleştirildi: &f{delivery}"
+  disabled: "&c✗ Tab görüntüleme devre dışı bırakıldı: &f{delivery}"
+  no-active-events: "&7Aktif etkinlik yok."
+  format-error: "&c✗ Tab format hatası: {error}"
+  service-disabled: "&c✗ Tab servisi devre dışı."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# v1.1 YENİ ÖZELLİKLER - HOLOGRAM SİSTEMİ
+# ═══════════════════════════════════════════════════════════════════════════════
+
+hologram:
+  created: "&a✓ Hologram oluşturuldu: &f{id}"
+  create-failed: "&c✗ Hologram oluşturulamadı: {error}"
+  updated: "&a✓ Hologram güncellendi: &f{id}"
+  update-failed: "&c✗ Hologram güncellenemedi: {error}"
+  deleted: "&a✓ Hologram silindi: &f{id}"
+  delete-failed: "&c✗ Hologram silinemedi: {error}"
+  not-found: "&c✗ Hologram bulunamadı: &f{id}"
+  already-exists: "&c✗ Bu ID ile zaten hologram var: &f{id}"
+  service-disabled: "&c✗ HolographicDisplays eklentisi yüklü değil."
+  invalid-location: "&c✗ Geçersiz lokasyon."
+  empty-lines: "&c✗ En az bir satır belirtilmeli."
+  list-header: "&6&l⚡ HOLOGRAM LİSTESİ ⚡"
+  list-empty: "&7Tanımlı hologram yok."
+  list-item: "&e▸ &f{id} &7({location}) &8- {status}"
+  list-footer: "&7Toplam: &f{count} &7hologram"
+  
+  # Hologram komut yardımları
+  help:
+    header: "&e&lHologram Komutları:"
+    create: "&e/dc holo create <id> &8- &7Bulunduğun yerde hologram oluştur"
+    list: "&e/dc holo list &8- &7Tüm hologramları listele"
+    remove: "&e/dc holo remove <id> &8- &7Hologram sil"
+    footer: "&7Hologramlar otomatik olarak sıralama bilgilerini gösterir."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# v1.1 YENİ ÖZELLİKLER - GENEL MESAJLAR
+# ═══════════════════════════════════════════════════════════════════════════════
+
+v11:
+  features-enabled: "&a✓ v1.1 özellikleri etkinleştirildi!"
+  minecraft-121-support: "&a✓ Minecraft 1.21 desteği aktif."
+  season-system: "&a✓ Sezonluk sistem hazır."
+  tab-integration: "&a✓ Tab entegrasyonu hazır."
+  hologram-system: "&a✓ Hologram sistemi hazır."
+  
+  # Hata mesajları
+  error:
+    service-not-ready: "&c✗ {service} servisi henüz hazır değil."
+    feature-disabled: "&c✗ Bu özellik devre dışı: {feature}"
+    invalid-config: "&c✗ Geçersiz konfigürasyon: {config}"
+    permission-denied: "&c✗ Bu komutu kullanma yetkiniz yok."
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PLACEHOLDER AÇIKLAMALARI
+# ═══════════════════════════════════════════════════════════════════════════════
+
+placeholders:
+  days-remaining: "Sezon bitişine kalan gün sayısı"
+  player-rank: "Oyuncunun sıralama pozisyonu (1, 2, 3, ...)"
+  total-deliveries: "Etkinlikteki toplam teslimat sayısı"
+  season-status: "Sezonun aktif/pasif durumu"
+  tab-format: "Tab listesinde görünecek format"
+  hologram-lines: "Hologramda görünecek satırlar"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# v1.1 YENİ ÖZELLİKLER
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Sezonluk Sistem
+season:
+  not-active: "&cBu teslimat şu an sezon dışında!"
+  days-remaining: "&e{days} &7gün kaldı"
+  ended: "&cSezon sona erdi!"
+  starting-soon: "&aSezon yakında başlıyor..."
+
+# Tab List Entegrasyonu  
+tab:
+  format: "&6[DeliveryCore] &e{delivery} &7- &a{item}"
+  with-days: "&6[DeliveryCore] &e{delivery} &7- &a{item} &7({days} gün)"
+  no-event: "&7Aktif teslimat yok"
+
+# Hologram Sistemi
+hologram:
+  created: "&aHologram oluşturuldu: &f{id}"
+  deleted: "&cHologram silindi: &f{id}"
+  not-found: "&cHologram bulunamadı: &f{id}"
+  already-exists: "&cBu ID ile hologram zaten var: &f{id}"
+  list-header: "&6&l⚡ HOLOGRAM LİSTESİ ⚡"
+  list-empty: "&7Tanımlı hologram yok"
+  list-item: "&e▸ &f{id} &8- &7{location}"
+  
+  # Hologram içeriği
+  title: "&6&l⚡ DELIVERY LEADERBOARD ⚡"
+  no-event: "&7Aktif etkinlik yok"
+  waiting: "&7Etkinlik bekleniyor..."
+  separator: "&7─────────────────────"
+  
+  # Sıralama
+  rank-1: "&6&l①"
+  rank-2: "&f&l②" 
+  rank-3: "&c&l③"
+  rank-other: "&7{rank}."
+  
+  # Admin komutları
+  admin:
+    usage: "&eKullanım: &f/dc holo <create|list|remove>"
+    create-usage: "&eKullanım: &f/dc holo create <id>"
+    remove-usage: "&eKullanım: &f/dc holo remove <id>"
+    location-required: "&cLokasyon alınamadı. Oyun içinde olmalısınız."
+    plugin-required: "&cHolographicDisplays eklentisi gerekli."

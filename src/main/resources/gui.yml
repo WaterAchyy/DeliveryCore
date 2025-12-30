@@ -1,0 +1,141 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# GUI AYARLARI
+# ═══════════════════════════════════════════════════════════════════════════════
+# 
+# Teslimat menüsü görünümünü özelleştirin.
+# Texture: Base64 encoded skin texture (minecraft-heads.com)
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+main-menu:
+  title: "ᴛᴇsʟɪᴍᴀᴛ ᴍᴇɴᴜ̈sᴜ̈"
+  size: 54
+  
+  background:
+    material: BLACK_STAINED_GLASS_PANE
+    name: " "
+  
+  items:
+    delivery-head:
+      material: PLAYER_HEAD
+      texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGFhMTg3ZmVkZTg4ZGUwMDJjYmQ5MzA1NzVlYjdiYTQ4ZDNiMWEwNmQ5NjFiZGM1MzU4MDA3NTBhZjc2NDkyNiJ9fX0="
+    
+    leaderboard-button:
+      slot: 47
+      material: PLAYER_HEAD
+      texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjdkYzNlMjlhMDkyM2U1MmVjZWU2YjRjOWQ1MzNhNzllNzRiYjZiZWQ1NDFiNDk1YTEzYWJkMzU5NjI3NjUzIn19fQ=="
+      name: "§bsɪʀᴀʟᴀᴍᴀ"
+      lore:
+        - ""
+        - "§7ᴇɴ ᴄᴏᴋ ᴛᴇsʟɪᴍ ᴇᴅᴇɴʟᴇʀɪ ɢᴏʀ"
+        - ""
+        - "§aᴛɪᴋʟᴀ"
+    
+    help-button:
+      slot: 51
+      material: PLAYER_HEAD
+      texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmFkYzA0OGE3Y2U3OGY3ZGFkNzJhMDdkYTI3ZDg1YzA5MTY4ODFlNTUyMmVlZWQxZTNkYWYyMTdhMzhjMWEifX19"
+      name: "§fʏᴀʀᴅɪᴍ"
+      lore:
+        - ""
+        - "§7ᴛᴇsʟɪᴍᴀᴛ sɪsᴛᴇᴍɪɴɪ ᴏɢʀᴇɴ"
+        - ""
+        - "§aᴛɪᴋʟᴀ"
+    
+    waiting-head:
+      material: PLAYER_HEAD
+      texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmNlZjlhYTE0ZTg4NDc3M2VhYzEzNGE0ZWU4OTcyMDYzZjQ2NmRlNjc4MzYzY2Y3YjFhMjFhODViNyJ9fX0="
+
+  active-slots: [11, 12, 13, 14, 15]
+  waiting-slots: [29, 30, 31, 32, 33]
+
+delivery-menu:
+  title: "ᴛᴇsʟɪᴍᴀᴛ: {delivery}"
+  size: 45
+  
+  background:
+    material: BLACK_STAINED_GLASS_PANE
+    name: " "
+  
+  items:
+    info:
+      slot: 4
+      material: PLAYER_HEAD
+      texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGFhMTg3ZmVkZTg4ZGUwMDJjYmQ5MzA1NzVlYjdiYTQ4ZDNiMWEwNmQ5NjFiZGM1MzU4MDA3NTBhZjc2NDkyNiJ9fX0="
+    
+    inventory-deliver:
+      slot: 20
+      material: PLAYER_HEAD
+      texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWQ5Y2M1OGFkMjVhMWFiMTZkMzZiYjVkNmQ0OTNjOGY1ODkxMjMyNTEyYjVjNDg0YzY2Y2ZkM2I0YjZhYzRiNCJ9fX0="
+      name: "§aᴇɴᴠᴀɴᴛᴇʀᴅᴇɴ ᴛᴇsʟɪᴍ ᴇᴛ"
+      lore:
+        - ""
+        - "§7ᴇɴᴠᴀɴᴛᴇʀɪɴᴅᴇᴋɪ ᴛᴜᴍ"
+        - "§f{item} §7ᴇsʏᴀʟᴀʀɪɴɪ ᴛᴇsʟɪᴍ ᴇᴛ"
+        - ""
+        - "§aᴛɪᴋʟᴀ"
+    
+    chest-deliver:
+      slot: 24
+      material: PLAYER_HEAD
+      texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDVjNmRjMmJiZjUxYzM2Y2ZjNzcxNDU4NWE2YTU2ODNlZjJiMTRkNDdkOGZmNzE0NjU0YTg5M2Y1ZGE2MjIifX19"
+      name: "§6sᴀɴᴅɪᴋᴛᴀɴ ᴛᴇsʟɪᴍ ᴇᴛ"
+      lore:
+        - ""
+        - "§7ʙɪʀ sᴀɴᴅɪɢᴀ sᴀɢ ᴛɪᴋʟᴀ"
+        - "§7ɪᴄɪɴᴅᴇᴋɪ §f{item}"
+        - "§7ᴇsʏᴀʟᴀʀɪɴɪ ᴛᴇsʟɪᴍ ᴇᴛ"
+        - ""
+        - "§e10 sᴀɴɪʏᴇ sᴜʀᴇɴ ᴠᴀʀ"
+        - ""
+        - "§aᴛɪᴋʟᴀ"
+    
+    back:
+      slot: 40
+      material: PLAYER_HEAD
+      texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmQ2OWUwNmU1ZGFkZmQ4NGU1ZjNkMWMyMTA2M2YyNTUzYjJmYTk0NWVlMWQ0ZDcxNTJmZGM1NDI1YmMxMmE5In19fQ=="
+      name: "§cɢᴇʀɪ"
+      lore:
+        - ""
+        - "§7ᴀɴᴀ ᴍᴇɴᴜʏᴇ ᴅᴏɴ"
+
+leaderboard-menu:
+  title: "sɪʀᴀʟᴀᴍᴀ"
+  size: 54
+  
+  background:
+    material: BLACK_STAINED_GLASS_PANE
+    name: " "
+  
+  items:
+    no-event:
+      material: PLAYER_HEAD
+      texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmFkYzA0OGE3Y2U3OGY3ZGFkNzJhMDdkYTI3ZDg1YzA5MTY4ODFlNTUyMmVlZWQxZTNkYWYyMTdhMzhjMWEifX19"
+      name: "§7ᴀᴋᴛɪꜰ ᴛᴇsʟɪᴍᴀᴛ ʏᴏᴋ"
+      lore:
+        - ""
+        - "§8sɪʀᴀʟᴀᴍᴀ ɪᴄɪɴ ᴛᴇsʟɪᴍᴀᴛ ʙᴇᴋʟᴇɴɪʏᴏʀ"
+    
+    back:
+      slot: 49
+      material: PLAYER_HEAD
+      texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmQ2OWUwNmU1ZGFkZmQ4NGU1ZjNkMWMyMTA2M2YyNTUzYjJmYTk0NWVlMWQ0ZDcxNTJmZGM1NDI1YmMxMmE5In19fQ=="
+      name: "§cɢᴇʀɪ"
+      lore:
+        - ""
+        - "§7ᴀɴᴀ ᴍᴇɴᴜʏᴇ ᴅᴏɴ"
+  
+  rank-slots: [13, 21, 23, 29, 30, 31, 32, 33, 38, 42]
+  rank-colors: ["§6", "§f", "§c", "§7", "§7", "§7", "§7", "§7", "§7", "§7"]
+
+custom-items:
+  enabled: false
+  provider: "vanilla"
+  
+  examples:
+    itemsadder:
+      material: "itemsadder:namespace:item_id"
+    oraxen:
+      material: "oraxen:item_id"
+    nexo:
+      material: "nexo:item_id"
